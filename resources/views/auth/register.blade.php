@@ -8,7 +8,7 @@
     <div class="row">
 
         <div class="mx-auto col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
-            <h2 class="card-title text-center">Laratodo</h5>
+            <h2 class="card-title text-center">ユーザ登録</h5>
             @include('error_list')
             <div class="card">
                 <div class="card-body">
