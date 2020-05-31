@@ -7,7 +7,14 @@
 
     <div class="collapse navbar-collapse" id="navAlt">
         <div class="navbar-nav ml-auto">
-            <a class="nav-item nav-link text-white" href="#">ログアウト</a>
+            @guest
+                <a class="nav-item nav-link text-white" href="{{ route('login') }}">ログイン</a>
+                <a class="nav-item nav-link text-white" href="{{ route('register') }}">ユーザ登録</a>
+            @endguest
+            @auth
+                <button form="logout-button" type="submit" class="btn  btn-link text-white">ログアウト</button>
+            @endauth
         </div>
     </div>
+    <form id="logout-button" method="POST" action="{{ route('logout') }}">@csrf</form>
 </nav>
