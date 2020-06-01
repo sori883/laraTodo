@@ -13,6 +13,9 @@ class ProjectController extends Controller
         $projects = Project::all()->sortByDesc('created_at');
         $tasks = Task::all()->sortByDesc('created_at');
 
-        return view('Projects.index', ["projects" => $projects]);
+        return view('Projects.index', [
+            'projects' => $projects,
+            'tasks' => $tasks
+            ]);
     }
 }
