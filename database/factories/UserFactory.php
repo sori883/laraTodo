@@ -18,6 +18,9 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(User::class, function (Faker $faker) {
+
+    $emails = ['hoge@sori883.com', 'foo@sori883.com'];
+
     return [
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
