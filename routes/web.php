@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'ProjectController@index')->name('projects.index');
-
 Auth::routes();
+
+Route::get('/', 'ProjectController@index')->name('projects.index');
+Route::resource('/projects', 'ProjectController')->except(['index']);
