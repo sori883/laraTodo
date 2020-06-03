@@ -1,0 +1,35 @@
+@extends('app')
+
+@section('title', 'TOP')
+
+@section('content')
+@include('navbar')
+  <div class="container">
+    <div class="row">
+
+        <div class="col-md-4">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <a href="{{ route ('projects.index') }}">Inbox</a>
+                </li>
+                 @foreach($projects as $project)
+                <li class="list-group-item">
+                    <a href="{{ route('projects.show', ['project' => $project]) }}">{{ $project->title }}</a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+
+        <div class="col-md-8">
+            <ul class="list-group">
+                 @foreach($tasks as $task)
+                <li class="list-group-item">
+                    <a href="">{{ $task->title }}</a>
+                </li>
+                @endforeach
+            </ul>
+        </div>
+
+    </div>
+  </div>
+@endsection
