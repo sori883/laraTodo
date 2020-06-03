@@ -15,7 +15,7 @@ class ProjectController extends Controller
         // TODO ここVSCodeでエラー出る
         $user = Auth::user();
 
-        $projects = $user->projects->sortByDesc('created_at');
+        $projects = $user->project->sortByDesc('created_at');
         // プロジェクトに属していないタスクをinboxタスクとして取得
         $tasks = $user->tasks->whereNull('project_id')->sortByDesc('created_at');
 
@@ -23,5 +23,19 @@ class ProjectController extends Controller
             'projects' => $projects,
             'tasks' => $tasks
             ]);
+    }
+
+    public function show(Project $project)
+    {
+        // TODO ここVSCodeでエラー出る
+        $user = Auth::user();
+
+        $projects = $user->project->sortByDesc('created_at');
+        $tasks = $project->task->sortByDesc('created_at');
+
+        return view('Projects.index', [
+            'projects' => $projects,
+            'tasks' => $tasks
+        ]);
     }
 }
