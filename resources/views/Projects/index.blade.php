@@ -14,7 +14,7 @@
                 </li>
                  @foreach($projects as $project)
                 <li class="list-group-item">
-                    <a href="">{{ $project->title }}</a>
+                    <a href="{{ route('projects.show', ['project' => $project]) }}">{{ $project->title }}</a>
                 </li>
                 @endforeach
             </ul>
