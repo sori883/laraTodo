@@ -12,7 +12,6 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        // TODO ここVSCodeでエラー出る
         $user = Auth::user();
 
         $projects = $user->project->sortByDesc('created_at');
@@ -27,7 +26,6 @@ class ProjectController extends Controller
 
     public function show(Project $project)
     {
-        // TODO ここVSCodeでエラー出る
         $user = Auth::user();
 
         $projects = $user->project->sortByDesc('created_at');
