@@ -16,7 +16,8 @@ class ProjectController extends Controller
         $user = Auth::user();
 
         $projects = $user->projects->sortByDesc('created_at');
-        $tasks = $user->tasks->sortByDesc('created_at');
+        // プロジェクトに属していないタスクをinboxタスクとして取得
+        $tasks = $user->tasks->whereNull('project_id')->sortByDesc('created_at');
 
         return view('Projects.index', [
             'projects' => $projects,
