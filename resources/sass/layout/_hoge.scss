@@ -1,0 +1,12 @@
+.box {
+    display: flex;
+    width: 100vh;
+    height: 100vh;
+    flex-direction: column;
+
+    .content {
+        flex: 1;
+    }
+}
+
+.remainder01 { content: (10 / 3);}

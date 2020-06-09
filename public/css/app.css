@@ -1,0 +1,19 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 100vh;
+  height: 100vh;
+}
+.box .content {
+  flex: 1;
+}
+
+.remainder01 {
+  content: 3.3333333333;
+}
+
+body {
+  width: 100vh;
+  height: 100vh;
+  color: red;
+}
