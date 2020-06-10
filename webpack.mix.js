@@ -1,5 +1,5 @@
 const mix = require('laravel-mix');
-const glob = require('glob')
+const glob = require('glob');
 const path = require('path');
 
 require('laravel-mix-stylelint');
