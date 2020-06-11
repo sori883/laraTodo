@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark bg-dark navbar-expand-md">
+<nav class="navbar navbar-dark bg-dark navbar-expand-md sticky-top">
     <a class="navbar-brand" href="{{ route('projects.index') }}">Laratodo</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navAlt" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

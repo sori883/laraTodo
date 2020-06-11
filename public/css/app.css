@@ -1,1 +1,20 @@
-.box{display:flex;flex-direction:column;width:100vh;height:100vh}.box .content{flex:1}.remainder01{content:3.3333333333}body{width:100vh;height:100vh;color:red}
+.navbar {
+  height: 48px;
+}
+
+.sidebar {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  /* Behind the navbar */
+  padding: 48px 0 0;
+  /* Height of navbar */
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.task-view {
+  width: auto;
+  max-width: 1200px;
+}
