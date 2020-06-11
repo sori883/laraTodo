@@ -36,4 +36,16 @@ class ProjectController extends Controller
         ]);
     }
 
+    public function store(Project $project){
+        $user = Auth::user();
+
+        $projects = $user->project->sortByDesc('created_at');
+        $tasks = $project->task->sortByDesc('created_at');
+
+        return view('Projects.index', [
+            'projects' => $projects,
+            'tasks' => $tasks
+        ]);
+    }
+
 }
