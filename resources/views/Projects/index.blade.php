@@ -6,8 +6,8 @@
 @include('navbar')
   <div class="container-fluid">
     <div class="row">
-        @include('Projects.sidebar')
-        @include('Projects.tasks_view')
+        @include('projects.sidebar')
+        @include('tasks.view_list')
     </div>
   </div>
 @endsection

@@ -17,7 +17,7 @@ class ProjectController extends Controller
         // プロジェクトに属していないタスクをinboxタスクとして取得
         $tasks = $user->tasks->whereNull('project_id')->sortByDesc('created_at');
 
-        return view('Projects.index', [
+        return view('projects.index', [
             'projects' => $projects,
             'tasks' => $tasks
             ]);
@@ -30,7 +30,7 @@ class ProjectController extends Controller
         $projects = $user->project->sortByDesc('created_at');
         $tasks = $project->task->sortByDesc('created_at');
 
-        return view('Projects.index', [
+        return view('projects.index', [
             'projects' => $projects,
             'tasks' => $tasks
         ]);
@@ -42,7 +42,7 @@ class ProjectController extends Controller
         $projects = $user->project->sortByDesc('created_at');
         $tasks = $project->task->sortByDesc('created_at');
 
-        return view('Projects.index', [
+        return view('projects.index', [
             'projects' => $projects,
             'tasks' => $tasks
         ]);
