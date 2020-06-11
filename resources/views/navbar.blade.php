@@ -12,9 +12,9 @@
                 <a class="nav-item nav-link text-white" href="{{ route('register') }}">ユーザ登録</a>
             @endguest
             @auth
-                <button form="logout-button" type="submit" class="btn  btn-link text-white">ログアウト</button>
+                <button form="logoutButton" type="submit" class="btn  btn-link text-white">ログアウト</button>
             @endauth
         </div>
     </div>
-    <form id="logout-button" method="POST" action="{{ route('logout') }}">@csrf</form>
+    <form id="logoutButton" method="POST" action="{{ route('logout') }}">@csrf</form>
 </nav>
