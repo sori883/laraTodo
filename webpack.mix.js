@@ -15,7 +15,7 @@ require('laravel-mix-stylelint');
  |
  */
 
-const scssFiles = path.resolve(__dirname, 'resources/sass/\!_*.scss')
+const scssFiles = path.resolve(__dirname, 'resources/sass/app.scss')
 
 glob.sync(scssFiles).map(function (file) {
     mix.sass(file, 'public/css').options({
