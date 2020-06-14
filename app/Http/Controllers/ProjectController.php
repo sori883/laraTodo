@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Project;
 use App\Task;
 use Auth;
+
+use App\Http\Requests\ProjectRequest;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -20,7 +22,7 @@ class ProjectController extends Controller
         return view('projects.index', [
             'projects' => $projects,
             'tasks' => $tasks
-            ]);
+        ]);
     }
 
     public function show(Project $project)
@@ -36,16 +38,12 @@ class ProjectController extends Controller
         ]);
     }
 
-    public function store(Project $project){
-        $user = Auth::user();
+    public function store(ProjectRequest $request, Project $project){
+        $project->title = $request->projectName;
+        $project->user_id = $request->user()->id;
+        $project->save();
 
-        $projects = $user->project->sortByDesc('created_at');
-        $tasks = $project->task->sortByDesc('created_at');
-
-        return view('projects.index', [
-            'projects' => $projects,
-            'tasks' => $tasks
-        ]);
+        return redirect()->route('projects.index');
     }
 
 }
