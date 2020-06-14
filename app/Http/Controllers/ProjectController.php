@@ -39,7 +39,7 @@ class ProjectController extends Controller
     }
 
     public function store(ProjectRequest $request, Project $project){
-        $project->title = $request->projectName;
+        $project->fill($request->all());
         $project->user_id = $request->user()->id;
         $project->save();
 
