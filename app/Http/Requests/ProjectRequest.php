@@ -13,7 +13,7 @@ class ProjectRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class ProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'projectName' => 'required|max:20',
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'projectName' => 'プロジェクト名',
         ];
     }
 }
