@@ -34,7 +34,9 @@
                         </div>
                         <button class="btn btn-primary btn-lg btn-block" type="submit">登録</button>
                     </form>
-
+                    <div class="text-center mt-3">
+                        <a href="{{ route('login') }}">ログイン</a>
+                    </div>
                 </div>
             </div>
         </div>
