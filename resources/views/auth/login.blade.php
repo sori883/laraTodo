@@ -22,6 +22,7 @@
                             <div class="form-group">
                                 <label for="passwordInput">パスワード</label>
                                 <input type="password" class="form-control" id="passwordInput" name="password" placeholder="パスワード" required>
+                                <small class="form-text text-muted"><a href="{{ route('password.request') }}">※パスワードを忘れた場合</a></small>
                             </div>
                             <input type="hidden" name="remember" id="remember" value="on">
                             <button class="btn btn-primary btn-lg btn-block" type="submit">ログイン</button>
