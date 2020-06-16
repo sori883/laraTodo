@@ -1,5 +1,6 @@
+@charset "UTF-8";
 .navbar {
-  height: 48px;
+  height: 3.5rem;
 }
 
 .sidebar {
@@ -8,10 +9,20 @@
   top: 0;
   bottom: 0;
   left: 0;
-  /* Behind the navbar */
-  padding: 48px 0 0;
-  /* Height of navbar */
+  /* navbarに隠れるようにしてる */
+  padding: 3.5rem 0.5rem 0;
+  /* navbarと被らないように、上にpaddingをつける */
+  background-color: #f8f9fa;
   box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+.sidebar .nav-item:hover {
+  background-color: #fff;
+}
+.sidebar .nav-item .nav-link {
+  color: #000;
+}
+.sidebar .nav-item .menu-icon {
+  color: #ccc;
 }
 
 .task-view {

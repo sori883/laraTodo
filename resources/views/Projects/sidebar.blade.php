@@ -1,4 +1,4 @@
-<nav class="col-md-2 d-md-block bg-light sidebar collapse">
+<nav class="col-md-2 d-md-block sidebar collapse">
     <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
             <li class="nav-item">
@@ -11,17 +11,31 @@
 
         <h6 class="d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>プロジェクト</span>
-            <span class="d-flex align-items-center text-muted" aria-label="Add a new report" data-toggle="modal" data-target="#projectCreateModal">
+            <span class="text-muted" aria-label="Add a new report" data-toggle="modal" data-target="#projectCreateModal">
                 <i class="fas fa-plus-circle"></i>
             </span>
         </h6>
         <ul class="nav flex-column mb-2">
             @foreach($projects as $project)
-                <li class="nav-item">
+                <li class="nav-item d-flex justify-content-between align-items-center pr-3">
                     <a class="nav-link" href="{{ route('projects.show', ['project' => $project]) }}">
                         <i class="fas fa-folder"></i>
                         {{ $project->title }}
                     </a>
+                    <div class="dropdown">
+                        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-ellipsis-h text-muted"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="#">
+                                記事を更新する
+                            </a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item text-danger" data-toggle="modal" data-target="#">
+                                記事を削除する
+                            </a>
+                        </div>
+                    </div>
                 </li>
             @endforeach
         </ul>
