@@ -27,12 +27,12 @@
                             <i class="fas fa-ellipsis-h text-muted"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="#">
-                                記事を更新する
+                            <a class="dropdown-item" data-toggle="modal" data-target="#ProjectEdit{{ $project->id }}Modal">
+                                プロジェクトを編集
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" data-toggle="modal" data-target="#">
-                                記事を削除する
+                            <a class="dropdown-item text-danger" data-toggle="modal" data-target="#ProjectDelete{{ $project->id }}Modal">
+                                プロジェクトを削除
                             </a>
                         </div>
                     </div>
@@ -42,6 +42,7 @@
     </div>
 </nav>
 
+<!-- プロジェクト作成modal -->
 <div class="modal fade" id="projectCreateModal" tabindex="-1" role="dialog" aria-labelledby="projectCreateModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -67,3 +68,57 @@
         </div>
     </div>
 </div>
+
+@foreach($projects as $project)
+    <!-- プロジェクト編集modal -->
+    <div class="modal fade" id="ProjectEdit{{ $project->id }}Modal" tabindex="-1" role="dialog" aria-labelledby="ProjectEdit{{ $project->id }}ModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="ProjectEdit{{ $project->id }}Modal">プロジェクト編集</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="ProjectEdit{{ $project->id }}Modal" action=" {{ route('projects.update', ['project' => $project]) }}">
+                        @csrf
+                        @method('PUT')
+                        <div class="form-group">
+                            <label for="projectInput">プロジェクト名</label>
+                            <input type="text" class="form-control" id="projectInput" name="title" placeholder="プロジェクト名" value="{{ $project->title }}" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                    <button form="ProjectEdit{{ $project->id }}Modal" type="submit" class="btn btn-primary">決定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- プロジェクト削除modal -->
+    <div id="ProjectDelete{{ $project->id }}Modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="{{ route('projects.destroy', ['project' => $project]) }}">
+            @csrf
+            @method('DELETE')
+            <div class="modal-body">
+                {{ $project->title }}を削除します。よろしいですか？
+            </div>
+            <div class="modal-footer justify-content-between">
+                <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
+                <button type="submit" class="btn btn-danger">削除する</button>
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+@endforeach
