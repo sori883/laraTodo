@@ -11,6 +11,12 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Project::class, 'project');
+    }
+
     public function index()
     {
         $user = Auth::user();
@@ -43,6 +49,18 @@ class ProjectController extends Controller
         $project->user_id = $request->user()->id;
         $project->save();
 
+        return redirect()->route('projects.index');
+    }
+
+    public function update(ProjectRequest $request, Project $project)
+    {
+        $project->fill($request->all())->save();
+        return redirect()->route('projects.index');
+    }
+
+    public function destroy(Project $project)
+    {
+        $project->delete();
         return redirect()->route('projects.index');
     }
 
