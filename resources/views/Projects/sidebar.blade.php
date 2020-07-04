@@ -81,9 +81,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form id="ProjectEdit{{ $project->id }}Modal" action=" {{ route('projects.update', ['project' => $project]) }}">
+                    <form method="POST" id="ProjectEdit{{ $project->id }}Form" action=" {{ route('projects.update', ['project' => $project]) }}">
                         @csrf
-                        @method('PUT')
+                        @method('PATCH')
                         <div class="form-group">
                             <label for="projectInput">プロジェクト名</label>
                             <input type="text" class="form-control" id="projectInput" name="title" placeholder="プロジェクト名" value="{{ $project->title }}" required>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
-                    <button form="ProjectEdit{{ $project->id }}Modal" type="submit" class="btn btn-primary">決定</button>
+                    <button form="ProjectEdit{{ $project->id }}Form" type="submit" class="btn btn-primary">決定</button>
                 </div>
             </div>
         </div>
