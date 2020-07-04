@@ -17,3 +17,4 @@ Auth::routes();
 
 Route::get('/', 'ProjectController@index')->name('projects.index');
 Route::resource('/projects', 'ProjectController')->except(['index']);
+Route::resource('/tasks', 'TaskController')->except(['index']);
