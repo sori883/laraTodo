@@ -11,7 +11,7 @@
 
         <h6 class="d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>プロジェクト</span>
-            <span class="text-muted" aria-label="Add a new report" data-toggle="modal" data-target="#projectCreateModal">
+            <span class="text-muted" data-toggle="modal" data-target="#projectCreateModal">
                 <i class="fas fa-plus-circle"></i>
             </span>
         </h6>
