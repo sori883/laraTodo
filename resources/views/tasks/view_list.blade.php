@@ -25,20 +25,30 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="taskCreateForm" method="POST" action=" {{ route('projects.store') }}">
+                <form id="taskCreateForm" method="POST" action="{{ route('tasks.store') }}">
                     @csrf
+                    <input type="hidden" name="status" value="false">
                     <div class="form-group">
-                        <label for="projectInput">タスク名</label>
-                        <input type="text" class="form-control" id="projectInput" name="title" placeholder="タスク名を入力してください" value="{{ old('projectName') }}" required>
+                        <label for="TaskInput">タスク名</label>
+                        <input type="text" class="form-control" id="TaskInput" name="title" placeholder="タスク名を入力してください" value="{{ old('title') }}" required>
                     </div>
                     <div class="form-group">
                         <label for="taskPicker">期限日時</label>
                         <div class="input-group date" id="taskPicker" data-target-input="nearest">
-                            <input type="text" class="form-control datetimepicker-input" name="limit-time" placeholder="期限日時を入力してください" data-target="#taskPicker" required>
+                            <input type="text" class="form-control datetimepicker-input" name="limit_at" placeholder="期限日時を入力してください" data-target="#taskPicker" required>
                             <div class="input-group-append" data-target="#taskPicker" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="taskProjectSelect">プロジェクトを選択</label>
+                        <select class="form-control" id="taskProjectSelect" name="project_id">
+                            <option value="null">インボックス</option>
+                            @foreach($projects as $project)
+                                <option value="{{ $project->id }}">{{ $project->title }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </form>
             </div>
