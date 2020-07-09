@@ -57,7 +57,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="projectInput">プロジェクト名</label>
-                        <input type="text" class="form-control" id="projectInput" name="title" placeholder="プロジェクト名" value="{{ old('projectName') }}" required>
+                        <input type="text" class="form-control" id="projectInput" name="title" placeholder="プロジェクト名" value="{{ old('title') }}" required>
                     </div>
                 </form>
             </div>
