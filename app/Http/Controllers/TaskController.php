@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Task;
+
+use App\Http\Requests\TaskRequest;
+use Illuminate\Http\Request;
+
 
 class TaskController extends Controller
 {
 
-    public function store(Task $task){
+    public function store(TaskRequest $request, Task $task){
+        $task->fill($request->all());
+        $task->user_id = $request->user()->id;
+        $task->save();
+
         return redirect()->route('projects.index');
     }
 
