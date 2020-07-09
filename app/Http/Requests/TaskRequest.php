@@ -25,7 +25,8 @@ class TaskRequest extends FormRequest
     {
         return [
             'title' => 'required|max:50',
-            'limit-time' => 'required|date_format:Y/m/d H:i:s',
+            'status' => 'required',
+            'limit_at' => 'required|date_format:Y/m/d',
         ];
     }
 
@@ -33,7 +34,8 @@ class TaskRequest extends FormRequest
     {
         return [
             'title' => 'タスク名',
-            'limit-time' => '期限日時',
+            'status' => 'ステータス',
+            'limit_at' => '期限日時',
         ];
     }
 }
