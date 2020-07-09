@@ -43,7 +43,8 @@
                 close: 'fa fa-times'
             } });
         $('#taskPicker').datetimepicker({
-            locale: 'ja'
+            locale: 'ja',
+            format: 'L'
         });
     });
         </script>
