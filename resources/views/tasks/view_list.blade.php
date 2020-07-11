@@ -27,7 +27,6 @@
             <div class="modal-body">
                 <form id="taskCreateForm" method="POST" action="{{ route('tasks.store') }}">
                     @csrf
-                    <input type="hidden" name="status" value="false">
                     <div class="form-group">
                         <label for="TaskInput">タスク名</label>
                         <input type="text" class="form-control" id="TaskInput" name="title" placeholder="タスク名を入力してください" value="{{ old('title') }}" required>

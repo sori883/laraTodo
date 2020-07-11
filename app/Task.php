@@ -14,6 +14,10 @@ class Task extends Model
         'project_id'
     ];
 
+    protected $attributes = [
+        "status" => false,
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo('App\User');
