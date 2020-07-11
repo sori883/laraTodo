@@ -16,6 +16,13 @@ class TaskRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'project_id' => trim($this->project_id) !== '' ? $this->project_id : NULL,
+        ]);
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -26,6 +33,7 @@ class TaskRequest extends FormRequest
         return [
             'title' => 'required|max:50',
             'limit_at' => 'required|date_format:Y/m/d',
+            'project_id' => 'nullable|integer'
         ];
     }
 
@@ -34,6 +42,7 @@ class TaskRequest extends FormRequest
         return [
             'title' => 'タスク名',
             'limit_at' => '期限日時',
+            'project_id' => 'プロジェクト',
         ];
     }
 }

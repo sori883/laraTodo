@@ -43,7 +43,7 @@
                     <div class="form-group">
                         <label for="taskProjectSelect">プロジェクトを選択</label>
                         <select class="form-control" id="taskProjectSelect" name="project_id">
-                            <option value="null">インボックス</option>
+                            <option value="">インボックス</option><!-- nullにするため、空文字を指定 -->
                             @foreach($projects as $project)
                                 <option value="{{ $project->id }}">{{ $project->title }}</option>
                             @endforeach
