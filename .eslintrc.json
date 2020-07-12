@@ -67,7 +67,8 @@
         "semi-spacing": "error",
         "keyword-spacing": "error",
         "vue/html-closing-bracket-newline": ["error", { "multiline": "never" }],
-        "vue/script-indent": ["error", 4, { "baseIndent": 4 }],
+        "vue/html-indent": ["error", 4, { "baseIndent": 1 }],
+        "vue/script-indent": ["error", 4, { "baseIndent": 1 }],
         "arrow-parens": ["error", "always"]
     }
 }
