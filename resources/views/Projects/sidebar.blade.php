@@ -85,8 +85,8 @@
                         @csrf
                         @method('PATCH')
                         <div class="form-group">
-                            <label for="projectInput">プロジェクト名</label>
-                            <input type="text" class="form-control" id="projectInput" name="title" placeholder="プロジェクト名" value="{{ $project->title }}" required>
+                            <label for="projectInput{{ $project->id }}">プロジェクト名</label>
+                            <input type="text" class="form-control" id="projectInput{{ $project->id }}" name="title" placeholder="プロジェクト名" value="{{ $project->title }}" required>
                         </div>
                     </form>
                 </div>
