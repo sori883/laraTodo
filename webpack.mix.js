@@ -15,9 +15,8 @@ require('laravel-mix-stylelint');
  |
  */
 
-const scssFiles = path.resolve(__dirname, 'resources/sass/app.scss')
-
-mix.js('resources/js/app.js', 'public/js')
+const scssFiles = path.resolve(__dirname, 'resources/sass/*.scss')
+const jsFiles = path.resolve(__dirname, 'resources/js/*.js')
 
 glob.sync(scssFiles).map(function (file) {
     mix.sass(file, 'public/css').options({
@@ -39,14 +38,26 @@ glob.sync(scssFiles).map(function (file) {
     })
 })
 
+glob.sync(jsFiles).map(function (file) {
+    mix.js(file, 'public/js')
+  })
+
 mix
     .disableNotifications()
     .webpackConfig({
         module: {
-            rules: [{
-                test: /\.scss/,
-                loader: 'import-glob-loader'
-            }]
+            rules: [
+                {
+                    enforce: 'pre',
+                    test: /\.(js|vue)$/,
+                    loader: 'eslint-loader',
+                    exclude: /node_modules/,
+                },
+                {
+                    test: /\.scss/,
+                    loader: 'import-glob-loader'
+                },
+            ]
         },
         resolve: {
             modules: [
