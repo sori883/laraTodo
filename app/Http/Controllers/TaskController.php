@@ -19,4 +19,10 @@ class TaskController extends Controller
         return redirect()->route('projects.index');
     }
 
+    public function destroy(Task $task)
+    {
+        $task->delete();
+    }
+
+
 }
