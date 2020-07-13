@@ -6,10 +6,13 @@
     <div class="task-view m-auto">
         <ul class="list-group">
             @foreach($tasks as $task)
-            <li class="list-group-item">
-                <a href="">{{ $task->title }}</a>
-            </li>
+                <task-view
+                    :task="{{ ($task) }}"
+                    endpoint="{{ route('tasks.destroy', ['task' => $task]) }}"
+                >
+                </task-view>
             @endforeach
+
         </ul>
     </div>
 </main>

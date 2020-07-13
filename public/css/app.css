@@ -26,3 +26,12 @@
   width: auto;
   max-width: 1200px;
 }
+
+/* see here: https://jp.vuejs.org/v2/guide/transitions.html */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.2s;
+}
+
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}

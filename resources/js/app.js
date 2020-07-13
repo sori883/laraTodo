@@ -4,11 +4,15 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+require('./bootstrap');
 import './bootstrap'
 import Vue from 'vue'
+import TaskView from './components/TaskView'
 
+/* eslint no-unused-vars: 0 */
 const app = new Vue({
     el: '#app',
     components: {
+        TaskView,
     }
 })
