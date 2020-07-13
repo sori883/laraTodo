@@ -11,6 +11,9 @@
     "parserOptions": {
         "sourceType": "module"
     },
+    "globals": {
+        "axios": true
+    },
     "rules": {
         "vue/component-name-in-template-casing": ["error", "PascalCase"],
         "vue/singleline-html-element-content-newline": "off",
