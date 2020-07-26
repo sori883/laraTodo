@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
-
-Route::get('/', 'ProjectController@index')->name('projects.index');
-Route::resource('/projects', 'ProjectController')->except(['index','create','edit']);
-Route::resource('/tasks', 'TaskController')->except(['index','create']);
+Route::get('/{any}', function() {
+    return view('app');
+})->where('any', '.*');
