@@ -69,9 +69,16 @@
         "operator-linebreak": ["error", "before"],
         "semi-spacing": "error",
         "keyword-spacing": "error",
-        "vue/html-closing-bracket-newline": ["error", { "multiline": "never" }],
-        "vue/html-indent": ["error", 4, { "baseIndent": 1 }],
-        "vue/script-indent": ["error", 4, { "baseIndent": 1 }],
-        "arrow-parens": ["error", "always"]
+        "vue/html-closing-bracket-newline": ["error", 4, { "multiline": "never" }],
+        "vue/html-indent": ["error", 4, { "baseIndent": 0 }],
+        "vue/script-indent": ["error", 4, { "baseIndent": 0 }],
+        "arrow-parens": ["error", "always"],
+        "vue/max-attributes-per-line": ["error", {
+            "singleline": 6,
+            "multiline": {
+              "max": 1,
+              "allowFirstLine": false
+            }
+        }]
     }
 }
