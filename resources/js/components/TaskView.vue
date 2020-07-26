@@ -5,7 +5,7 @@
                 <span>{{ task.title }}</span>
                 <div>
                     <span>
-                        <i class="fas fa-edit"></i>
+                        <i class="fas fa-edit" @click="taskEdit"></i>
                     </span>
                     <span>
                         <i class="fas fa-trash text-danger" @click="taskDestroy"></i>
@@ -41,6 +41,9 @@
             taskDestroy() {
                 this.isDestroy = !this.isDestroy
                 this.destroy()
+            },
+            taskEdit() {
+
             },
             async destroy() {
                 const response = await axios.delete(this.endpoint)
