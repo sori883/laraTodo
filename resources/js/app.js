@@ -7,12 +7,16 @@
 require('./bootstrap');
 import './bootstrap'
 import Vue from 'vue'
-import TaskView from './components/TaskView'
+import router from './router'
+
+import App from './App.vue'
 
 /* eslint no-unused-vars: 0 */
 const app = new Vue({
     el: '#app',
+    router,
     components: {
-        TaskView,
-    }
+        App,
+    },
+    template: '<App />'
 })
