@@ -67,6 +67,15 @@ mix
         }
     })
     .stylelint({configFile: './.stylelintrc', files: ['**/*.scss']})
+    .browserSync({
+        files: [
+            "resources/views/**/*.blade.php",
+            "public/**/*.*"
+        ],
+        proxy: {
+            target: "http://localhost/",
+        }
+    })
 
 if (mix.inProduction()) {
     mix.version();

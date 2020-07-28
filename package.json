@@ -13,6 +13,8 @@
     "devDependencies": {
         "autoprefixer": "^9.8.0",
         "axios": "^0.19",
+        "browser-sync": "^2.26.12",
+        "browser-sync-webpack-plugin": "^2.0.1",
         "cross-env": "^7.0",
         "css-declaration-sorter": "^5.1.2",
         "css-loader": "^3.5.3",
@@ -33,6 +35,7 @@
         "stylelint-config-twbs-bootstrap": "^2.0.3",
         "stylelint-webpack-plugin": "^2.0.0",
         "vue": "^2.5.17",
+        "vue-router": "^3.3.4",
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {}
