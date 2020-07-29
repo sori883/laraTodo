@@ -27,6 +27,7 @@
                 <router-link :to="{name: 'login'}">
                     <a>ログイン</a>
                 </router-link>
+                <p>{{ message }}</p>
             </div>
         </div>
     </div>
@@ -34,6 +35,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
     data () {
         return {
@@ -45,12 +48,21 @@ export default {
             }
         }
     },
+    computed: {
+        ...mapGetters({
+            message: 'error/message'
+        })
+    },
     methods: {
         async register () {
             // authストアのresigterアクションを呼び出す
-            await this.$store.dispatch('auth/register', this.registerForm).then(() => {
-                this.$router.push({name: 'top'})
-            });
+            await this.$store.dispatch('auth/register', this.registerForm)
+                .then(() => {
+                    this.$router.push({name: 'top'})
+                })
+                .catch((e) => {
+                    this.$store.commit('error/setmessage', e.response.data.errors)
+                })
         }
     }
 }
