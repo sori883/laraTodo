@@ -7,8 +7,9 @@ const getters = {
 }
 
 const mutations = {
-    setmessage(state, { message }) {
-        state.message = message
+    setmessage(state, message) {
+        state.message = {...message}
+        console.dir(state)
     },
 
     deletemessage(state) {

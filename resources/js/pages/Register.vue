@@ -1,5 +1,6 @@
 <template>
 <div class="mx-auto col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
+    <Error />
     <h2 class="card-title text-center">ユーザ登録</h2>
     <div class="card">
         <div class="card-body">
@@ -27,7 +28,6 @@
                 <router-link :to="{name: 'login'}">
                     <a>ログイン</a>
                 </router-link>
-                <p>{{ message }}</p>
             </div>
         </div>
     </div>
@@ -35,9 +35,11 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
+import Error from '../components/Error.vue'
 export default {
+    components: {
+        Error
+    },
     data () {
         return {
             registerForm: {
@@ -47,11 +49,6 @@ export default {
                 password_confirmation: ''
             }
         }
-    },
-    computed: {
-        ...mapGetters({
-            message: 'error/message'
-        })
     },
     methods: {
         async register () {
