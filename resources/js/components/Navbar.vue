@@ -14,13 +14,21 @@
             <router-link :to="{name: 'register'}">
                 <a class="nav-item nav-link text-white">ユーザ登録</a>
             </router-link>
-            <button type="submit" class="btn  btn-link text-white">ログアウト</button>
+            <a class="nav-item nav-link text-white" @click="logout">ログアウト</a>
         </div>
     </div>
 </nav>
 </template>
 <script>
 export default {
-
+    methods: {
+        async logout () {
+            // authストアのresigterアクションを呼び出す
+            await this.$store.dispatch('auth/logout')
+                .then(() => {
+                    this.$router.push({name: 'top'})
+                })
+        }
+    }
 }
 </script>
