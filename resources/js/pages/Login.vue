@@ -13,6 +13,10 @@
                     <label for="passwordInput">パスワード</label>
                     <input id="passwordInput" v-model="loginForm.password" type="password" class="form-control" placeholder="パスワード" required>
                 </div>
+                <div class="form-group form-check">
+                    <input id="tememberInput" v-model="loginForm.remember" type="checkbox" class="form-check-input">
+                    <label class="form-check-label" for="tememberInput">ログインしたままにする</label>
+                </div>
                 <button class="btn btn-primary btn-lg btn-block" type="submit">登録</button>
             </form>
         </div>
@@ -31,7 +35,7 @@ export default {
             loginForm: {
                 email: '',
                 password: '',
-                remember: 'on'
+                remember: false
             }
         }
     },
