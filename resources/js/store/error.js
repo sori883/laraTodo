@@ -3,7 +3,7 @@ const state = {
 }
 
 const getters = {
-    message: (state) => state.message
+    message: (state) => Object.values(state.message)
 }
 
 const mutations = {
