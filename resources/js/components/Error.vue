@@ -2,7 +2,7 @@
 <div v-show="message" class="mt-3">
     <div class="alert alert-danger" role="alert">
         <ul class="text-left">
-            <li v-for="value in message">
+            <li v-for="(value, key) in message" :key="key">
                 {{ value[0] }}
             </li>
         </ul>
