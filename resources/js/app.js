@@ -4,6 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+/* eslint no-unused-vars: 0 */
+
 require('./bootstrap');
 import './bootstrap'
 import Vue from 'vue'
@@ -12,13 +14,18 @@ import store from './store'
 
 import App from './App.vue'
 
-/* eslint no-unused-vars: 0 */
-const app = new Vue({
-    el: '#app',
-    router,
-    store,
-    components: {
-        App,
-    },
-    template: '<App />'
-})
+const createApp = async () => {
+    await store.dispatch('auth/loginUser')
+
+    new Vue({
+        el: '#app',
+        router,
+        store,
+        components: {
+            App,
+        },
+        template: '<App />'
+    })
+}
+
+createApp()

@@ -15,3 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Auth::routes();
+// TODO PHP7.4はアロー関数で書ける
+Route::get('/user', function (){
+    return Auth::user();
+})->name('user');

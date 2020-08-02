@@ -2,7 +2,9 @@ const state = {
     user: null
 }
 
-const getters = {}
+const getters = {
+    isLogin: (state) => !! state.user,
+}
 
 const mutations = {
     setUser (state, user) {
@@ -22,7 +24,12 @@ const actions = {
     async logout (context) {
         const response = await axios.post('/api/logout')
         context.commit('setUser', null)
-    }
+    },
+    async loginUser (context) {
+        const response = await axios.get('/api/user')
+        const user = response.data || null
+        context.commit('setUser', user)
+      }
 }
 
 export default {
