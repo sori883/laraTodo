@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import store from './store'
+
 // ページをインポート
 import Top from './pages/Top.vue'
 import Login from './pages/Login.vue'
@@ -13,8 +15,24 @@ Vue.use(VueRouter)
 // パスとコンポーネントのマッピング
 const routes = [
     { path: '/', name: 'top', component: Top },
-    { path: '/login', name: 'login', component: Login },
-    { path: '/register', name: 'register', component: Register },
+    { path: '/login', name: 'login', component: Login,
+        beforeEnter (to, from, next) {
+            if (store.getters['auth/isLogin']) {
+                next('/')
+            } else {
+                next()
+            }
+        }
+    },
+    { path: '/register', name: 'register', component: Register,
+        beforeEnter (to, from, next) {
+            if (store.getters['auth/isLogin']) {
+                next('/')
+            } else {
+                next()
+            }
+        }
+    },
 ]
 
 // VueRouterインスタンスを作成する
