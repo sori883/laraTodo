@@ -8,19 +8,28 @@
 
     <div id="navAlt" class="collapse navbar-collapse">
         <div class="navbar-nav ml-auto">
-            <router-link :to="{name: 'login'}">
-                <a class="nav-item nav-link text-white">ログイン</a>
-            </router-link>
-            <router-link :to="{name: 'register'}">
-                <a class="nav-item nav-link text-white">ユーザ登録</a>
-            </router-link>
-            <a class="nav-item nav-link text-white" @click="logout">ログアウト</a>
+            <template v-if="isLogin">
+                <a class="nav-item nav-link text-white" @click="logout">ログアウト</a>
+            </template>
+            <template v-else>
+                <router-link :to="{name: 'login'}">
+                    <a class="nav-item nav-link text-white">ログイン</a>
+                </router-link>
+                <router-link :to="{name: 'register'}">
+                    <a class="nav-item nav-link text-white">ユーザ登録</a>
+                </router-link>
+            </template>
         </div>
     </div>
 </nav>
 </template>
 <script>
 export default {
+    computed: {
+        isLogin () {
+            return this.$store.getters['auth/isLogin']
+        }
+    },
     methods: {
         async logout () {
             // authストアのresigterアクションを呼び出す
