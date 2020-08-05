@@ -3,12 +3,17 @@ const state = {
 }
 
 const getters = {
-    message: (state) => Object.values(state.message)
+    message: (state) => {
+        if (!state.message) {
+            return null
+        }
+        return Object.values(state.message).map((item) => item.join())
+    }
 }
 
 const mutations = {
     setmessage(state, message) {
-        state.message = {...message}
+        state.message = message
     },
 
     deletemessage(state) {
