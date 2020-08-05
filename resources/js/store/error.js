@@ -7,7 +7,13 @@ const getters = {
         if (!state.message) {
             return null
         }
-        return Object.values(state.message).map((item) => item.join())
+
+        const messages = []
+        Object.values(state.message).map((item) => {
+            messages.push(...item)
+        })
+
+        return messages
     }
 }
 
