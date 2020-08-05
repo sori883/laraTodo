@@ -8,6 +8,7 @@ const getters = {
             return null
         }
 
+        // TODO:いい感じに出来るならしたい
         const messages = []
         Object.values(state.message).map((item) => {
             messages.push(...item)
