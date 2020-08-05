@@ -19,6 +19,11 @@
                 </div>
                 <button class="btn btn-primary btn-lg btn-block" type="submit">登録</button>
             </form>
+            <div class="text-center mt-3">
+                <router-link :to="{name: 'password_confirm'}">
+                    <a>パスワード再設定</a>
+                </router-link>
+            </div>
         </div>
     </div>
 </div>
