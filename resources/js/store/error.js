@@ -10,8 +10,8 @@ const getters = {
 
         // TODO:いい感じに出来るならしたい
         const messages = []
-        Object.values(state.message).map((item) => {
-            messages.push(...item)
+        Object.values(state.message).map((message) => {
+            messages.push(...message)
         })
 
         return messages
