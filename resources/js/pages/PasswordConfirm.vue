@@ -1,12 +1,12 @@
 <template>
 <div class="mx-auto col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
     <Error />
-    <h2 class="card-title text-center">ログイン</h2>
+    <h2 class="card-title text-center">パスワード再設定</h2>
     <div class="card">
         <div class="card-body">
             <form class="form" @submit.prevent="passwordConfirm">
                 <div class="form-group">
-                    <label for="emailInput">パスワード再設定</label>
+                    <label for="emailInput">メールアドレス</label>
                     <input id="emailInput" v-model="PasswordConfirmForm.email" type="email" class="form-control" placeholder="メールアドレス" required>
                 </div>
                 <button class="btn btn-primary btn-lg btn-block" type="submit">登録</button>
@@ -35,8 +35,11 @@ export default {
         }
     },
     methods: {
-        passwordConfirm() {
-
+        async passwordConfirm() {
+            await axios.post('/api/password/email', this.PasswordConfirmForm)
+                .catch((e) => {
+                    this.$store.commit('error/setmessage', e.response.data.errors)
+                })
         }
     }
 }
