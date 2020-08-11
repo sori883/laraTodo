@@ -8,6 +8,7 @@ import Top from './pages/Top.vue'
 import Login from './pages/Login.vue'
 import Register from './pages/Register.vue'
 import PasswordConfirm from './pages/PasswordConfirm.vue'
+import PasswordReset from './pages/PasswordReset.vue'
 
 // VueRouterプラグインを使用する
 // これによって<RouterView />コンポーネントなどを使うことができる
@@ -35,6 +36,15 @@ const routes = [
         }
     },
     { path: '/password_confirm', name: 'password_confirm', component: PasswordConfirm,
+        beforeEnter (to, from, next) {
+            if (store.getters['auth/isLogin']) {
+                next('/')
+            } else {
+                next()
+            }
+        }
+    },
+    { path: '/password_reset', name: 'password_reset', component: PasswordReset,
         beforeEnter (to, from, next) {
             if (store.getters['auth/isLogin']) {
                 next('/')
