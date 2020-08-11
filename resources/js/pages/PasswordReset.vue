@@ -50,7 +50,7 @@ export default {
         const email = Cookies.get('EMAIL');
         // tokenがnullの場合はTOPにリダイレクト
         if (this.PasswordResetForm.token == null) {
-            this.$router.push('/');
+            this.$router.push({name: 'top'});
         }
 
         this.PasswordResetForm.token = token;
