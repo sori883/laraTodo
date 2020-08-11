@@ -9,6 +9,7 @@ import Login from './pages/Login.vue'
 import Register from './pages/Register.vue'
 import PasswordConfirm from './pages/PasswordConfirm.vue'
 import PasswordReset from './pages/PasswordReset.vue'
+import Main from './pages/Main.vue'
 
 // VueRouterプラグインを使用する
 // これによって<RouterView />コンポーネントなどを使うことができる
@@ -53,6 +54,15 @@ const routes = [
             }
         }
     },
+    { path: '/main', name: 'main', component: Main,
+    beforeEnter (to, from, next) {
+        if (store.getters['auth/isLogin']) {
+            next('/')
+        } else {
+            next()
+        }
+    }
+},
 ]
 
 // VueRouterインスタンスを作成する
