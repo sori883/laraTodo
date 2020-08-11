@@ -49,7 +49,7 @@ export default {
             // authストアのresigterアクションを呼び出す
             await this.$store.dispatch('auth/login', this.loginForm)
                 .then(() => {
-                    this.$router.push({name: 'top'})
+                    this.$router.push({name: 'main'})
                 })
                 .catch((e) => {
                     this.$store.commit('error/setmessage', e.response.data.errors)
