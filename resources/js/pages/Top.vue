@@ -1,3 +1,3 @@
 <template>
-<h1>TOP作る</h1>
+<h1>TOP画面</h1>
 </template>
