@@ -48,13 +48,13 @@ export default {
     created() {
         const token = Cookies.get('RESETTOKEN');
         const email = Cookies.get('EMAIL');
-        console.log(email)
+        // tokenがnullの場合はTOPにリダイレクト
         if (this.PasswordResetForm.token == null) {
             this.$router.push('/');
         }
+
         this.PasswordResetForm.token = token;
         this.PasswordResetForm.email = email;
-        console.dir(token)
 
         if (token) {
             Cookies.remove('RESETTOKEN');
