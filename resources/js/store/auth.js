@@ -14,15 +14,15 @@ const mutations = {
 
 const actions = {
     async register (context, data) {
-        const response = await axios.post('/api/register', data)
+        const response = await axios.post('/api/user/register', data)
         context.commit('setUser', response.data)
     },
     async login (context, data) {
-        const response = await axios.post('/api/login', data)
+        const response = await axios.post('/api/user/login', data)
         context.commit('setUser', response.data)
     },
     async logout (context) {
-        const response = await axios.post('/api/logout')
+        const response = await axios.post('/api/user/logout')
         context.commit('setUser', null)
     },
     async loginUser (context) {
