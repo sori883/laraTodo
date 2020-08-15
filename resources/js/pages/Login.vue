@@ -45,7 +45,7 @@ export default {
         }
     },
     methods: {
-        async login () {
+        async login() {
             // authストアのresigterアクションを呼び出す
             await this.$store.dispatch('auth/login', this.loginForm)
                 .then(() => {
