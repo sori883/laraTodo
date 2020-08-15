@@ -17,13 +17,22 @@ use Illuminate\Support\Facades\Route;
 // Auth::Routes();
 
 // 認証
-Route::post('/register', 'Auth\RegisterController@register')->name('register');
-Route::post('/login', 'Auth\LoginController@login')->name('login');
-Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
+Route::prefix('user')->name('user.')->group(function () {
+    Route::post('register', 'Auth\RegisterController@register')->name('register');
+    Route::post('login', 'Auth\LoginController@login')->name('login');
+    Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+});
+
 // パスワードリセット
 Route::prefix('password')->name('password.')->group(function () {
     Route::post('email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('email');
     Route::post('update', 'Auth\ResetPasswordController@reset')->name('update');
+});
+
+// Projects
+Route::prefix('projects')->name('projects.')->group(function () {
+    Route::get('index', 'ProjectController@index')->name('index');
+    Route::delete('destroy/{id}', 'ProjectController@destroy')->name('destroy');
 });
 
 // TODO PHP7.4はアロー関数で書ける
