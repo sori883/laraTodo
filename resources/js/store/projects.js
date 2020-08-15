@@ -27,6 +27,13 @@ const actions = {
     },
     async delProject (context, projectId) {
         const response = await axios.delete(`/api/projects/destroy/${projectId}`)
+        // if (!getters.projects) {
+        //     return
+        // }
+
+        // if (response.status === 200) {
+
+        // }
     },
 }
 
