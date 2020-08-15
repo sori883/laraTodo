@@ -51,7 +51,7 @@ export default {
         }
     },
     methods: {
-        async register () {
+        async register() {
             // authストアのresigterアクションを呼び出す
             await this.$store.dispatch('auth/register', this.registerForm)
                 .then(() => {
