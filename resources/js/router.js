@@ -20,49 +20,29 @@ const routes = [
     { path: '/', name: 'top', component: Top },
     { path: '/login', name: 'login', component: Login,
         beforeEnter (to, from, next) {
-            if (store.getters['auth/isLogin']) {
-                next('/')
-            } else {
-                next()
-            }
+            store.getters['auth/isLogin'] ? next('/') : next()
         }
     },
     { path: '/register', name: 'register', component: Register,
         beforeEnter (to, from, next) {
-            if (store.getters['auth/isLogin']) {
-                next('/')
-            } else {
-                next()
-            }
+            store.getters['auth/isLogin'] ? next('/') : next()
         }
     },
     { path: '/password_confirm', name: 'password_confirm', component: PasswordConfirm,
         beforeEnter (to, from, next) {
-            if (store.getters['auth/isLogin']) {
-                next('/')
-            } else {
-                next()
-            }
+            store.getters['auth/isLogin'] ? next('/') : next()
         }
     },
     { path: '/password_reset', name: 'password_reset', component: PasswordReset,
         beforeEnter (to, from, next) {
-            if (store.getters['auth/isLogin']) {
-                next('/')
-            } else {
-                next()
-            }
+            store.getters['auth/isLogin'] ? next('/') : next()
         }
     },
     { path: '/main', name: 'main', component: Main,
-    beforeEnter (to, from, next) {
-        if (store.getters['auth/isLogin']) {
-            next('/')
-        } else {
-            next()
+        beforeEnter (to, from, next) {
+            store.getters['auth/isLogin'] ? next() : next('/')
         }
-    }
-},
+    },
 ]
 
 // VueRouterインスタンスを作成する
