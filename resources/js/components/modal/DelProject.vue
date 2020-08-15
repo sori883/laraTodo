@@ -24,7 +24,6 @@ export default {
     computed: {
         selectedProject () {
             const selectedProject = this.$store.getters['projects/selectedProject']
-
             if (!selectedProject) {
                 // TODO errorストアにしたい
                 return {title: 'not selected project'}
@@ -36,6 +35,8 @@ export default {
     methods: {
         delProject () {
             this.$store.dispatch('projects/delProject', this.selectedProject.id)
+            // bootstrapModalの非表示
+            $('#ProjectDeleteModal').modal('hide');
         }
     }
 }
