@@ -13,7 +13,7 @@ class ProjectController extends Controller
 
     public function __construct()
     {
-        $this->authorizeResource(Project::class, 'project');
+        // $this->authorizeResource(Project::class, 'project');
     }
 
     public function index()
@@ -38,10 +38,11 @@ class ProjectController extends Controller
         return redirect()->route('projects.index');
     }
 
-    public function destroy(Project $project)
+    public function destroy(string $project_id)
     {
+        $project = Project::where('id', $project_id)->first();
         $project->delete();
-        return redirect()->route('projects.index');
+        return 'ok';
     }
 
 }
