@@ -11,15 +11,16 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
 export default {
     computed: {
-        ...mapGetters({
-            messages: 'error/message'
-        })
+        messages () {
+            return this.$store.getters['projects/projects']
+        }
     },
     methods: {
-        ...mapMutations('error', ['deleteMessage'])
+        async deleteMessages () {
+            await this.$store.dispatch('projects/deletemessages')
+        }
     }
 }
 </script>
