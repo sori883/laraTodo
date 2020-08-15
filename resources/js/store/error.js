@@ -23,7 +23,7 @@ const mutations = {
         state.message = message
     },
 
-    deletemessage(state) {
+    deletemessages(state) {
         state.message = null
     },
 }
