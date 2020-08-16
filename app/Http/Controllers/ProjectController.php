@@ -29,7 +29,10 @@ class ProjectController extends Controller
         $project->user_id = $request->user()->id;
         $project->save();
 
-        return redirect()->route('projects.index');
+        $user = Auth::user();
+        $projects = $user->project->sortByDesc('created_at');
+
+        return $projects;
     }
 
     public function update(ProjectRequest $request, Project $project)
@@ -42,7 +45,11 @@ class ProjectController extends Controller
     {
         $project = Project::where('id', $project_id)->first();
         $project->delete();
-        return 'ok';
+
+        $user = Auth::user();
+        $projects = $user->project->sortByDesc('created_at');
+
+        return $projects;
     }
 
 }
