@@ -22,19 +22,17 @@ const actions = {
         const response = await axios.get('/api/projects/index')
         context.commit('setProjects', response.data)
     },
-    async selectedProject(context, selectedProject) {
-        context.commit('setSelectedProject', selectedProject)
+    async createProject (context, data) {
+        const response = await axios.post('/api/projects/store', data)
+        context.commit('setProjects', response.data)
     },
     async delProject (context, projectId) {
         const response = await axios.delete(`/api/projects/destroy/${projectId}`)
-        // if (!getters.projects) {
-        //     return
-        // }
-
-        // if (response.status === 200) {
-
-        // }
+        context.commit('setProjects', response.data)
     },
+    async selectedProject(context, selectedProject) {
+        context.commit('setSelectedProject', selectedProject)
+    }
 }
 
 export default {
