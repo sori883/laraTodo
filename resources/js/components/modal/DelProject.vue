@@ -12,7 +12,7 @@
             </div>
             <div class="modal-footer justify-content-between">
                 <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
-                <button @click="delProject" type="submit" class="btn btn-danger">削除する</button>
+                <button class="btn btn-danger" @click="delProject">削除する</button>
             </div>
         </div>
     </div>
@@ -35,8 +35,10 @@ export default {
     methods: {
         delProject () {
             this.$store.dispatch('projects/delProject', this.selectedProject.id)
+
+            // TODO bootstrapとjqueryをnpm管理にしたあとに対応(現状は$がundefになるから)
             // bootstrapModalの非表示
-            $('#ProjectDeleteModal').modal('hide');
+            // $('#ProjectDeleteModal').modal('hide');
         }
     }
 }
