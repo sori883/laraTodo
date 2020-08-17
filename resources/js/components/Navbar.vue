@@ -1,27 +1,26 @@
 <template>
-<nav class="navbar navbar-dark bg-dark navbar-expand-md sticky-top">
-    <a class="navbar-brand" href="#">Laratodo</a>
+<b-navbar tag="header" toggleable="lg" type="dark" variant="dark">
+    <b-navbar-brand to="#">laratodo</b-navbar-brand>
+    <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navAlt" aria-controls="navbarNav" aria-expanded="false">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div id="navAlt" class="collapse navbar-collapse">
-        <div class="navbar-nav ml-auto">
+    <b-collapse id="nav-text-collapse" is-nav>
+        <b-navbar-nav class="ml-auto">
             <template v-if="isLogin">
-                <a class="nav-item nav-link text-white" @click="logout">ログアウト</a>
+                <b-nav-item @click="logout">
+                    <a class="text-white">ログアウト</a>
+                </b-nav-item>
             </template>
             <template v-else>
-                <router-link :to="{name: 'login'}">
-                    <a class="nav-item nav-link text-white">ログイン</a>
-                </router-link>
-                <router-link :to="{name: 'register'}">
-                    <a class="nav-item nav-link text-white">ユーザ登録</a>
-                </router-link>
+                <b-nav-item :to="{name: 'login'}">
+                    <a class="text-white">ログイン</a>
+                </b-nav-item>
+                <b-nav-item :to="{name: 'register'}">
+                    <a class="text-white">ユーザ登録</a>
+                </b-nav-item>
             </template>
-        </div>
-    </div>
-</nav>
+        </b-navbar-nav>
+    </b-collapse>
+</b-navbar>
 </template>
 <script>
 export default {

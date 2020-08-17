@@ -1,13 +1,11 @@
 <template>
 <main>
-    <header>
-        <Navbar />
-    </header>
-    <div class="container-fluid">
-        <div class="row">
+    <Navbar />
+    <b-container fluid>
+        <b-row>
             <RouterView />
-        </div>
-    </div>
+        </b-row>
+    </b-container>
 </main>
 </template>
 

@@ -1,24 +1,19 @@
 <template>
-<div class="mx-auto col-12 col-sm-11 col-md-9 col-lg-7 col-xl-6">
+<b-col cols="12" sm="11" md="9" lg="7" xl="6" class="mx-auto">
     <Error />
-    <h2 class="card-title text-center">パスワード再設定</h2>
-    <div class="card">
-        <div class="card-body">
-            <form class="form" @submit.prevent="passwordConfirm">
-                <div class="form-group">
-                    <label for="emailInput">メールアドレス</label>
-                    <input id="emailInput" v-model="PasswordConfirmForm.email" type="email" class="form-control" placeholder="メールアドレス" required>
-                </div>
-                <button class="btn btn-primary btn-lg btn-block" type="submit">登録</button>
-            </form>
-            <div class="text-center mt-3">
-                <router-link :to="{name: 'login'}">
-                    <a>ログイン</a>
-                </router-link>
-            </div>
+    <h2 class="text-center">パスワード再設定</h2>
+    <b-card>
+        <b-form @submit="passwordConfirm">
+            <b-form-group id="email-group" label="メールアドレス" label-for="email">
+                <b-form-input id="email" v-model="PasswordConfirmForm.email" type="email" required placeholder="メールアドレス"></b-form-input>
+            </b-form-group>
+            <b-button type="submit" block variant="primary">リセットメール送信</b-button>
+        </b-form>
+        <div class="text-center mt-3">
+            <b-link :to="{name: 'login'}">ログイン</b-link>
         </div>
-    </div>
-</div>
+    </b-card>
+</b-col>
 </template>
 
 <script>
@@ -35,7 +30,9 @@ export default {
         }
     },
     methods: {
-        async passwordConfirm() {
+        async passwordConfirm(evt) {
+            evt.preventDefault()
+
             await axios.post('/api/password/email', this.PasswordConfirmForm)
                 .catch((e) => {
                     this.$store.commit('error/setmessage', e.response.data.errors)
