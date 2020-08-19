@@ -1,12 +1,12 @@
 <template>
 <div v-show="messages" class="mt-3">
-    <div class="alert alert-danger" role="alert">
+    <b-alert show variant="danger">
         <ul class="text-left">
             <li v-for="value in messages" :key="value">
                 {{ value }}
             </li>
         </ul>
-    </div>
+    </b-alert>
 </div>
 </template>
 
@@ -14,12 +14,12 @@
 export default {
     computed: {
         messages () {
-            return this.$store.getters['projects/projects']
+            return this.$store.getters['error/message']
         }
     },
     methods: {
         async deleteMessages () {
-            await this.$store.dispatch('projects/deletemessages')
+            await this.$store.commit('error/deletemessages')
         }
     }
 }

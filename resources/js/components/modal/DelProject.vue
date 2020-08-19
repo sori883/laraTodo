@@ -1,22 +1,11 @@
 <template>
-<div id="ProjectDeleteModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                {{ selectedProject.title }}
-            </div>
-            <div class="modal-footer justify-content-between">
-                <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
-                <button class="btn btn-danger" @click="delProject">削除する</button>
-            </div>
-        </div>
-    </div>
-</div>
+<b-modal id="ProjectDeleteModal" title="プロジェクト削除">
+    {{ selectedProject.title }}
+    <template v-slot:modal-footer="{ cancel }">
+        <b-button variant="danger" @click="cancel()">キャンセル</b-button>
+        <b-button variant="success" @click="delProject">作成</b-button>
+    </template>
+</b-modal>
 </template>
 
 <script>
@@ -35,10 +24,9 @@ export default {
     methods: {
         delProject () {
             this.$store.dispatch('projects/delProject', this.selectedProject.id)
-
-            // TODO bootstrapとjqueryをnpm管理にしたあとに対応(現状は$がundefになるから)
-            // bootstrapModalの非表示
-            // $('#ProjectDeleteModal').modal('hide');
+                .then(() => {
+                    this.$bvModal.hide('ProjectDeleteModal')
+                })
         }
     }
 }

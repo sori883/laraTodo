@@ -4,20 +4,15 @@
         <i class="fas fa-folder"></i>
         {{ project.title }}
     </a>
-    <div class="dropdown">
-        <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <b-dropdown size="lg" variant="link" no-caret>
+        <template v-slot:button-content>
             <i class="fas fa-ellipsis-h text-muted"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" data-toggle="modal" data-target="#ProjectEditModal">
-                プロジェクトを編集
-            </a>
-            <div class="dropdown-divider"></div>
-            <a @click="selectedProject" class="dropdown-item text-danger" data-toggle="modal" data-target="#ProjectDeleteModal">
-                プロジェクトを削除
-            </a>
-        </div>
-    </div>
+        </template>
+
+        <b-dropdown-item @click="selectedProject" v-b-modal.projectEditModal>プロジェクトを編集</b-dropdown-item>
+        <b-dropdown-divider></b-dropdown-divider>
+        <b-dropdown-item @click="selectedProject" link-class="text-danger" v-b-modal.ProjectDeleteModal>プロジェクトを削除</b-dropdown-item>
+    </b-dropdown>
 </li>
 </template>
 
@@ -31,7 +26,7 @@ export default {
     },
     methods: {
         selectedProject () {
-            this.$store.dispatch('projects/selectedProject', this.project)
+            this.$store.commit('projects/setSelectedProject', this.project)
         }
     }
 }

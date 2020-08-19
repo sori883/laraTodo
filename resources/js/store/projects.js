@@ -30,9 +30,6 @@ const actions = {
         const response = await axios.delete(`/api/projects/destroy/${projectId}`)
         context.commit('setProjects', response.data)
     },
-    async selectedProject(context, selectedProject) {
-        context.commit('setSelectedProject', selectedProject)
-    }
 }
 
 export default {

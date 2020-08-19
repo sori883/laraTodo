@@ -1,13 +1,4 @@
 .sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: $zindex-sidebar; /* navbarに隠れるようにしてる */
-    padding: $navbar-height $sidebar-padding-x 0; /* navbarと被らないように、上にpaddingをつける */
-    background-color: $sidebar-bg;
-    box-shadow: $sidebar-boxshadow;
-
     .nav-item {
         &:hover {
             background-color: $sidebar-list-item-bg;
