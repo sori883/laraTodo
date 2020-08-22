@@ -1,7 +1,7 @@
 <template>
 <b-modal id="projectCreateModal" title="プロジェクト作成">
     <b-form-group id="project-create-group" label="プロジェクト名" label-for="email">
-        <b-form-input id="title" v-model="projectForm.title" type="email" required placeholder="プロジェクト名"></b-form-input>
+        <b-form-input id="title" v-model="projectForm.title" type="text" required placeholder="プロジェクト名"></b-form-input>
     </b-form-group>
     <template v-slot:modal-footer="{ cancel }">
         <b-button variant="danger" @click="cancel()">キャンセル</b-button>
