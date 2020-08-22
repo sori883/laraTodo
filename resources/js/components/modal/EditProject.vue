@@ -1,7 +1,7 @@
 <template>
 <b-modal id="projectEditModal" title="プロジェクト編集" @show="setProjectTitle">
     <b-form-group id="project-edit-group" label="プロジェクト名" label-for="email">
-        <b-form-input id="title" v-model="projectForm.title" type="email" required placeholder="プロジェクト名"></b-form-input>
+        <b-form-input id="title" v-model="projectForm.title" type="text" required placeholder="プロジェクト名"></b-form-input>
     </b-form-group>
     <template v-slot:modal-footer="{ cancel }">
         <b-button variant="danger" @click="cancel()">キャンセル</b-button>
@@ -36,10 +36,10 @@ export default {
         },
         editProject () {
             // TODO editアクションを作成
-            this.$store.dispatch('projects/createProject', this.projectForm)
+            this.$store.dispatch('projects/editProject', {projectId: this.selectedProject.id, data: this.projectForm})
                 .then(() => {
                     // プロジェクト作成後にフォーム値をリセット
-                    this.projectForm.title = ''
+                    // this.projectForm.title = ''
                     this.$bvModal.hide('projectEditModal')
                 })
         }

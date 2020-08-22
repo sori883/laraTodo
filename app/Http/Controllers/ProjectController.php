@@ -6,6 +6,7 @@ use App\Project;
 use Auth;
 
 use App\Http\Requests\ProjectRequest;
+use Barryvdh\Debugbar\Twig\Extension\Debug;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -19,7 +20,7 @@ class ProjectController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $projects = $user->project->sortByDesc('created_at');
+        $projects = $user->project->sortByDesc('id');
 
         return $projects;
     }
@@ -30,15 +31,20 @@ class ProjectController extends Controller
         $project->save();
 
         $user = Auth::user();
-        $projects = $user->project->sortByDesc('created_at');
+        $projects = $user->project->sortByDesc('id');
 
         return $projects;
     }
 
-    public function update(ProjectRequest $request, Project $project)
+    public function update(ProjectRequest $request, string $project_id)
     {
+        $project = Project::where('id', $project_id)->first();
         $project->fill($request->all())->save();
-        return redirect()->route('projects.index');
+
+        $user = Auth::user();
+        $projects = $user->project->sortByDesc('id');
+
+        return $projects;
     }
 
     public function destroy(string $project_id)
@@ -47,7 +53,7 @@ class ProjectController extends Controller
         $project->delete();
 
         $user = Auth::user();
-        $projects = $user->project->sortByDesc('created_at');
+        $projects = $user->project->sortByDesc('id');
 
         return $projects;
     }

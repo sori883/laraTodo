@@ -26,6 +26,12 @@ const actions = {
         const response = await axios.post('/api/projects/store', data)
         context.commit('setProjects', response.data)
     },
+    async editProject (context, {projectId, data}) {
+        console.log(projectId)
+        console.log(data)
+        const response = await axios.patch(`/api/projects/update/${projectId}`, data)
+        context.commit('setProjects', response.data)
+    },
     async delProject (context, projectId) {
         const response = await axios.delete(`/api/projects/destroy/${projectId}`)
         context.commit('setProjects', response.data)

@@ -33,6 +33,7 @@ Route::prefix('password')->name('password.')->group(function () {
 Route::prefix('projects')->name('projects.')->group(function () {
     Route::get('index', 'ProjectController@index')->name('index');
     Route::post('store', 'ProjectController@store')->name('store');
+    Route::patch('update/{id}', 'ProjectController@update')->name('update');
     Route::delete('destroy/{id}', 'ProjectController@destroy')->name('destroy');
 });
 
