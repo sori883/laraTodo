@@ -18,11 +18,18 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
+.sidebar .nav-item {
+  cursor: pointer;
+}
 .sidebar .nav-item:hover {
   background-color: #fff;
 }
 .sidebar .nav-item .nav-link {
   color: #000;
+}
+
+.task-title {
+  font-size: 1.4rem;
 }
 
 /* see here: https://jp.vuejs.org/v2/guide/transitions.html */
