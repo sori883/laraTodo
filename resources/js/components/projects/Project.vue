@@ -1,9 +1,9 @@
 <template>
-<li class="nav-item d-flex justify-content-between align-items-center pr-3">
-    <a class="nav-link">
+<li @click="selectedProject" class="nav-item d-flex justify-content-between align-items-center pr-3">
+    <span class="nav-link">
         <i class="fas fa-folder"></i>
         {{ project.title }}
-    </a>
+    </span>
     <b-dropdown size="lg" variant="link" no-caret>
         <template v-slot:button-content>
             <i class="fas fa-ellipsis-h text-muted"></i>

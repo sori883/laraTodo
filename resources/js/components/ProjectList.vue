@@ -1,12 +1,12 @@
 <template>
-<nav class="col-md-2 d-md-block sidebar">
+<nav class="col-md-3 d-md-block sidebar">
     <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" href="#">
+                <span class="nav-link">
                     <i class="fas fa-inbox"></i>
                     インボックス <span class="sr-only">(current)</span>
-                </a>
+                </span>
             </li>
         </ul>
 
