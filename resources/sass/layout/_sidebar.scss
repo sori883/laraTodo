@@ -5,7 +5,14 @@
     left: 0;
     background-color: $sidebar-bg;
     box-shadow: $sidebar-boxshadow;
-    /* navbarと被らないように、navbarの高さと同じpaddingをつける */
+
+    .sidebar-sticky {
+        position: relative;
+        top: 0;
+        height: calc(100vh - #{$navbar-height});
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
 
     .nav-item {
         &:hover {
@@ -16,13 +23,5 @@
             color: #000;
         }
     }
-}
-
-.sidebar-sticky {
-    position: relative;
-    top: 0;
-    height: calc(100vh - $navbar-height);
-    overflow-x: hidden;
-    overflow-y: auto;
 }
 
