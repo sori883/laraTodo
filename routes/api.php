@@ -37,6 +37,11 @@ Route::prefix('projects')->name('projects.')->group(function () {
     Route::delete('destroy/{id}', 'ProjectController@destroy')->name('destroy');
 });
 
+Route::prefix('tasks')->name('tasks.')->group(function () {
+    Route::get('index', 'TaskController@index')->name('index');
+    Route::get('project/{id}', 'TaskController@projectIndex')->name('project');
+});
+
 // TODO PHP7.4はアロー関数で書ける
 Route::get('/user', function (){
     return Auth::user();
