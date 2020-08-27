@@ -3,7 +3,7 @@
     <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <span class="nav-link">
+                <span class="nav-link" @click="selectedProject">
                     <i class="fas fa-inbox"></i>
                     インボックス <span class="sr-only">(current)</span>
                 </span>
@@ -41,6 +41,9 @@ export default {
     methods: {
         async fetchProjects () {
             await this.$store.dispatch('projects/allProjects')
+        },
+        selectedProject () {
+            this.$store.commit('projects/setSelectedProject', null)
         }
     },
     watch: {
