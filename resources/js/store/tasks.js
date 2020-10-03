@@ -22,7 +22,7 @@ const actions = {
         const response = await axios.get('/api/tasks/index')
         context.commit('setTasks', response.data)
     },
-    async projectTasks (context, Task_id) {
+    async TaskTasks (context, Task_id) {
         let response
 
         if (typeof Task_id === 'undefined') {
