@@ -6,6 +6,7 @@
         <DelProject />
         <CreateProject />
         <EditProject />
+        <DelTask />
     </b-row>
 </b-container>
 </template>
@@ -16,6 +17,7 @@ import ProjectList from '../components/ProjectList.vue'
 import DelProject from '../components/modal/DelProject.vue'
 import CreateProject from '../components/modal/CreateProject.vue'
 import EditProject from '../components/modal/EditProject.vue'
+import DelTask from '../components/modal/DelTask.vue'
 // Task
 import TaskList from '../components/TaskList.vue'
 export default {
@@ -24,7 +26,8 @@ export default {
         DelProject,
         CreateProject,
         EditProject,
-        TaskList
+        TaskList,
+        DelTask
     }
 }
 </script>
