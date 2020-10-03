@@ -5,12 +5,15 @@
             {{ task.title }}
         </span>
         <div>
-            <span>
-                <i class="fas fa-edit"></i>
-            </span>
-            <span>
-                <i class="fas fa-trash text-danger"></i>
-            </span>
+            <b-dropdown size="MD" variant="link" no-caret>
+                <template v-slot:button-content>
+                    <i class="fas fa-ellipsis-h text-muted"></i>
+                </template>
+
+                <b-dropdown-item @click="selectedProject" v-b-modal.projectEditModal>プロジェクト編集</b-dropdown-item>
+                <b-dropdown-divider></b-dropdown-divider>
+                <b-dropdown-item @click="selectedTask" v-b-modal.taskDeleteModal link-class="text-danger">タスク削除</b-dropdown-item>
+            </b-dropdown>
         </div>
     </div>
 
@@ -26,6 +29,11 @@ export default {
         task: {
             type: Object,
             required: true
+        }
+    },
+    methods: {
+        selectedTask () {
+            this.$store.commit('tasks/setSelectedTask', this.task)
         }
     }
 }
