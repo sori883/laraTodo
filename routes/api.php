@@ -37,9 +37,11 @@ Route::prefix('projects')->name('projects.')->group(function () {
     Route::delete('destroy/{id}', 'ProjectController@destroy')->name('destroy');
 });
 
+// Tasks
 Route::prefix('tasks')->name('tasks.')->group(function () {
     Route::get('index', 'TaskController@index')->name('index');
-    Route::get('project/{id}', 'TaskController@projectIndex')->name('project');
+    Route::get('project/{id}', 'TaskController@projectTask')->name('project');
+    Route::delete('destroy/{id}', 'TaskController@destroy')->name('destroy');
 });
 
 // TODO PHP7.4はアロー関数で書ける
