@@ -1,9 +1,9 @@
 <template>
-<b-modal id="ProjectDeleteModal" title="プロジェクト削除">
-    {{ selectedProject.title }}
+<b-modal id="taskDeleteModal" title="タスク削除">
+    {{ selectedTask.title }}
     <template v-slot:modal-footer="{ cancel }">
         <b-button variant="danger" @click="cancel()">キャンセル</b-button>
-        <b-button variant="success" @click="delProject">作成</b-button>
+        <b-button variant="success" @click="delTask">削除</b-button>
     </template>
 </b-modal>
 </template>
@@ -11,21 +11,21 @@
 <script>
 export default {
     computed: {
-        selectedProject () {
-            const selectedProject = this.$store.getters['projects/selectedProject']
-            if (!selectedProject) {
+        selectedTask () {
+            const selectedTask = this.$store.getters['tasks/selectedTask']
+            if (!selectedTask) {
                 // TODO errorストアにしたい
-                return {title: 'inbox'}
+                return {title: 'no selected tasks'}
             }
 
-            return selectedProject
+            return selectedTask
         }
     },
     methods: {
-        delProject () {
-            this.$store.dispatch('projects/delProject', this.selectedProject.id)
+        delTask () {
+            this.$store.dispatch('tasks/delTask', this.selectedTask.id)
                 .then(() => {
-                    this.$bvModal.hide('ProjectDeleteModal')
+                    this.$bvModal.hide('taskDeleteModal')
                 })
         }
     }
