@@ -21,7 +21,7 @@ class TaskController extends Controller
         return $tasks;
     }
 
-    public function projectIndex(string $project_id)
+    public function projectTask(string $project_id)
     {
         $user = Auth::user();
         // 選択プロジェクトに属するタスクを取得する
@@ -38,9 +38,15 @@ class TaskController extends Controller
         return redirect()->route('projects.index');
     }
 
-    public function destroy(Task $task)
+    public function destroy(string $task_id)
     {
+        $task = Task::where('id', $task_id)->first();
         $task->delete();
+
+        $user = Auth::user();
+        $tasks = $user->tasks->whereNull('project_id')->sortByDesc('id');
+
+        return $tasks;
     }
 
 
