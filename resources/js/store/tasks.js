@@ -33,6 +33,12 @@ const actions = {
 
         context.commit('setTasks', response.data)
     },
+    async editTask (context, {projectId, data}) {
+        console.log(projectId)
+        console.log(data)
+        const response = await axios.patch(`/api/projects/update/${projectId}`, data)
+        context.commit('setProjects', response.data)
+    },
     async delTask (context, TaskId) {
         const response = await axios.delete(`/api/tasks/destroy/${TaskId}`)
         context.commit('setTasks', response.data)
