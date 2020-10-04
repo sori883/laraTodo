@@ -10,7 +10,7 @@
                     <i class="fas fa-ellipsis-h text-muted"></i>
                 </template>
 
-                <b-dropdown-item @click="selectedProject" v-b-modal.projectEditModal>プロジェクト編集</b-dropdown-item>
+                <b-dropdown-item @click="selectedTask" v-b-modal.taskEditModal>タスク編集</b-dropdown-item>
                 <b-dropdown-divider></b-dropdown-divider>
                 <b-dropdown-item @click="selectedTask" v-b-modal.taskDeleteModal link-class="text-danger">タスク削除</b-dropdown-item>
             </b-dropdown>
