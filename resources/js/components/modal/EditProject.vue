@@ -35,11 +35,8 @@ export default {
             this.projectForm.title = this.selectedProject.title
         },
         editProject () {
-            // TODO editアクションを作成
             this.$store.dispatch('projects/editProject', {projectId: this.selectedProject.id, data: this.projectForm})
                 .then(() => {
-                    // プロジェクト作成後にフォーム値をリセット
-                    // this.projectForm.title = ''
                     this.$bvModal.hide('projectEditModal')
                 })
         }
