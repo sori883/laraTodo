@@ -17,7 +17,7 @@ class CreateTasksTable extends Migration
             $table->bigIncrements('id');
             $table->string('title',100);
             $table->boolean('status')->default(false);
-            $table->date('limit_at');
+            $table->date('limit_at')->nullable();
             $table->bigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->bigInteger('project_id')->nullable();
