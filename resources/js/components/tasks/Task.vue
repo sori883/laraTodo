@@ -16,8 +16,7 @@
             </b-dropdown>
         </div>
     </div>
-
-    <div class="mt-2 mb-1">
+    <div class="mt-2 mb-1" v-show="task.limit_at">
         <small><i class="fas fa-calendar-day d-inline mr-1"></i>{{ task.limit_at }}</small>
     </div>
 </li>
@@ -33,6 +32,7 @@ export default {
     },
     methods: {
         selectedTask () {
+            console.dir(this.task.limit_at)
             this.$store.commit('tasks/setSelectedTask', this.task)
         }
     }

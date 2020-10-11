@@ -41,6 +41,7 @@ Route::prefix('projects')->name('projects.')->group(function () {
 Route::prefix('tasks')->name('tasks.')->group(function () {
     Route::get('index', 'TaskController@index')->name('index');
     Route::get('project/{id}', 'TaskController@projectTask')->name('project');
+    Route::patch('update/{id}', 'TaskController@update')->name('update');
     Route::delete('destroy/{id}', 'TaskController@destroy')->name('destroy');
 });
 

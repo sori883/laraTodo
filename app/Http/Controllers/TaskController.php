@@ -38,6 +38,17 @@ class TaskController extends Controller
         return redirect()->route('projects.index');
     }
 
+    public function update(TaskRequest $request, string $task_id)
+    {
+        $task = Task::where('id', $task_id)->first();
+        $task->fill($request->all())->save();
+
+        $user = Auth::user();
+        $tasks = $user->tasks->whereNull('project_id')->sortByDesc('id');
+
+        return $tasks;
+    }
+
     public function destroy(string $task_id)
     {
         $task = Task::where('id', $task_id)->first();

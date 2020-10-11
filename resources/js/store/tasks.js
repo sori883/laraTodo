@@ -22,25 +22,24 @@ const actions = {
         const response = await axios.get('/api/tasks/index')
         context.commit('setTasks', response.data)
     },
-    async projectTasks (context, Task_id) {
+    async projectTasks (context, taskId) {
         let response
 
-        if (typeof Task_id === 'undefined') {
+        if (typeof taskId === 'undefined') {
+            // taskIdがnullの場合はinboxのタスクを取得する
             response = await axios.get('/api/tasks/index')
         } else {
-            response = await axios.get(`/api/tasks/project/${Task_id}`)
+            response = await axios.get(`/api/tasks/project/${taskId}`)
         }
 
         context.commit('setTasks', response.data)
     },
-    async editTask (context, {projectId, data}) {
-        console.log(projectId)
-        console.log(data)
-        const response = await axios.patch(`/api/projects/update/${projectId}`, data)
-        context.commit('setProjects', response.data)
+    async editTask (context, {taskId, data}) {
+        const response = await axios.patch(`/api/tasks/update/${taskId}`, data)
+        context.commit('setTasks', response.data)
     },
-    async delTask (context, TaskId) {
-        const response = await axios.delete(`/api/tasks/destroy/${TaskId}`)
+    async delTask (context, taskId) {
+        const response = await axios.delete(`/api/tasks/destroy/${taskId}`)
         context.commit('setTasks', response.data)
     }
 }

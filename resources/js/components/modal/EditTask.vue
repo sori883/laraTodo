@@ -5,13 +5,13 @@
     </b-form-group>
 
     <b-form-group id="task-edit-datatime" label="期限" label-for="email">
-        <VueCtkDateTimePicker v-model="taskForm.limit" label="日時を選択してください" no-header />
+        <VueCtkDateTimePicker v-model="taskForm.limit_at" label="日時を選択してください" :format="'YYYY/MM/DD HH:mm'" no-header />
     </b-form-group>
 
     <b-form-group id="task-edit-datatime" label="タスクを移動" label-for="email">
-        <b-form-select v-model="taskForm.moveProject">
+        <b-form-select v-model="taskForm.project_id">
             <template v-slot:first>
-                <b-form-select-option :value="null" disabled>移動先のプロジェクトを選択してください</b-form-select-option>
+                <b-form-select-option :value="null">インボックス</b-form-select-option>
             </template>
             <template v-for="project in projects">
                 <b-form-select-option :value="project.id">{{ project.title }}</b-form-select-option>
@@ -46,17 +46,19 @@ export default {
         return {
             taskForm: {
                 title: '',
-                limit: '',
-                moveProject: null
+                limit_at: '',
+                project_id: null
             },
         }
     },
     methods: {
         setTaskTitle () {
             this.taskForm.title = this.selectedTask.title
+            this.taskForm.limit_at = this.selectedTask.limit_at,
+            this.taskForm.project_id = this.selectedTask.project_id
         },
         editTask () {
-            this.$store.dispatch('tasks/editTask', {TaskId: this.selectedTask.id, data: this.TaskForm})
+            this.$store.dispatch('tasks/editTask', {taskId: this.selectedTask.id, data: this.taskForm})
                 .then(() => {
                     this.$bvModal.hide('taskEditModal')
                 })
