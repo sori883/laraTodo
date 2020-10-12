@@ -16,6 +16,7 @@ class Task extends Model
 
     protected $attributes = [
         "status" => false,
+        "limit_at" => NULL,
         "project_id" => NULL,
     ];
 

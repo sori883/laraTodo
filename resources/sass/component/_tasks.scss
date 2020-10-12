@@ -1,3 +1,13 @@
 .task-title {
     font-size: $task-title-font-size;
 }
+
+.task-create-button {
+    position: fixed;
+    right: 80px;
+    bottom: 40px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+}

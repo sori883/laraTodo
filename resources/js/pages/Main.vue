@@ -7,8 +7,12 @@
         <CreateProject />
         <EditProject />
         <DelTask />
+        <CreateTask />
         <EditTask />
     </b-row>
+    <div class="task-create-button">
+        <b-button pill v-b-modal.taskCreateModal>Button</b-button>
+    </div>
 </b-container>
 </template>
 
@@ -21,6 +25,7 @@ import EditProject from '../components/modal/EditProject.vue'
 // Task
 import TaskList from '../components/TaskList.vue'
 import DelTask from '../components/modal/DelTask.vue'
+import CreateTask from '../components/modal/CreateTask.vue'
 import EditTask from '../components/modal/EditTask.vue'
 export default {
     components: {
@@ -30,6 +35,7 @@ export default {
         EditProject,
         TaskList,
         DelTask,
+        CreateTask,
         EditTask
     }
 }
