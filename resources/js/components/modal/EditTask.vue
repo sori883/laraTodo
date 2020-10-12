@@ -1,7 +1,7 @@
 <template>
 <b-modal id="taskEditModal" title="タスク編集" @show="setTaskTitle">
     <b-form-group id="task-edit-name" label="タスク名" label-for="email">
-        <b-form-input id="title" v-model="taskForm.title" type="text" required placeholder="プロジェクト名"></b-form-input>
+        <b-form-input id="title" v-model="taskForm.title" type="text" required placeholder="タスク名"></b-form-input>
     </b-form-group>
 
     <b-form-group id="task-edit-datatime" label="期限" label-for="email">
