@@ -34,6 +34,10 @@ const actions = {
 
         context.commit('setTasks', response.data)
     },
+    async createTask (context, data) {
+        const response = await axios.post('/api/tasks/store', data)
+        context.commit('setTasks', response.data)
+    },
     async editTask (context, {taskId, data}) {
         const response = await axios.patch(`/api/tasks/update/${taskId}`, data)
         context.commit('setTasks', response.data)

@@ -32,7 +32,6 @@ export default {
     },
     methods: {
         selectedTask () {
-            console.dir(this.task.limit_at)
             this.$store.commit('tasks/setSelectedTask', this.task)
         }
     }

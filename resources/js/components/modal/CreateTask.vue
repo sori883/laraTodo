@@ -1,5 +1,5 @@
 <template>
-<b-modal id="taskCreateModal" title="タスク作成" @show="setTaskTitle">
+<b-modal id="taskCreateModal" title="タスク作成">
     <b-form-group id="task-create-name" label="タスク名" label-for="email">
         <b-form-input id="title" v-model="taskForm.title" type="text" required placeholder="タスク名"></b-form-input>
     </b-form-group>
@@ -40,6 +40,16 @@ export default {
                 limit_at: '',
                 project_id: null
             },
+        }
+    },
+    methods: {
+        createTask () {
+            this.$store.dispatch('tasks/createTask', this.taskForm)
+                .then(() => {
+                    // プロジェクト作成後にフォーム値をリセット
+                    this.taskForm.title = ''
+                    this.$bvModal.hide('taskCreateModal')
+                })
         }
     }
 }

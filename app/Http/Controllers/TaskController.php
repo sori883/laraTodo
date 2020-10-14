@@ -35,7 +35,10 @@ class TaskController extends Controller
         $task->user_id = $request->user()->id;
         $task->save();
 
-        return redirect()->route('projects.index');
+        $user = Auth::user();
+        $tasks = $user->tasks->whereNull('project_id')->sortByDesc('id');
+
+        return $tasks;
     }
 
     public function update(TaskRequest $request, string $task_id)
