@@ -23,6 +23,7 @@ class CreateTasksTable extends Migration
             $table->bigInteger('project_id')->nullable();
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('set null');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
