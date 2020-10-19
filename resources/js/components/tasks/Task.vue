@@ -2,6 +2,7 @@
 <li class="nav-item border-bottom">
     <div class="d-flex justify-content-between pt-3">
         <span class="task-title">
+            <b-icon @click="compliteTask" icon="circle" font-scale="0.8"></b-icon>
             {{ task.title }}
         </span>
         <div>
@@ -33,6 +34,9 @@ export default {
     methods: {
         selectedTask () {
             this.$store.commit('tasks/setSelectedTask', this.task)
+        },
+        compliteTask () {
+            this.$store.dispatch('tasks/compliteTask', this.task.id)
         }
     }
 }

@@ -2,8 +2,9 @@ import { getCookieValue } from './util'
 window._ = require('lodash');
 
 import Vue from 'vue'
-import BootstrapVue from 'bootstrap-vue'
+import {BootstrapVue, BootstrapVueIcons} from 'bootstrap-vue'
 Vue.use(BootstrapVue)
+Vue.use(BootstrapVueIcons)
 
 import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
 import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';

@@ -15,7 +15,7 @@ class Task extends Model
     ];
 
     protected $attributes = [
-        "status" => false,
+        "status" => NULL,
         "limit_at" => NULL,
         "project_id" => NULL,
     ];
@@ -24,5 +24,6 @@ class Task extends Model
     {
         return $this->belongsTo('App\User');
     }
+
 
 }

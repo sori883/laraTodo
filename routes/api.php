@@ -44,9 +44,10 @@ Route::prefix('tasks')->name('tasks.')->group(function () {
     Route::post('store', 'TaskController@store')->name('store');
     Route::patch('update/{id}', 'TaskController@update')->name('update');
     Route::delete('destroy/{id}', 'TaskController@destroy')->name('destroy');
+    Route::patch('complite/{id}', 'TaskController@complite')->name('complite');
+    Route::patch('uncomplite/{id}', 'TaskController@uncomplite')->name('uncomplite');
 });
 
-// TODO PHP7.4はアロー関数で書ける
 Route::get('/user', function (){
     return Auth::user();
 })->name('user');
