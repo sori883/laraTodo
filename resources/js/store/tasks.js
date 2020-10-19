@@ -37,7 +37,6 @@ const actions = {
         context.commit('setTasks', response.data)
     },
     async editTask (context, {taskId, data}) {
-        console.log(data)
         const response = await axios.patch(`/api/tasks/update/${taskId}`, data)
         context.commit('setTasks', response.data)
     },
