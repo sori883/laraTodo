@@ -18,4 +18,4 @@ export function getCookieValue (searchKey) {
     })
 
     return val
-  }
+}
