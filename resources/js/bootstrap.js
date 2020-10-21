@@ -1,56 +1,63 @@
-import { getCookieValue } from './util'
+import Vue from 'vue'
 window._ = require('lodash');
 
-import Vue from 'vue'
-import VeeValidate from 'vee-validate';
-
-Vue.use(VeeValidate, {
-    inject: true,
-    fieldsBagName: 'veeFields',
-    errorBagName: 'veeErrors'
-  })
+/**
+ * BootstrapVue
+ */
 
 import {BootstrapVue, BootstrapVueIcons} from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
+
+/**
+ * VeeValidate
+ */
+
+import {
+    ValidationObserver,
+    ValidationProvider,
+    extend,
+    localize
+} from "vee-validate";
+import VeeValidate from 'vee-validate';
+
+import ja from "vee-validate/dist/locale/ja.json";
+import * as rules from "vee-validate/dist/rules";
+
+// ルールと言語をインストール
+Object.keys(rules).forEach(rule => {
+    extend(rule, rules[rule]);
+});
+
+localize("ja", ja);
+
+// 全てのコンポーネントで使用出来るようにする
+Vue.component("ValidationObserver", ValidationObserver);
+Vue.component("ValidationProvider", ValidationProvider);
+
+
+/**
+ * DataPicker
+ */
+
 import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
 import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
 Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
 
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 /**
- * We'll load the axios HTTP library which allows us to easily issue requests
- * to our Laravel back-end. This library automatically handles sending the
- * CSRF token as a header based on the value of the "XSRF" token cookie.
+ * axios
  */
-
 window.axios = require('axios');
-
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+// CSRFトークンをCookieから取得して、ヘッダーに付与する
 window.axios.interceptors.request.use((config) => {
-    // クッキーからトークンを取り出してヘッダーに添付する
     config.headers['X-XSRF-TOKEN'] = getCookieValue('XSRF-TOKEN')
 
     return config
 })
-
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
-
-// import Echo from 'laravel-echo';
-
-// window.Pusher = require('pusher-js');
-
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: process.env.MIX_PUSHER_APP_KEY,
-//     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
-//     forceTLS: true
-// });
