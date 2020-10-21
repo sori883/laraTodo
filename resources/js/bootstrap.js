@@ -12,7 +12,6 @@ Vue.use(BootstrapVueIcons)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
-
 /**
  * VeeValidate
  */
@@ -22,23 +21,21 @@ import {
     ValidationProvider,
     extend,
     localize
-} from "vee-validate";
-import VeeValidate from 'vee-validate';
+} from 'vee-validate';
 
-import ja from "vee-validate/dist/locale/ja.json";
-import * as rules from "vee-validate/dist/rules";
+import ja from 'vee-validate/dist/locale/ja.json';
+import * as rules from 'vee-validate/dist/rules';
 
 // ルールと言語をインストール
-Object.keys(rules).forEach(rule => {
+Object.keys(rules).forEach((rule) => {
     extend(rule, rules[rule]);
 });
 
-localize("ja", ja);
+localize('ja', ja);
 
 // 全てのコンポーネントで使用出来るようにする
-Vue.component("ValidationObserver", ValidationObserver);
-Vue.component("ValidationProvider", ValidationProvider);
-
+Vue.component('ValidationObserver', ValidationObserver);
+Vue.component('ValidationProvider', ValidationProvider);
 
 /**
  * DataPicker
@@ -48,14 +45,15 @@ import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
 import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
 Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
 
-
 /**
  * axios
  */
+
 window.axios = require('axios');
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 // CSRFトークンをCookieから取得して、ヘッダーに付与する
+import { getCookieValue } from './util'
 window.axios.interceptors.request.use((config) => {
     config.headers['X-XSRF-TOKEN'] = getCookieValue('XSRF-TOKEN')
 
