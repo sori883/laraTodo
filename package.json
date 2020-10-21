@@ -37,6 +37,7 @@
         "stylelint": "^13.6.0",
         "stylelint-config-twbs-bootstrap": "^2.0.3",
         "stylelint-webpack-plugin": "^2.0.0",
+        "vee-validate": "^3.4.2",
         "vue": "^2.5.17",
         "vue-ctk-date-time-picker": "^2.5.0",
         "vue-router": "^3.3.4",

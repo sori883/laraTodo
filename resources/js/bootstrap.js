@@ -2,6 +2,14 @@ import { getCookieValue } from './util'
 window._ = require('lodash');
 
 import Vue from 'vue'
+import VeeValidate from 'vee-validate';
+
+Vue.use(VeeValidate, {
+    inject: true,
+    fieldsBagName: 'veeFields',
+    errorBagName: 'veeErrors'
+  })
+
 import {BootstrapVue, BootstrapVueIcons} from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
