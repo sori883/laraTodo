@@ -31,7 +31,7 @@ Object.keys(rules).forEach((rule) => {
     extend(rule, rules[rule]);
 });
 
-localize('ja', ja);
+localize('ja', ja)
 
 // 全てのコンポーネントで使用出来るようにする
 Vue.component('ValidationObserver', ValidationObserver);
