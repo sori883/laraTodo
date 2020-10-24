@@ -1,7 +1,7 @@
 <template>
 <validation-observer ref="observer" v-slot="{ handleSubmit }">
     <b-modal id="taskCreateModal" title="タスク作成">
-        <validation-provider name="プロジェクト名" :rules="{ required: true, max: 50 }" v-slot="validationContext">
+        <validation-provider name="タスク名" :rules="{ required: true, max: 50 }" v-slot="validationContext">
             <b-form-group id="task-create-name" label="タスク名" label-for="email">
                 <b-form-input
                     id="title"
