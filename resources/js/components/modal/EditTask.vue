@@ -1,29 +1,41 @@
 <template>
-<b-modal id="taskEditModal" title="タスク編集" @show="setTaskTitle">
-    <b-form-group id="task-edit-name" label="タスク名" label-for="email">
-        <b-form-input id="title" v-model="taskForm.title" type="text" required placeholder="タスク名"></b-form-input>
-    </b-form-group>
+<validation-observer ref="observer" v-slot="{ handleSubmit }">
+    <b-modal id="taskEditModal" title="タスク編集" @show="setTaskTitle">
+        <validation-provider name="タスク名" :rules="{ required: true, max: 50 }" v-slot="validationContext">
+            <b-form-group id="task-edit-name" label="タスク名" label-for="email">
+                <b-form-input
+                    id="title"
+                    v-model="taskForm.title"
+                    type="text"
+                    placeholder="タスク名"
+                    :state="validationState(validationContext)"
+                    aria-describedby="titleFeedback"
+                ></b-form-input>
+                <b-form-invalid-feedback id="titleFeedback">{{ validationContext.errors[0] }}</b-form-invalid-feedback>
+            </b-form-group>
+        </validation-provider>
 
-    <b-form-group id="task-edit-datatime" label="期限" label-for="email">
-        <VueCtkDateTimePicker v-model="taskForm.limit_at" label="日時を選択してください" :format="'YYYY/MM/DD HH:mm'" no-header />
-    </b-form-group>
+        <b-form-group id="task-edit-datatime" label="期限" label-for="email">
+            <VueCtkDateTimePicker v-model="taskForm.limit_at" label="日時を選択してください" :format="'YYYY/MM/DD HH:mm'" no-header />
+        </b-form-group>
 
-    <b-form-group id="task-edit-datatime" label="タスクを移動" label-for="email">
-        <b-form-select v-model="taskForm.project_id">
-            <template v-slot:first>
-                <b-form-select-option :value="null">インボックス</b-form-select-option>
-            </template>
-            <template v-for="project in projects">
-                <b-form-select-option :value="project.id">{{ project.title }}</b-form-select-option>
-            </template>
-        </b-form-select>
-    </b-form-group>
+        <b-form-group id="task-edit-datatime" label="タスクを移動" label-for="email">
+            <b-form-select v-model="taskForm.project_id">
+                <template v-slot:first>
+                    <b-form-select-option :value="null">インボックス</b-form-select-option>
+                </template>
+                <template v-for="project in projects">
+                    <b-form-select-option :value="project.id">{{ project.title }}</b-form-select-option>
+                </template>
+            </b-form-select>
+        </b-form-group>
 
-    <template v-slot:modal-footer="{ cancel }">
-        <b-button variant="danger" @click="cancel()">キャンセル</b-button>
-        <b-button variant="success" @click="editTask">編集</b-button>
-    </template>
-</b-modal>
+        <template v-slot:modal-footer="{ cancel }">
+            <b-button variant="danger" @click="cancel()">キャンセル</b-button>
+            <b-button variant="success" @click="handleSubmit(editTask)">編集</b-button>
+        </template>
+    </b-modal>
+</validation-observer>
 </template>
 
 <script>
@@ -52,6 +64,9 @@ export default {
         }
     },
     methods: {
+        validationState({ dirty, validated, valid = null }) {
+            return dirty || validated ? valid : null;
+        },
         setTaskTitle () {
             this.taskForm.title = this.selectedTask.title
             this.taskForm.limit_at = this.selectedTask.limit_at,
