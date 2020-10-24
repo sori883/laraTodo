@@ -10,9 +10,9 @@
                     type="text"
                     placeholder="プロジェクト名"
                     :state="validationState(validationContext)"
-                    aria-describedby="inputFeedback"
+                    aria-describedby="titleFeedback"
                 ></b-form-input>
-                <b-form-invalid-feedback id="inputFeedback">{{ validationContext.errors[0] }}</b-form-invalid-feedback>
+                <b-form-invalid-feedback id="titleFeedback">{{ validationContext.errors[0] }}</b-form-invalid-feedback>
             </b-form-group>
         </validation-provider>
         <template v-slot:modal-footer="{ cancel }">
