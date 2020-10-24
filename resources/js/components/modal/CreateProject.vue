@@ -39,7 +39,7 @@ export default {
         createProject () {
             this.$store.dispatch('projects/createProject', this.projectForm)
                 .then(() => {
-                    // プロジェクト作成後にフォーム値をリセット
+                    // フォームリセット
                     this.projectForm.title = ''
                     this.$nextTick(() => {
                         this.$refs.observer.reset();
