@@ -23,7 +23,7 @@ import {
     localize
 } from 'vee-validate';
 
-import ja from 'vee-validate/dist/locale/ja.json';
+import ja from './lang/validate.json';
 import * as rules from 'vee-validate/dist/rules';
 
 // ルールと言語をインストール
