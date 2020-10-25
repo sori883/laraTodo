@@ -31,14 +31,6 @@ export default {
             return selectedProject
         }
     },
-    methods: {
-        async fetchInboxTasks () {
-            await this.$store.dispatch('tasks/inboxTasks')
-        },
-        async fetchProjectTasks () {
-            await this.$store.dispatch('tasks/projectTasks', this.selectedProject.id)
-        },
-    },
     watch: {
         $route: {
             async handler () {
@@ -51,6 +43,14 @@ export default {
                 await this.fetchProjectTasks()
             },
         }
+    },
+    methods: {
+        async fetchInboxTasks () {
+            await this.$store.dispatch('tasks/inboxTasks')
+        },
+        async fetchProjectTasks () {
+            await this.$store.dispatch('tasks/projectTasks', this.selectedProject.id)
+        },
     }
 }
 </script>

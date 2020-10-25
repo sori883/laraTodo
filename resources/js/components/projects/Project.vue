@@ -1,5 +1,5 @@
 <template>
-<li @click="selectedProject" class="nav-item d-flex justify-content-between align-items-center pr-3">
+<li class="nav-item d-flex justify-content-between align-items-center pr-3" @click="selectedProject">
     <span class="nav-link">
         <i class="fas fa-folder"></i>
         {{ project.title }}
@@ -9,9 +9,9 @@
             <i class="fas fa-ellipsis-h text-muted"></i>
         </template>
 
-        <b-dropdown-item @click="selectedProject" v-b-modal.projectEditModal>プロジェクトを編集</b-dropdown-item>
+        <b-dropdown-item v-b-modal.projectEditModal @click="selectedProject">プロジェクトを編集</b-dropdown-item>
         <b-dropdown-divider></b-dropdown-divider>
-        <b-dropdown-item @click="selectedProject" link-class="text-danger" v-b-modal.ProjectDeleteModal>プロジェクトを削除</b-dropdown-item>
+        <b-dropdown-item v-b-modal.ProjectDeleteModal link-class="text-danger" @click="selectedProject">プロジェクトを削除</b-dropdown-item>
     </b-dropdown>
 </li>
 </template>

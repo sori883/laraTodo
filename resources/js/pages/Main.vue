@@ -11,7 +11,7 @@
         <EditTask />
     </b-row>
     <div class="task-create-button">
-        <b-button pill v-b-modal.taskCreateModal>Button</b-button>
+        <b-button v-b-modal.taskCreateModal pill>Button</b-button>
     </div>
 </b-container>
 </template>

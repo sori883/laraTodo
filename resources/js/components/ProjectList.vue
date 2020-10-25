@@ -38,20 +38,20 @@ export default {
             return this.$store.getters['projects/projects']
         }
     },
-    methods: {
-        async fetchProjects () {
-            await this.$store.dispatch('projects/allProjects')
-        },
-        selectedProject () {
-            this.$store.commit('projects/setSelectedProject', null)
-        }
-    },
     watch: {
         $route: {
             async handler () {
                 await this.fetchProjects()
             },
             immediate: true
+        }
+    },
+    methods: {
+        async fetchProjects () {
+            await this.$store.dispatch('projects/allProjects')
+        },
+        selectedProject () {
+            this.$store.commit('projects/setSelectedProject', null)
         }
     }
 }
