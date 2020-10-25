@@ -1,7 +1,7 @@
 <template>
 <validation-observer ref="observer" v-slot="{ handleSubmit }">
     <b-modal id="projectEditModal" title="プロジェクト編集" @show="setProjectTitle">
-        <validation-provider name="プロジェクト名" :rules="{ required: true, max: 20 }" v-slot="validationContext">
+        <validation-provider v-slot="validationContext" name="プロジェクト名" :rules="{ required: true, max: 20 }">
             <b-form-group id="project-edit-group" label="プロジェクト名" label-for="email">
                 <b-form-input
                     id="title"
@@ -24,6 +24,13 @@
 
 <script>
 export default {
+    data () {
+        return {
+            projectForm: {
+                title: ''
+            }
+        }
+    },
     computed: {
         selectedProject () {
             const selectedProject = this.$store.getters['projects/selectedProject']
@@ -33,13 +40,6 @@ export default {
             }
 
             return selectedProject
-        }
-    },
-    data () {
-        return {
-            projectForm: {
-                title: ''
-            }
         }
     },
     methods: {

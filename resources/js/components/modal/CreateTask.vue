@@ -1,7 +1,7 @@
 <template>
 <validation-observer ref="observer" v-slot="{ handleSubmit }">
     <b-modal id="taskCreateModal" title="タスク作成">
-        <validation-provider name="タスク名" :rules="{ required: true, max: 50 }" v-slot="validationContext">
+        <validation-provider v-slot="validationContext" name="タスク名" :rules="{ required: true, max: 50 }">
             <b-form-group id="task-create-name" label="タスク名" label-for="email">
                 <b-form-input
                     id="title"
@@ -40,11 +40,6 @@
 
 <script>
 export default {
-    computed: {
-        projects () {
-            return this.$store.getters['projects/projects']
-        }
-    },
     data () {
         return {
             taskForm: {
@@ -52,6 +47,11 @@ export default {
                 limit_at: '',
                 project_id: null
             },
+        }
+    },
+    computed: {
+        projects () {
+            return this.$store.getters['projects/projects']
         }
     },
     methods: {

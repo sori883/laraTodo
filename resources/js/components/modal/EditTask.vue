@@ -1,7 +1,7 @@
 <template>
 <validation-observer ref="observer" v-slot="{ handleSubmit }">
     <b-modal id="taskEditModal" title="タスク編集" @show="setTaskTitle">
-        <validation-provider name="タスク名" :rules="{ required: true, max: 50 }" v-slot="validationContext">
+        <validation-provider v-slot="validationContext" name="タスク名" :rules="{ required: true, max: 50 }">
             <b-form-group id="task-edit-name" label="タスク名" label-for="email">
                 <b-form-input
                     id="title"
@@ -40,6 +40,15 @@
 
 <script>
 export default {
+    data () {
+        return {
+            taskForm: {
+                title: '',
+                limit_at: '',
+                project_id: null
+            },
+        }
+    },
     computed: {
         selectedTask () {
             const selectedTask = this.$store.getters['tasks/selectedTask']
@@ -52,15 +61,6 @@ export default {
         },
         projects () {
             return this.$store.getters['projects/projects']
-        }
-    },
-    data () {
-        return {
-            taskForm: {
-                title: '',
-                limit_at: '',
-                project_id: null
-            },
         }
     },
     methods: {

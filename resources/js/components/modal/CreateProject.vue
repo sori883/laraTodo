@@ -1,12 +1,12 @@
 <template>
 <validation-observer ref="observer" v-slot="{ handleSubmit }">
     <b-modal id="projectCreateModal" title="プロジェクト作成">
-        <validation-provider name="プロジェクト名" :rules="{ required: true, max: 20 }" v-slot="validationContext">
+        <validation-provider v-slot="validationContext" name="プロジェクト名" :rules="{ required: true, max: 20 }">
             <b-form-group id="project-create-group" label="プロジェクト名" label-for="project-title">
                 <b-form-input
                     id="title"
-                    name="title"
                     v-model="projectForm.title"
+                    name="title"
                     type="text"
                     placeholder="プロジェクト名"
                     :state="validationState(validationContext)"
