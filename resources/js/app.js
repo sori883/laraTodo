@@ -4,8 +4,6 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-/* eslint no-unused-vars: 0 */
-
 import './bootstrap'
 
 import Vue from 'vue'
