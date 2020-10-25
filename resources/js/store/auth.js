@@ -22,14 +22,20 @@ const actions = {
         context.commit('setUser', response.data)
     },
     async logout (context) {
-        const response = await axios.post('/api/user/logout')
+        await axios.post('/api/user/logout')
         context.commit('setUser', null)
     },
     async loginUser (context) {
         const response = await axios.get('/api/user')
         const user = response.data || null
         context.commit('setUser', user)
-      }
+    },
+    async passwordConfirm (context, data) {
+        await axios.post('/api/password/email', data)
+    },
+    async passwordReset (context, data) {
+        await axios.post('/api/password/update', data)
+    }
 }
 
 export default {
