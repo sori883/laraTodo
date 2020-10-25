@@ -40,9 +40,9 @@ class ResetPasswordController extends Controller
      * @param  string|null  $token
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function showResetForm($token = null, Request $request)
+    public function showResetForm($token, Request $request)
     {
-        $email = $request->input('email');
+        $email = $request->email;
         return $this->redirectWithToken('password_reset', $token, $email);
     }
 
