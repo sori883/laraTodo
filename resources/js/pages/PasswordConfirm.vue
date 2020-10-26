@@ -1,5 +1,6 @@
 <template>
 <b-col cols="12" sm="11" md="9" lg="7" xl="6" class="mx-auto">
+    <Error />
     <h2 class="text-center">パスワード再設定</h2>
     <b-card>
         <validation-observer ref="observer" v-slot="{ handleSubmit }">
@@ -26,7 +27,11 @@
 </template>
 
 <script>
+import Error from '../components/Error.vue'
 export default {
+    components: {
+        Error
+    },
     data () {
         return {
             PasswordConfirmForm: {
@@ -40,6 +45,9 @@ export default {
         },
         passwordConfirm() {
             this.$store.dispatch('auth/passwordConfirm', this.PasswordConfirmForm)
+                .catch((e) => {
+                    this.$store.commit('error/setmessage', e.response.data.errors)
+                })
         }
     }
 }

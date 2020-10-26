@@ -1,5 +1,6 @@
 <template>
 <b-col cols="12" sm="11" md="9" lg="7" xl="6" class="mx-auto">
+    <Error />
     <h2 class="text-center">ログイン</h2>
     <b-card>
         <validation-observer ref="observer" v-slot="{ handleSubmit }">
@@ -42,7 +43,11 @@
 </template>
 
 <script>
+import Error from '../components/Error.vue'
 export default {
+    components: {
+        Error
+    },
     data () {
         return {
             loginForm: {
@@ -60,6 +65,9 @@ export default {
             this.$store.dispatch('auth/login', this.loginForm)
                 .then(() => {
                     this.$router.push({name: 'main'})
+                })
+                .catch((e) => {
+                    this.$store.commit('error/setmessage', e.response.data.errors)
                 })
         }
     }

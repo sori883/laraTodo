@@ -1,9 +1,10 @@
 <template>
 <b-col cols="12" sm="11" md="9" lg="7" xl="6" class="mx-auto">
+    <Error />
     <h2 class="text-center">ユーザ登録</h2>
     <b-card>
         <validation-observer ref="observer" v-slot="{ handleSubmit }">
-            <validation-provider v-slot="validationContext" name="ユーザ名" :rules="{ required: true, max: 255 }">
+            <validation-provider v-slot="validationContext" name="ユーザ名" :rules="{ required: true, max: 255, min: 3, alpha_num: true }">
                 <b-form-group id="user-group" label="ユーザ名" label-for="user">
                     <b-form-input
                         id="user"
@@ -31,7 +32,7 @@
                 </b-form-group>
             </validation-provider>
 
-            <validation-provider v-slot="validationContext" name="パスワード" :rules="{ required: true }" vid="confirmation">
+            <validation-provider v-slot="validationContext" name="パスワード" :rules="{ required: true, min: 8 }" vid="confirmation">
                 <b-form-group id="password-group" label="パスワード" label-for="password">
                     <b-form-input
                         id="password"
@@ -69,7 +70,11 @@
 </template>
 
 <script>
+import Error from '../components/Error.vue'
 export default {
+    components: {
+        Error
+    },
     data () {
         return {
             registerForm: {
@@ -88,6 +93,9 @@ export default {
             this.$store.dispatch('auth/register', this.registerForm)
                 .then(() => {
                     this.$router.push({name: 'main'})
+                })
+                .catch((e) => {
+                    this.$store.commit('error/setmessage', e.response.data.errors)
                 })
         }
     }

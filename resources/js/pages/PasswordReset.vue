@@ -3,7 +3,7 @@
     <h2 class="text-center">パスワード再設定</h2>
     <b-card>
         <validation-observer ref="observer" v-slot="{ handleSubmit }">
-            <validation-provider v-slot="validationContext" name="パスワード" :rules="{ required: true }" vid="confirmation">
+            <validation-provider v-slot="validationContext" name="パスワード" :rules="{ required: true, min:8 }" vid="confirmation">
                 <b-form-group id="password-group" label="パスワード" label-for="password">
                     <b-form-input
                         id="password"
