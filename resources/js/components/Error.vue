@@ -17,10 +17,8 @@ export default {
             return this.$store.getters['error/message']
         }
     },
-    methods: {
-        async deleteMessages () {
-            await this.$store.commit('error/deletemessages')
-        }
+    destroyed() {
+        this.$store.commit('error/deletemessages')
     }
 }
 </script>
