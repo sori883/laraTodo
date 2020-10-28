@@ -63,6 +63,8 @@ export default {
                 .then(() => {
                     // フォームリセット
                     this.taskForm.title = ''
+                    this.taskForm.limit_at = ''
+                    this.taskForm.project_id = null
                     this.$nextTick(() => {
                         this.$refs.observer.reset();
                     });
