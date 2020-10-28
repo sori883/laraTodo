@@ -1,6 +1,6 @@
 <template>
 <validation-observer ref="observer" v-slot="{ handleSubmit }">
-    <b-modal id="taskEditModal" title="タスク編集" @show="setTaskTitle">
+    <b-modal id="taskEditModal" title="タスク編集" @show="setTask">
         <validation-provider v-slot="validationContext" name="タスク名" :rules="{ required: true, max: 50 }">
             <b-form-group id="task-edit-name" label="タスク名" label-for="email">
                 <b-form-input
@@ -67,7 +67,7 @@ export default {
         validationState({ dirty, validated, valid = null }) {
             return dirty || validated ? valid : null;
         },
-        setTaskTitle () {
+        setTask () {
             this.taskForm.title = this.selectedTask.title
             this.taskForm.limit_at = this.selectedTask.limit_at,
             this.taskForm.project_id = this.selectedTask.project_id
