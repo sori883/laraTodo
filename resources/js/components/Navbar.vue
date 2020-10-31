@@ -1,6 +1,9 @@
 <template>
-<b-navbar tag="header" toggleable="lg" type="dark" variant="dark">
-    <b-navbar-brand to="#">laratodo</b-navbar-brand>
+<b-navbar tag="header" toggleable="lg" type="dark" class="navbar">
+    <b-navbar-brand>
+        <img :src="'/img/icon.svg'" class="brand-icon">
+        laratodo
+    </b-navbar-brand>
     <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
 
     <b-collapse id="nav-text-collapse" is-nav>
