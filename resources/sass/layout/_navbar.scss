@@ -1,4 +1,15 @@
 .navbar {
     height: $navbar-height;
     z-index: $zindex-navbar;
+    background-color: $main-color;
 }
+
+.navbar-brand {
+    font-size: 50px;
+
+    .brand-icon {
+        height: $navbar-height - 15px;
+    }
+}
+
+
