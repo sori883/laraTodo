@@ -4,18 +4,13 @@ window._ = require('lodash');
 /**
  * BootstrapVue
  */
-
 import {BootstrapVue, BootstrapVueIcons} from 'bootstrap-vue'
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-
 /**
  * VeeValidate
  */
-
 import {
     ValidationObserver,
     ValidationProvider,
@@ -40,7 +35,6 @@ Vue.component('ValidationProvider', ValidationProvider);
 /**
  * DataPicker
  */
-
 import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
 import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
 Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
@@ -48,7 +42,6 @@ Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
 /**
  * axios
  */
-
 window.axios = require('axios');
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
