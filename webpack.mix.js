@@ -40,7 +40,7 @@ glob.sync(scssFiles).map(function (file) {
 
 glob.sync(jsFiles).map(function (file) {
     mix.js(file, 'public/js')
-  })
+})
 
 mix
     .disableNotifications()
@@ -51,11 +51,12 @@ mix
                     enforce: 'pre',
                     test: /\.(js|vue)$/,
                     loader: 'eslint-loader',
-                    exclude: /node_modules/,
+                    exclude: '/node_modules/',
                 },
                 {
                     test: /\.scss/,
-                    loader: 'import-glob-loader'
+                    loader: 'import-glob-loader',
+                    exclude: '/_*.*|/**',
                 },
             ]
         },
@@ -69,8 +70,7 @@ mix
     .stylelint({configFile: './.stylelintrc', files: ['**/*.scss']})
     .browserSync({
         files: [
-            "resources/views/**/*.blade.php",
-            "public/**/*.*"
+            'public/**/*.*'
         ],
         proxy: {
             target: "http://localhost/",
