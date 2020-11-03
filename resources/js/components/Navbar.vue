@@ -1,28 +1,32 @@
 <template>
 <b-navbar tag="header" toggleable="lg" type="dark" class="navbar">
-    <b-navbar-brand>
-        <img :src="'/img/icon.svg'" class="brand-icon">
-        laratodo
-    </b-navbar-brand>
-    <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
+    <b-container>
+        <div class="nav-layout">
+            <b-navbar-brand :to="{name: 'top'}">
+                <img :src="'/img/icon.svg'" class="brand-icon">
+                laratodo
+            </b-navbar-brand>
+            <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-    <b-collapse id="nav-text-collapse" is-nav>
-        <b-navbar-nav class="ml-auto">
-            <template v-if="isLogin">
-                <b-nav-item @click="logout">
-                    <a class="text-white">ログアウト</a>
-                </b-nav-item>
-            </template>
-            <template v-else>
-                <b-nav-item :to="{name: 'login'}">
-                    <a class="text-white">ログイン</a>
-                </b-nav-item>
-                <b-nav-item :to="{name: 'register'}">
-                    <a class="text-white">ユーザ登録</a>
-                </b-nav-item>
-            </template>
-        </b-navbar-nav>
-    </b-collapse>
+            <b-collapse id="nav-collapse" is-nav>
+                <b-navbar-nav class="ml-auto">
+                    <template v-if="isLogin">
+                        <b-nav-item @click="logout">
+                            <a class="text-white">Logout</a>
+                        </b-nav-item>
+                    </template>
+                    <template v-else>
+                        <b-nav-item :to="{name: 'login'}">
+                            <a class="text-white">Sign in</a>
+                        </b-nav-item>
+                        <b-nav-item :to="{name: 'register'}">
+                            <a class="text-white">Sign up</a>
+                        </b-nav-item>
+                    </template>
+                </b-navbar-nav>
+            </b-collapse>
+        </div>
+    </b-container>
 </b-navbar>
 </template>
 <script>

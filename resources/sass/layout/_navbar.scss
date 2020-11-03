@@ -2,13 +2,23 @@
     height: $navbar-height;
     z-index: $zindex-navbar;
     background-color: $main-color;
+
+    .nav-layout {
+        display: flex;
+        width: 100%;
+    }
+
+    .nav-item {
+        font-size: 1.2rem;
+    }
 }
 
 .navbar-brand {
-    font-size: 50px;
+    font-size: 1.6rem;
 
     .brand-icon {
-        height: $navbar-height - 15px;
+        height: $navbar-height - 20px;
+        padding-bottom: 5px;
     }
 }
 

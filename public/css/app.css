@@ -7904,15 +7904,23 @@ input[type=color].form-control:disabled {
 
 .navbar {
   z-index: 100;
-  height: 70sdpx;
+  height: 60px;
   background-color: #495464;
+}
+.navbar .nav-layout {
+  display: flex;
+  width: 100%;
+}
+.navbar .nav-item {
+  font-size: 1.2rem;
 }
 
 .navbar-brand {
-  font-size: 50px;
+  font-size: 1.6rem;
 }
 .navbar-brand .brand-icon {
-  height: 70sdpx;
+  height: 40px;
+  padding-bottom: 5px;
 }
 
 .sidebar {
@@ -7926,7 +7934,7 @@ input[type=color].form-control:disabled {
 .sidebar .sidebar-sticky {
   position: relative;
   top: 0;
-  height: calc(100vh - 70sdpx);
+  height: calc(100vh - 60px);
   overflow-x: hidden;
   overflow-y: auto;
 }
