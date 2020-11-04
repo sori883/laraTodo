@@ -1,11 +1,7 @@
 <template>
 <main>
     <Navbar />
-    <b-container fluid>
-        <b-row>
-            <RouterView />
-        </b-row>
-    </b-container>
+    <RouterView />
 </main>
 </template>
 
