@@ -29,15 +29,27 @@ Object.keys(rules).forEach((rule) => {
 localize('ja', ja)
 
 // 全てのコンポーネントで使用出来るようにする
-Vue.component('ValidationObserver', ValidationObserver);
-Vue.component('ValidationProvider', ValidationProvider);
+Vue.component('ValidationObserver', ValidationObserver)
+Vue.component('ValidationProvider', ValidationProvider)
 
 /**
  * DataPicker
  */
-import VueCtkDateTimePicker from 'vue-ctk-date-time-picker';
-import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css';
-Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker);
+import VueCtkDateTimePicker from 'vue-ctk-date-time-picker'
+import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css'
+Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker)
+
+/**
+ * Font Awesome
+ */
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+library.add(fas, far, fab)
+Vue.component('awesome-icon', FontAwesomeIcon)
 
 /**
  * axios
