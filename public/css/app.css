@@ -7902,25 +7902,25 @@ input[type=color].form-control:disabled {
   vertical-align: text-bottom;
 }
 
+body {
+  background-color: #f4f4f2;
+}
+
 .navbar {
   z-index: 100;
-  height: 60px;
+  height: 70px;
   background-color: #495464;
 }
-.navbar .nav-layout {
-  display: flex;
-  width: 100%;
-}
 .navbar .nav-item {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .navbar-brand {
-  font-size: 1.6rem;
+  font-size: 2rem;
 }
 .navbar-brand .brand-icon {
-  height: 40px;
-  padding-bottom: 5px;
+  height: 50px;
+  padding-bottom: 0.1rem;
 }
 
 .sidebar {
@@ -7934,7 +7934,7 @@ input[type=color].form-control:disabled {
 .sidebar .sidebar-sticky {
   position: relative;
   top: 0;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 70px);
   overflow-x: hidden;
   overflow-y: auto;
 }
@@ -7946,6 +7946,27 @@ input[type=color].form-control:disabled {
 }
 .sidebar .nav-item .nav-link {
   color: #000;
+}
+
+.top-intro {
+  margin-top: 3rem;
+}
+
+.me-intro {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.success {
+  border-color: #23ac0e;
+  background-color: #23ac0e;
+}
+
+.form-card {
+  padding: 0 0.8rem;
+}
+.form-content {
+  margin-bottom: 1rem;
 }
 
 .task-title {
@@ -7960,6 +7981,37 @@ input[type=color].form-control:disabled {
   height: 50px;
   line-height: 50px;
   text-align: center;
+}
+
+.me-icon-around {
+  width: 14rem;
+  height: 14rem;
+  margin-top: 3rem;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+}
+
+.me-icon {
+  height: 14rem;
+  padding: 1.5rem;
+}
+
+.me-write {
+  margin-top: 5rem;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+}
+
+.me-brand-links {
+  margin-top: 3rem;
+}
+
+.me-brand-icon {
+  color: #000;
+  font-size: 5rem;
 }
 
 /* see here: https://jp.vuejs.org/v2/guide/transitions.html */
@@ -12249,5 +12301,11 @@ h3 {
   .b-table-sticky-header {
     max-height: none !important;
     overflow-y: visible !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-card {
+    padding: 0;
   }
 }

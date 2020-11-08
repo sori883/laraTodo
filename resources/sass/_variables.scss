@@ -1,25 +1,49 @@
 // color
-$base-color: #f4f4f2;
-$main-color: #495464;
+$base-color: #f4f4f2 !default;
+$main-color: #495464 !default;
+$success-color: #23ac0e !default;
+$faild-color: #a52175 !default;
 
-$white: #ffffff;
+$white: #ffffff !default;
+$black: #000000 !default;
+
+// spacer
+$space-sm: 1rem;
+$space-md: 3rem;
+$space-lg: 5rem;
 
 // navbar
-$navbar-height: 60px;
+$navbar-height: 70px !default;
 
 // tasks
-$task-title-font-size: 1.4rem;
+$task-title-font-size: 1.4rem !default;
 
 // sidebar
-$sidebar-bg: #f8f9fa;
-$sidebar-padding-x: .5rem;
-$sidebar-boxshadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+$sidebar-bg: #f8f9fa !default;
+$sidebar-padding-x: .5rem !default;
+$sidebar-boxshadow: inset -1px 0 0 rgba(0, 0, 0, .1) !default;
 
-$sidebar-list-item-bg: #fff;
+// sidebar list
+$sidebar-list-item-bg: #fff !default;
 
 // z-index
-$zindex-navbar: 100;
+$zindex-navbar: 100 !default;
 
 // animation
-$animation-transition: .2s;
+$animation-transition: .2s !default;
 
+// form
+$form-padding: 0 .8rem !default;
+$form-adjust-bottom: 1rem !default;
+
+// breakpoints
+$breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+) !default;
+
+// material shadow
+$m-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4) !default;

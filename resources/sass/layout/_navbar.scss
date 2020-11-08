@@ -3,22 +3,17 @@
     z-index: $zindex-navbar;
     background-color: $main-color;
 
-    .nav-layout {
-        display: flex;
-        width: 100%;
-    }
-
     .nav-item {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
     }
 }
 
 .navbar-brand {
-    font-size: 1.6rem;
+    font-size: 2rem;
 
     .brand-icon {
         height: $navbar-height - 20px;
-        padding-bottom: 5px;
+        padding-bottom: .1rem;
     }
 }
 
