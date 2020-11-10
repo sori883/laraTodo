@@ -7906,6 +7906,50 @@ body {
   background-color: #f4f4f2;
 }
 
+.formonly-intro {
+  margin-top: 3rem;
+}
+.formonly-intro img {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 1rem;
+}
+.formonly-ttl {
+  font-size: 2em;
+  font-weight: 200;
+}
+
+.me-icon-around {
+  width: 14rem;
+  height: 14rem;
+  margin-top: 3rem;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+}
+
+.me-icon {
+  height: 14rem;
+  padding: 1.5rem;
+}
+
+.me-write {
+  margin-top: 5rem;
+  padding: 0 1rem;
+  font-size: 1.2rem;
+}
+
+.me-brand-links {
+  margin-top: 3rem;
+}
+
+.me-brand-icon {
+  color: #000;
+  font-size: 5rem;
+}
+
 .navbar {
   z-index: 100;
   height: 70px;
@@ -7916,7 +7960,7 @@ body {
 }
 
 .navbar-brand {
-  font-size: 2rem;
+  font-size: 2em;
 }
 .navbar-brand .brand-icon {
   height: 50px;
@@ -7961,6 +8005,28 @@ body {
   border-color: #23ac0e;
   background-color: #23ac0e;
 }
+.success:hover, .success:focus {
+  border-color: #156508;
+  background-color: #156508;
+}
+.success:not(:disabled):not(.disabled):active {
+  border-color: #156508;
+  background-color: #156508;
+}
+
+.error-alert {
+  padding: 0.5rem;
+}
+
+.error-list {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+  list-style-type: none;
+}
+.error-list .error-list {
+  font-size: 1rem;
+}
 
 .form-card {
   padding: 0 0.8rem;
@@ -7981,37 +8047,6 @@ body {
   height: 50px;
   line-height: 50px;
   text-align: center;
-}
-
-.me-icon-around {
-  width: 14rem;
-  height: 14rem;
-  margin-top: 3rem;
-  margin-right: auto;
-  margin-left: auto;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
-}
-
-.me-icon {
-  height: 14rem;
-  padding: 1.5rem;
-}
-
-.me-write {
-  margin-top: 5rem;
-  padding: 0 1rem;
-  font-size: 1.2rem;
-}
-
-.me-brand-links {
-  margin-top: 3rem;
-}
-
-.me-brand-icon {
-  color: #000;
-  font-size: 5rem;
 }
 
 /* see here: https://jp.vuejs.org/v2/guide/transitions.html */
@@ -12305,6 +12340,9 @@ h3 {
 }
 
 @media (max-width: 576px) {
+  .formonly-intro {
+    margin-top: 1rem;
+  }
   .form-card {
     padding: 0;
   }

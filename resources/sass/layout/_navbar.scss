@@ -4,12 +4,12 @@
     background-color: $main-color;
 
     .nav-item {
-        font-size: 1.4rem;
+        font-size: $font-md;
     }
 }
 
 .navbar-brand {
-    font-size: 2rem;
+    font-size: $font-lg;
 
     .brand-icon {
         height: $navbar-height - 20px;

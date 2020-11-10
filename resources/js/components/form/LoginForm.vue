@@ -8,20 +8,19 @@
                     id="email"
                     v-model="loginForm.email"
                     type="email"
-                    placeholder="メールアドレス"
                     :state="validationState(validationContext)"
                     aria-describedby="emailFeedback"
                 ></b-form-input>
                 <b-form-invalid-feedback id="emailFeedback">{{ validationContext.errors[0] }}</b-form-invalid-feedback>
             </b-form-group>
         </validation-provider>
+
         <validation-provider v-slot="validationContext" name="パスワード" :rules="{ required: true }">
             <b-form-group id="password-group" label="パスワード" label-for="password">
                 <b-form-input
                     id="password"
                     v-model="loginForm.password"
                     type="password"
-                    placeholder="パスワード"
                     :state="validationState(validationContext)"
                     aria-describedby="passwordFeedback"
                 ></b-form-input>
@@ -31,7 +30,8 @@
                 <b-form-checkbox v-model="loginForm.remember">ログインしたままにする</b-form-checkbox>
             </b-form-group>
         </validation-provider>
-        <b-button block variant="primary" @click="handleSubmit(login)">ログイン</b-button>
+
+        <b-button block class="success" @click="handleSubmit(login)">ログイン</b-button>
     </validation-observer>
     <div class="text-center mt-3">
         <b-link :to="{name: 'password_confirm'}">パスワード再設定</b-link>

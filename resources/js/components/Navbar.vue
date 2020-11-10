@@ -2,7 +2,7 @@
 <b-navbar tag="header" toggleable="lg" type="dark" class="navbar">
     <b-container>
         <b-navbar-brand :to="{name: 'top'}">
-            <img :src="'/img/icon.svg'" class="brand-icon">
+            <img :src="'/img/icon-white.svg'" class="brand-icon">
             laratodo
         </b-navbar-brand>
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

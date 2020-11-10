@@ -1,0 +1,20 @@
+.formonly-intro {
+    margin-top: $space-md;
+
+    img {
+        height: $form-icon-height;
+        width: $form-icon-width;
+        margin-bottom: $space-sm;
+    }
+}
+
+@include mq-down(sm) {
+    .formonly-intro {
+        margin-top: $space-sm;
+    }
+}
+
+.formonly-ttl {
+    font-size: $font-lg;
+    font-weight: $font-wd-sm;
+}

@@ -4,16 +4,34 @@ $main-color: #495464 !default;
 $success-color: #23ac0e !default;
 $faild-color: #a52175 !default;
 
+$success-darken-color: darken(#23ac0e, 15%) !default;
+$faild-darkn-color: darken(#a52175, 15%) !default;
+
 $white: #ffffff !default;
 $black: #000000 !default;
 
 // spacer
+$space-xs: .5rem;
 $space-sm: 1rem;
 $space-md: 3rem;
 $space-lg: 5rem;
 
+// font size
+$font-sm: 1rem;
+$font-md: 1.4rem;
+$font-lg: 2em;
+
+// font width
+$font-wd-sm: 200;
+$font-wd-md: 400;
+$font-wd-lg: 400;
+
 // navbar
 $navbar-height: 70px !default;
+
+// icon size
+$form-icon-height: 70px;
+$form-icon-width: 70px;
 
 // tasks
 $task-title-font-size: 1.4rem !default;

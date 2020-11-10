@@ -1,6 +1,9 @@
 <template>
-<b-col cols="12" sm="11" md="9" lg="7" xl="6" class="mx-auto">
-    <h2 class="text-center">ログイン</h2>
+<b-col sm="12" md="3" lg="3" xl="3" class="mx-auto login-intro">
+    <div class="text-center formonly-intro">
+        <img :src="'/img/icon-black.svg'">
+        <p class="formonly-ttl">Sign in to laratodo</p>
+    </div>
     <LoginForm />
 </b-col>
 </template>

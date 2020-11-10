@@ -1,4 +1,15 @@
 .success {
     background-color: $success-color;
     border-color: $success-color;
+
+    &:hover,
+    &:focus {
+        background-color: $success-darken-color;
+        border-color: $success-darken-color;
+    }
+
+    &:not(:disabled):not(.disabled):active {
+        background-color: $success-darken-color;
+        border-color: $success-darken-color;
+    }
 }

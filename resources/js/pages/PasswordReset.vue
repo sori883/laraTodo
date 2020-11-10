@@ -1,7 +1,11 @@
 <template>
-<b-col cols="12" sm="11" md="9" lg="7" xl="6" class="mx-auto">
-    <h2 class="text-center">パスワード再設定</h2>
+<b-col sm="12" md="3" lg="3" xl="3" class="mx-auto">
+    <div class="text-center formonly-intro">
+        <img :src="'/img/icon-black.svg'">
+        <p class="formonly-ttl">Reset Password</p>
+    </div>
     <b-card>
+        <Error />
         <validation-observer ref="observer" v-slot="{ handleSubmit }">
             <validation-provider v-slot="validationContext" name="パスワード" :rules="{ required: true, min:8 }" vid="confirmation">
                 <b-form-group id="password-group" label="パスワード" label-for="password">
@@ -9,7 +13,6 @@
                         id="password"
                         v-model="PasswordResetForm.password"
                         type="password"
-                        placeholder="パスワード"
                         :state="validationState(validationContext)"
                         aria-describedby="passwordFeedback"
                     ></b-form-input>
@@ -38,7 +41,11 @@
 
 <script>
 import Cookies from 'js-cookie';
+import Error from '../components/Error.vue'
 export default {
+    components: {
+        Error
+    },
     data () {
         return {
             PasswordResetForm: {
@@ -71,6 +78,9 @@ export default {
         },
         passwordReset() {
             this.$store.dispatch('auth/passwordReset', this.PasswordResetForm)
+                .catch((e) => {
+                    this.$store.commit('error/setmessage', e.response.data.errors)
+                })
         }
     }
 }
