@@ -1,5 +1,5 @@
 <template>
-<div class="col-md-6 offset-md-1">
+<div class="task-list">
     <h2 class="py-3">{{ selectedProject.title }}</h2>
     <ul class="nav flex-column pt-2">
         <Task

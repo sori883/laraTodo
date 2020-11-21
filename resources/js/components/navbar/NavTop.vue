@@ -11,15 +11,15 @@
             <b-navbar-nav class="ml-auto">
                 <template v-if="isLogin">
                     <b-nav-item @click="logout">
-                        <a class="text-white">Logout</a>
+                        <span class="text-white">Logout</span>
                     </b-nav-item>
                 </template>
                 <template v-else>
                     <b-nav-item :to="{name: 'login'}">
-                        <a class="text-white">Sign in</a>
+                        <span class="text-white">Sign in</span>
                     </b-nav-item>
                     <b-nav-item :to="{name: 'register'}">
-                        <a class="text-white">Sign up</a>
+                        <span class="text-white">Sign up</span>
                     </b-nav-item>
                 </template>
             </b-navbar-nav>

@@ -1,22 +1,24 @@
 <template>
-<b-container fluid>
-    <b-row>
+<main>
+    <NavMain />
+    <div class="wrapper">
         <ProjectList />
         <TaskList />
-        <DelProject />
-        <CreateProject />
-        <EditProject />
-        <DelTask />
-        <CreateTask />
-        <EditTask />
-    </b-row>
+    </div>
+    <DelProject />
+    <CreateProject />
+    <EditProject />
+    <DelTask />
+    <CreateTask />
+    <EditTask />
     <div class="task-create-button">
         <b-button v-b-modal.taskCreateModal pill>Button</b-button>
     </div>
-</b-container>
+</main>
 </template>
 
 <script>
+import NavMain from '../components/navbar/NavMain.vue'
 // Project
 import ProjectList from '../components/ProjectList.vue'
 import DelProject from '../components/modal/DelProject.vue'
@@ -29,6 +31,7 @@ import CreateTask from '../components/modal/CreateTask.vue'
 import EditTask from '../components/modal/EditTask.vue'
 export default {
     components: {
+        NavMain,
         ProjectList,
         DelProject,
         CreateProject,

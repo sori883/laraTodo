@@ -1,20 +1,27 @@
 .navbar {
-    height: $navbar-height;
     z-index: $zindex-navbar;
     background-color: $main-color;
-
     .nav-item {
         font-size: $font-md;
     }
-}
 
-.navbar-brand {
-    font-size: $font-lg;
+    .navbar-brand {
+        font-size: $font-lg;
 
-    .brand-icon {
-        height: $navbar-height - 20px;
-        padding-bottom: .1rem;
+        .brand-icon {
+            height: $brand-icon;
+            padding-bottom: .1rem;
+        }
     }
 }
 
+.navbar-main {
+    z-index: $zindex-navbar;
+    background-color: $main-color;
+    height: 50px;
 
+    .toggle-sidebar-icon {
+        color: $white;
+        cursor: pointer;
+    }
+}

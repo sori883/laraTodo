@@ -1,17 +1,16 @@
 .sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
+    min-width: 250px;
+    max-width: 250px;
     background-color: $sidebar-bg;
     box-shadow: $sidebar-boxshadow;
+    transition: all 0.3s;
 
-    .sidebar-sticky {
-        position: relative;
-        top: 0;
-        height: calc(100vh - #{$navbar-height});
-        overflow-x: hidden;
-        overflow-y: auto;
+    &.active {
+        margin-left: -250px;
+    }
+
+    .sidebar-body {
+        margin-top: $space-sm;
     }
 
     .nav-item {

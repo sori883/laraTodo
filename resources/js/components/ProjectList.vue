@@ -1,6 +1,6 @@
 <template>
-<nav class="col-md-3 d-md-block sidebar">
-    <div class="sidebar-sticky pt-3">
+<nav class="sidebar">
+    <div class="sidebar-body">
         <ul class="nav flex-column">
             <li class="nav-item">
                 <span class="nav-link" @click="selectedProject">
