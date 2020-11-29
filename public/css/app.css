@@ -7923,6 +7923,7 @@ body {
   display: flex;
   align-items: stretch;
   width: 100%;
+  background-color: #fff;
 }
 
 .me-icon-around {
@@ -7987,7 +7988,7 @@ body {
 .sidebar {
   min-width: 15%;
   max-width: 15%;
-  background-color: #f8f9fa;
+  background-color: #f4f4f2;
   transition: 0.2s;
 }
 .sidebar.hide {
@@ -8055,9 +8056,10 @@ body {
 }
 
 .task-list {
-  width: 100%;
+  width: 75%;
   min-height: 100vh;
-  transition: all 0.3s;
+  margin: 0 auto;
+  transition: 0.2s;
 }
 
 .task-title {

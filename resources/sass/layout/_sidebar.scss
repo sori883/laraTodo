@@ -1,9 +1,8 @@
 .sidebar {
     min-width: $sidebar-width;
     max-width: $sidebar-width;
-    background-color: $sidebar-bg;
     transition: $animation-transition;
-
+    background-color: $base-color;
     &.hide {
         margin-left: -$sidebar-width;
     }

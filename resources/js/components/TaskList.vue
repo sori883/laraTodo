@@ -24,7 +24,6 @@ export default {
         selectedProject () {
             const selectedProject = this.$store.getters['projects/selectedProject']
             if (!selectedProject) {
-                // TODO errorストアにしたい
                 return {title: 'inbox'}
             }
 
