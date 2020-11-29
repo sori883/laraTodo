@@ -7988,7 +7988,7 @@ body {
   min-width: 15%;
   max-width: 15%;
   background-color: #f8f9fa;
-  transition: all 0.3s;
+  transition: 0.2s;
 }
 .sidebar.hide {
   margin-left: -15%;
@@ -7997,6 +7997,7 @@ body {
   margin-top: 1rem;
 }
 .sidebar .nav-item {
+  padding: 0.1rem;
   font-size: 0.9rem;
   cursor: pointer;
 }

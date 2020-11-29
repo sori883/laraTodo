@@ -1,11 +1,11 @@
 .sidebar {
-    min-width: 15%;
-    max-width: 15%;
+    min-width: $sidebar-width;
+    max-width: $sidebar-width;
     background-color: $sidebar-bg;
-    transition: all 0.3s;
+    transition: $animation-transition;
 
     &.hide {
-        margin-left: -15%;
+        margin-left: -$sidebar-width;
     }
 
     .sidebar-body {
@@ -13,8 +13,9 @@
     }
 
     .nav-item {
-        font-size: .9rem;
+        font-size: $sidebar-list-font-size;
         cursor: pointer;
+        padding: $sidebar-list-padding-y;
 
         &:hover {
             background-color: $sidebar-list-item-bg;
@@ -25,7 +26,7 @@
         }
 
         .menu-icon{
-            font-size: .8rem;
+            font-size: $sidebar-list-icon-size;
         }
     }
 }
