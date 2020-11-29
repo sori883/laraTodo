@@ -1,12 +1,11 @@
 .sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 15%;
+    max-width: 15%;
     background-color: $sidebar-bg;
-    box-shadow: $sidebar-boxshadow;
     transition: all 0.3s;
 
-    &.active {
-        margin-left: -250px;
+    &.hide {
+        margin-left: -15%;
     }
 
     .sidebar-body {
@@ -14,6 +13,7 @@
     }
 
     .nav-item {
+        font-size: .9rem;
         cursor: pointer;
 
         &:hover {
@@ -22,6 +22,10 @@
 
         .nav-link {
             color: $black;
+        }
+
+        .menu-icon{
+            font-size: .8rem;
         }
     }
 }

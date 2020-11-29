@@ -1,6 +1,6 @@
 <template>
-<b-navbar tag="header" toggleable="lg" type="dark" class="navbar-main">
-    <awesome-icon :icon="['fas', 'bars']" @click="toggleActive" class="toggle-sidebar-icon" />
+<b-navbar tag="header" toggleable="lg" type="dark" class="navbar navbar-main">
+    <awesome-icon :icon="['fas', 'bars']" class="toggle-sidebar-icon" @click="toggleActive" />
 </b-navbar>
 </template>
 <script>

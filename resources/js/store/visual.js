@@ -1,14 +1,14 @@
 const state = {
-    activeSidebar: false
+    sidebarHidden: false
 }
 
 const getters = {
-    activeSidebar: (state) => state.activeSidebar
+    sidebarHidden: (state) => state.sidebarHidden
 }
 
 const mutations = {
     toggleSidebar (state) {
-        state.activeSidebar = !state.activeSidebar
+        state.sidebarHidden = !state.sidebarHidden
     }
 }
 

@@ -1,5 +1,5 @@
 <template>
-<b-navbar tag="header" toggleable="lg" type="dark" class="navbar">
+<b-navbar tag="header" toggleable="lg" type="dark" class="navbar navbar-top">
     <b-container>
         <b-navbar-brand :to="{name: 'top'}">
             <img :src="'/img/icon-white.svg'" class="brand-icon">

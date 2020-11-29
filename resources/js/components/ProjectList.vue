@@ -1,10 +1,10 @@
 <template>
-<nav class="sidebar">
+<nav :class="{ hide: sidebarHidden }" class="sidebar">
     <div class="sidebar-body">
         <ul class="nav flex-column">
             <li class="nav-item">
                 <span class="nav-link" @click="selectedProject">
-                    <i class="fas fa-inbox"></i>
+                    <awesome-icon :icon="['fas', 'inbox']" />
                     インボックス <span class="sr-only">(current)</span>
                 </span>
             </li>
@@ -13,7 +13,7 @@
         <h6 class="d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>プロジェクト</span>
             <span v-b-modal.projectCreateModal class="text-muted">
-                <i class="fas fa-plus-circle"></i>
+                <awesome-icon :icon="['fas', 'plus-circle']" />
             </span>
         </h6>
         <ul class="nav flex-column mb-2">
@@ -36,6 +36,9 @@ export default {
     computed: {
         projects () {
             return this.$store.getters['projects/projects']
+        },
+        sidebarHidden () {
+            return this.$store.getters['visual/sidebarHidden']
         }
     },
     watch: {

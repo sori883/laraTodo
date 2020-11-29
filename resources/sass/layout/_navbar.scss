@@ -15,8 +15,11 @@
     }
 }
 
+.navbar-top {
+    background-color: $main-color;
+}
+
 .navbar-main {
-    z-index: $zindex-navbar;
     background-color: $main-color;
     height: 50px;
 

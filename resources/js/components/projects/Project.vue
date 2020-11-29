@@ -1,12 +1,16 @@
 <template>
-<li class="nav-item d-flex justify-content-between align-items-center pr-3" @click="selectedProject">
+<li
+    class="nav-item d-flex justify-content-between align-items-center pr-3"
+    @click="selectedProject"
+    @mouseover="showIcon"
+    @mouseleave="hideIcon"
+>
     <span class="nav-link">
-        <i class="fas fa-folder"></i>
         {{ project.title }}
     </span>
-    <b-dropdown size="lg" variant="link" no-caret>
+    <b-dropdown size="sm" variant="link" no-caret>
         <template v-slot:button-content>
-            <i class="fas fa-ellipsis-h text-muted"></i>
+            <awesome-icon v-show="visibleIcon" :icon="['fas', 'ellipsis-h']" class="text-muted menu-icon" />
         </template>
 
         <b-dropdown-item v-b-modal.projectEditModal @click="selectedProject">プロジェクトを編集</b-dropdown-item>
@@ -24,9 +28,22 @@ export default {
             required: true
         }
     },
+    data () {
+        return {
+            visibleIcon: false
+        }
+    },
     methods: {
         selectedProject () {
             this.$store.commit('projects/setSelectedProject', this.project)
+        },
+        showIcon () {
+            this.visibleIcon = true
+            console.log(this.visibleIcon)
+        },
+        hideIcon () {
+            this.visibleIcon = false
+            console.log(this.visibleIcon)
         }
     }
 }

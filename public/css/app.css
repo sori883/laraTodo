@@ -7971,8 +7971,11 @@ body {
   padding-bottom: 0.1rem;
 }
 
+.navbar-top {
+  background-color: #495464;
+}
+
 .navbar-main {
-  z-index: 100;
   height: 50px;
   background-color: #495464;
 }
@@ -7982,19 +7985,19 @@ body {
 }
 
 .sidebar {
-  min-width: 250px;
-  max-width: 250px;
+  min-width: 15%;
+  max-width: 15%;
   background-color: #f8f9fa;
-  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
   transition: all 0.3s;
 }
-.sidebar.active {
-  margin-left: -250px;
+.sidebar.hide {
+  margin-left: -15%;
 }
 .sidebar .sidebar-body {
   margin-top: 1rem;
 }
 .sidebar .nav-item {
+  font-size: 0.9rem;
   cursor: pointer;
 }
 .sidebar .nav-item:hover {
@@ -8002,6 +8005,9 @@ body {
 }
 .sidebar .nav-item .nav-link {
   color: #000;
+}
+.sidebar .nav-item .menu-icon {
+  font-size: 0.8rem;
 }
 
 .top-intro {
