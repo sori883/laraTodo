@@ -21,10 +21,20 @@
 
 .navbar-main {
     background-color: $main-color;
-    height: 50px;
+    height: $navbar-top-height;
 
     .toggle-sidebar-icon {
         color: $white;
         cursor: pointer;
+        font-size: $toggle-sidebar-icon;
+    }
+}
+
+.sidebar-toggle {
+    border-radius: 3px;
+    padding-top: 5px;
+
+    &:hover {
+        background-color: rgba($white, 0.2);
     }
 }

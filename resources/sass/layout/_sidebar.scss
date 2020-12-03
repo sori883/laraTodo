@@ -28,5 +28,13 @@
             font-size: $sidebar-list-icon-size;
         }
     }
+
+    .create-project-btn {
+        color: $mute-color;
+
+        &:hover {
+            color: $black;
+        }
+    }
 }
 

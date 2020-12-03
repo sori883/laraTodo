@@ -6,9 +6,9 @@
             {{ task.title }}
         </span>
         <div>
-            <b-dropdown size="MD" variant="link" no-caret>
+            <b-dropdown size="md" variant="link" no-caret>
                 <template v-slot:button-content>
-                    <i class="fas fa-ellipsis-h text-muted"></i>
+                    <awesome-icon :icon="['fas', 'ellipsis-h']" class="text-muted" />
                 </template>
 
                 <b-dropdown-item v-b-modal.taskEditModal @click="selectedTask">タスク編集</b-dropdown-item>
@@ -17,9 +17,10 @@
             </b-dropdown>
         </div>
     </div>
-    <div v-show="task.limit_at" class="mt-2 mb-1">
-        <small><i class="fas fa-calendar-day d-inline mr-1"></i>{{ task.limit_at }}</small>
-    </div>
+    <small v-show="task.limit_at">
+        <awesome-icon :icon="['fas', 'calendar-day']" class="text-muted" />
+        {{ task.limit_at }}
+    </small>
 </li>
 </template>
 

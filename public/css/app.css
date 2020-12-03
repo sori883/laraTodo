@@ -7906,6 +7906,16 @@ body {
   background-color: #f4f4f2;
 }
 
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+button:focus {
+  outline: 0;
+}
+
 .formonly-intro {
   margin-top: 3rem;
 }
@@ -7982,17 +7992,26 @@ body {
 }
 .navbar-main .toggle-sidebar-icon {
   color: #fff;
+  font-size: 1.2rem;
   cursor: pointer;
 }
 
+.sidebar-toggle {
+  padding-top: 5px;
+  border-radius: 3px;
+}
+.sidebar-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
 .sidebar {
-  min-width: 15%;
-  max-width: 15%;
+  min-width: 305px;
+  max-width: 305px;
   background-color: #f4f4f2;
   transition: 0.2s;
 }
 .sidebar.hide {
-  margin-left: -15%;
+  margin-left: -305px;
 }
 .sidebar .sidebar-body {
   margin-top: 1rem;
@@ -8010,6 +8029,12 @@ body {
 }
 .sidebar .nav-item .menu-icon {
   font-size: 0.8rem;
+}
+.sidebar .create-project-btn {
+  color: #6c757d;
+}
+.sidebar .create-project-btn:hover {
+  color: #000;
 }
 
 .top-intro {
@@ -8056,7 +8081,7 @@ body {
 }
 
 .task-list {
-  width: 75%;
+  min-width: 910px;
   min-height: 100vh;
   margin: 0 auto;
   transition: 0.2s;

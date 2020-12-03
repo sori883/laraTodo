@@ -12,7 +12,7 @@
 
         <h6 class="d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>プロジェクト</span>
-            <span v-b-modal.projectCreateModal class="text-muted">
+            <span v-b-modal.projectCreateModal class="create-project-btn">
                 <awesome-icon :icon="['fas', 'plus-circle']" />
             </span>
         </h6>
