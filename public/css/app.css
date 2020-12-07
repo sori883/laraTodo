@@ -8088,7 +8088,26 @@ button:focus {
 }
 
 .task-title {
-  font-size: 1.4rem;
+  font-size: 1rem;
+}
+
+.task-complite-circle {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem;
+  border: 1px solid #495464;
+  border-radius: 50%;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.task-complite-circle:hover {
+  background-color: #495464;
+}
+
+.task-complite-check {
+  margin: 0 0 5px 3px;
+  color: #fff;
+  font-size: 0.7rem;
 }
 
 .task-create-button {

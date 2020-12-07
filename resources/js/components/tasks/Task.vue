@@ -1,12 +1,20 @@
 <template>
 <li class="nav-item border-bottom">
     <div class="d-flex justify-content-between pt-3">
-        <span class="task-title">
-            <b-icon icon="circle" font-scale="0.8" @click="compliteTask"></b-icon>
-            {{ task.title }}
-        </span>
         <div>
-            <b-dropdown size="md" variant="link" no-caret>
+            <div class="task-title d-flex align-items-center">
+                <div class="task-complite-circle" @click="compliteTask">
+                    <awesome-icon :icon="['fas', 'check']" class="task-complite-check" />
+                </div>
+                <span>{{ task.title }}</span>
+            </div>
+            <small v-if="task.limit_at" :class="[limitAt ? 'text-danger' : 'text-muted']">
+                <awesome-icon :icon="['fas', 'calendar-day']" />
+                {{ task.limit_at | moment("YYYY年MM月DD日 h時mm分") }}
+            </small>
+        </div>
+        <div>
+            <b-dropdown size="sm" variant="link" no-caret>
                 <template v-slot:button-content>
                     <awesome-icon :icon="['fas', 'ellipsis-h']" class="text-muted" />
                 </template>
@@ -17,10 +25,6 @@
             </b-dropdown>
         </div>
     </div>
-    <small v-show="task.limit_at">
-        <awesome-icon :icon="['fas', 'calendar-day']" class="text-muted" />
-        {{ task.limit_at }}
-    </small>
 </li>
 </template>
 
@@ -30,6 +34,21 @@ export default {
         task: {
             type: Object,
             required: true
+        }
+    },
+    data () {
+        return {
+            limitAt: false
+        }
+    },
+    created() {
+        if (!this.task.limit_at) {
+            return
+        }
+
+        const today = this.$moment().format()
+        if (this.$moment(this.task.limit_at).isAfter(today)) {
+            this.limitAt = true
         }
     },
     methods: {

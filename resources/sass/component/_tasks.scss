@@ -1,12 +1,33 @@
 .task-list {
-    min-width: 910px;
-    min-height: 100vh;
+    min-width: $task-min-width;
+    min-height: $task-min-height;
     transition: $animation-transition;
     margin: 0 auto;
 }
 
 .task-title {
     font-size: $task-title-font-size;
+}
+
+
+.task-complite-circle {
+    vertical-align: middle;
+    margin-right: $space-xs;
+    border: 1px solid $main-color;
+    border-radius: 50%;
+    width: $task-circle-size;
+    height: $task-circle-size;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $main-color;
+    }
+}
+
+.task-complite-check {
+    margin: $task-check-space;
+    font-size: $task-check-size;
+    color: $white;
 }
 
 .task-create-button {

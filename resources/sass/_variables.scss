@@ -37,7 +37,7 @@ $toggle-sidebar-icon: 1.2rem !default;
 $navbar-top-height: 50px !default;
 
 // tasks
-$task-title-font-size: 1.4rem !default;
+$task-title-font-size: $font-sm !default;
 
 // sidebar
 $sidebar-bg: #f8f9fa !default;
@@ -49,6 +49,14 @@ $sidebar-list-item-bg: #fff !default;
 $sidebar-list-font-size: .9rem !default;
 $sidebar-list-padding-y: .1rem !default;
 $sidebar-list-icon-size: .8rem !default;
+
+//task list
+$task-min-width: 910px !default;
+$task-min-height: 100vh !default;
+$task-circle-size: 18px !default;
+$task-check-space: 0 0 5px 3px !default;
+$task-check-size: .7rem;
+
 
 // z-index
 $zindex-navbar: 100 !default;
