@@ -40,6 +40,11 @@ import 'vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css'
 Vue.component('VueCtkDateTimePicker', VueCtkDateTimePicker)
 
 /**
+ * Moment
+ */
+Vue.use(require('vue-moment'));
+
+/**
  * Font Awesome
  */
 import { library } from '@fortawesome/fontawesome-svg-core'
