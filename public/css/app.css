@@ -8120,6 +8120,10 @@ button:focus {
   text-align: center;
 }
 
+.modal-open .task-create-button {
+  margin-right: 15px;
+}
+
 /* see here: https://jp.vuejs.org/v2/guide/transitions.html */
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.2s;

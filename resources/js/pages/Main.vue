@@ -12,7 +12,9 @@
     <CreateTask />
     <EditTask />
     <div class="task-create-button">
-        <b-button v-b-modal.taskCreateModal pill>Button</b-button>
+        <b-button v-b-modal.taskCreateModal pill>
+            <awesome-icon :icon="['fas', 'plus']" />
+        </b-button>
     </div>
 </main>
 </template>

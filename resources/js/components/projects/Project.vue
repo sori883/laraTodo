@@ -39,11 +39,9 @@ export default {
         },
         showIcon () {
             this.visibleIcon = true
-            console.log(this.visibleIcon)
         },
         hideIcon () {
             this.visibleIcon = false
-            console.log(this.visibleIcon)
         }
     }
 }
