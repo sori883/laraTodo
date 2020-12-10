@@ -39,9 +39,3 @@
     line-height: 50px;
     text-align: center;
 }
-
-// bootstrapのモーダル表示時に非表示にされる
-// スクロールバーのサイズ分marginを設定する
-.modal-open .task-create-button {
-    margin-right: 15px;
-}
