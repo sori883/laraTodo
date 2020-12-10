@@ -6,6 +6,7 @@
     </div>
     <b-card>
         <Error />
+        <b-alert variant="success" :show="successAlert">パスワードリセットメールを送信しました。</b-alert>
         <validation-observer ref="observer" v-slot="{ handleSubmit }">
             <validation-provider v-slot="validationContext" name="メールアドレス" :rules="{ required: true , email: true}">
                 <b-form-group id="email-group" label="メールアドレス" label-for="email">
@@ -38,7 +39,8 @@ export default {
         return {
             PasswordConfirmForm: {
                 email: ''
-            }
+            },
+            successAlert: false
         }
     },
     methods: {
@@ -47,7 +49,12 @@ export default {
         },
         passwordConfirm() {
             this.$store.dispatch('auth/passwordConfirm', this.PasswordConfirmForm)
+                .then(() => {
+                    this.$store.commit('error/deletemessages')
+                    this.successAlert = true
+                })
                 .catch((e) => {
+                    this.successAlert = false
                     this.$store.commit('error/setmessage', e.response.data.errors)
                 })
         }

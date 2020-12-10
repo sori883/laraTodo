@@ -6,6 +6,7 @@
     </div>
     <b-card>
         <Error />
+        <b-alert variant="success" :show="successAlert">パスワードをリセットしました。</b-alert>
         <validation-observer ref="observer" v-slot="{ handleSubmit }">
             <validation-provider v-slot="validationContext" name="パスワード" :rules="{ required: true, min:8 }" vid="confirmation">
                 <b-form-group id="password-group" label="パスワード" label-for="password">
@@ -26,14 +27,13 @@
                         id="password-confirm"
                         v-model="PasswordResetForm.password_confirmation"
                         type="password"
-                        placeholder="パスワード（確認）"
                         :state="validationState(validationContext)"
                         aria-describedby="passwordConfirmFeedback"
                     ></b-form-input>
                     <b-form-invalid-feedback id="passwordConfirmFeedback">{{ validationContext.errors[0] }}</b-form-invalid-feedback>
                 </b-form-group>
             </validation-provider>
-            <b-button block variant="primary" @click="handleSubmit(passwordReset)">パスワードをリセット</b-button>
+            <b-button block class="success" @click="handleSubmit(passwordReset)">パスワードをリセット</b-button>
         </validation-observer>
     </b-card>
 </b-col>
@@ -53,7 +53,8 @@ export default {
                 password: '',
                 password_confirmation: '',
                 token: ''
-            }
+            },
+            successAlert: false
         }
     },
     created() {
@@ -78,7 +79,12 @@ export default {
         },
         passwordReset() {
             this.$store.dispatch('auth/passwordReset', this.PasswordResetForm)
+                .then(() => {
+                    this.$store.commit('error/deletemessages')
+                    this.successAlert = true
+                })
                 .catch((e) => {
+                    this.successAlert = false
                     this.$store.commit('error/setmessage', e.response.data.errors)
                 })
         }
