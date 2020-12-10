@@ -15,13 +15,8 @@
     }
 }
 
-.navbar-top {
-    background-color: $main-color;
-}
-
 .navbar-main {
-    background-color: $main-color;
-    height: $navbar-top-height;
+    height: $navbar-main-height;
 
     .toggle-sidebar-icon {
         color: $white;
