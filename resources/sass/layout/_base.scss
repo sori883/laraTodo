@@ -13,3 +13,10 @@ button {
         outline: 0;
     }
 }
+
+// Bootstrapのmodal表示時にスクロールバーが表示
+// されていない状態でもpadding-rightが付与される
+// 現象の対処(vueのmountedで付与)
+.fix-modal-padding {
+    padding-right: 0 !important;
+}

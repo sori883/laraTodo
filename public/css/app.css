@@ -7927,6 +7927,10 @@ button:focus {
   outline: 0;
 }
 
+.fix-modal-padding {
+  padding-right: 0 !important;
+}
+
 .formonly-intro {
   margin-top: 3rem;
 }
@@ -8043,6 +8047,46 @@ button:focus {
   color: #000;
 }
 
+.task-list {
+  min-width: 910px;
+  min-height: calc(100vh - 50px);
+  margin: 0 auto;
+  transition: 0.2s;
+}
+
+.task-title {
+  font-size: 1rem;
+}
+
+.task-complite-circle {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem;
+  border: 1px solid #495464;
+  border-radius: 50%;
+  vertical-align: middle;
+  cursor: pointer;
+}
+.task-complite-circle:hover {
+  background-color: #495464;
+}
+
+.task-complite-check {
+  margin: 0 0 5px 3px;
+  color: #fff;
+  font-size: 0.7rem;
+}
+
+.task-create-button {
+  position: fixed;
+  right: 80px;
+  bottom: 40px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
 .top-intro {
   margin-top: 3rem;
 }
@@ -8084,46 +8128,6 @@ button:focus {
 }
 .form-content {
   margin-bottom: 1rem;
-}
-
-.task-list {
-  min-width: 910px;
-  min-height: calc(100vh - 50px);
-  margin: 0 auto;
-  transition: 0.2s;
-}
-
-.task-title {
-  font-size: 1rem;
-}
-
-.task-complite-circle {
-  width: 18px;
-  height: 18px;
-  margin-right: 0.5rem;
-  border: 1px solid #495464;
-  border-radius: 50%;
-  vertical-align: middle;
-  cursor: pointer;
-}
-.task-complite-circle:hover {
-  background-color: #495464;
-}
-
-.task-complite-check {
-  margin: 0 0 5px 3px;
-  color: #fff;
-  font-size: 0.7rem;
-}
-
-.task-create-button {
-  position: fixed;
-  right: 80px;
-  bottom: 40px;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
-  text-align: center;
 }
 
 /* see here: https://jp.vuejs.org/v2/guide/transitions.html */
