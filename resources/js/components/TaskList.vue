@@ -26,7 +26,6 @@ export default {
             if (!selectedProject) {
                 return {title: 'inbox'}
             }
-
             return selectedProject
         }
     },

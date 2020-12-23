@@ -1,5 +1,5 @@
 <template>
-<main>
+<div>
     <NavTop />
     <b-col cols="12" class=" top-intro">
         <b-container>
@@ -22,7 +22,7 @@
             </b-row>
         </b-container>
     </b-col>
-</main>
+</div>
 </template>
 
 <script>
