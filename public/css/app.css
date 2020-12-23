@@ -7914,6 +7914,7 @@ input[type=color].form-control:disabled {
 }
 
 body {
+  height: 10000000px;
   background-color: #f4f4f2;
 }
 
