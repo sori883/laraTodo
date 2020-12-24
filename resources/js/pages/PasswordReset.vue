@@ -45,9 +45,11 @@
 <script>
 import Cookies from 'js-cookie';
 import Error from '../components/Error.vue'
+import NavTop from '../components/navbar/NavTop.vue'
 export default {
     components: {
-        Error
+        Error,
+        NavTop
     },
     data () {
         return {
