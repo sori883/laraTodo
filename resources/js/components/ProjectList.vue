@@ -1,5 +1,5 @@
 <template>
-<nav :class="{ hide: sidebarHidden }" class="sidebar">
+<nav :class="{ 'switch': sidebarHidden }" class="sidebar">
     <div class="sidebar-body">
         <ul class="nav flex-column">
             <li class="nav-item">

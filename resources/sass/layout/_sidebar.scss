@@ -3,7 +3,8 @@
     max-width: $sidebar-width;
     transition: $animation-transition;
     background-color: $base-color;
-    &.hide {
+
+    &.switch {
         margin-left: -$sidebar-width;
     }
 
@@ -38,4 +39,15 @@
     }
 }
 
+@include mq-down (md) {
+    .sidebar {
+        position: fixed;
+        z-index: $zindex-sidebar;
+        height: 100%;
+        margin-left: -$sidebar-width;
 
+        &.switch {
+            margin-left: 0;
+        }
+    }
+}

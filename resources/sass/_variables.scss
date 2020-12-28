@@ -58,10 +58,11 @@ $task-min-width: 910px !default;
 $task-min-height: calc(100vh - #{$navbar-main-height}) !default;
 $task-circle-size: 18px !default;
 $task-check-space: 0 0 5px 3px !default;
-$task-check-size: .7rem;
+$task-check-size: .7rem !default;
 
 // z-index
 $zindex-navbar: 100 !default;
+$zindex-sidebar: 98 !default;
 
 // animation
 $animation-transition: .2s !default;

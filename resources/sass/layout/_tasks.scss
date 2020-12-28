@@ -1,12 +1,24 @@
 .task-list {
-    min-width: $task-min-width;
+    width: $task-min-width;
     min-height: $task-min-height;
     transition: $animation-transition;
     margin: 0 auto;
+
+    .nav-item:last-child {
+        margin-bottom: $space-md;
+    }
+}
+
+@include mq-down (md) {
+    .task-list {
+        width: 100%;
+        padding: $space-xs;
+    }
 }
 
 .task-title {
     font-size: $task-title-font-size;
+    max-width: 100%;
 }
 
 .task-complite-circle {
@@ -37,4 +49,11 @@
     height: 50px;
     line-height: 50px;
     text-align: center;
+}
+
+@include mq-down (md) {
+    .task-create-button {
+        right: 20px;
+        bottom: 20px;
+    }
 }

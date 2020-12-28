@@ -8004,11 +8004,11 @@ button:focus {
   cursor: pointer;
 }
 
-.sidebar-toggle {
+.sidebar-toggle-icon {
   padding-top: 5px;
   border-radius: 3px;
 }
-.sidebar-toggle:hover {
+.sidebar-toggle-icon:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -8018,7 +8018,7 @@ button:focus {
   background-color: #f4f4f2;
   transition: 0.2s;
 }
-.sidebar.hide {
+.sidebar.switch {
   margin-left: -305px;
 }
 .sidebar .sidebar-body {
@@ -8044,15 +8044,17 @@ button:focus {
 .sidebar .create-project-btn:hover {
   color: #000;
 }
-
 .task-list {
-  min-width: 910px;
+  width: 910px;
   min-height: calc(100vh - 50px);
   margin: 0 auto;
   transition: 0.2s;
 }
-
+.task-list .nav-item:last-child {
+  margin-bottom: 3rem;
+}
 .task-title {
+  max-width: 100%;
   font-size: 1rem;
 }
 
@@ -8084,7 +8086,6 @@ button:focus {
   line-height: 50px;
   text-align: center;
 }
-
 .top-intro {
   margin-top: 3rem;
 }
@@ -12427,5 +12428,25 @@ h3 {
   }
   .form-card {
     padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    z-index: 98;
+    position: fixed;
+    height: 100%;
+    margin-left: -305px;
+  }
+  .sidebar.switch {
+    margin-left: 0;
+  }
+  .task-list {
+    width: 100%;
+    padding: 0.5rem;
+  }
+  .task-create-button {
+    right: 20px;
+    bottom: 20px;
   }
 }

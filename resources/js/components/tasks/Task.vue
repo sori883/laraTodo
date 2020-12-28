@@ -14,7 +14,7 @@
             </small>
         </div>
         <div>
-            <b-dropdown size="sm" variant="link" no-caret>
+            <b-dropdown size="sm" variant="link" no-caret dropleft>
                 <template v-slot:button-content>
                     <awesome-icon :icon="['fas', 'ellipsis-h']" class="text-muted" />
                 </template>
