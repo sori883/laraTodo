@@ -1,0 +1,22 @@
+body {
+    background-color: $base-color;
+}
+
+//  reset default button style
+button {
+    background: none;
+    border: none;
+    outline: none;
+    appearance: none;
+
+    &:focus {
+        outline: 0;
+    }
+}
+
+// Bootstrapのmodal表示時にスクロールバーが表示
+// されていない状態でもpadding-rightが付与される
+// 現象の対処(vueのmountedで付与)
+.fix-modal-padding {
+    padding-right: 0 !important;
+}

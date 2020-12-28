@@ -1,0 +1,36 @@
+.me-icon-around {
+    margin-top: 3rem;
+    margin-right: auto;
+    margin-left: auto;
+    height: 14rem;
+    width: 14rem;
+    background: $white;
+    border-radius: 50%;
+    box-shadow: $m-shadow;
+}
+
+.me-icon {
+    height: 14rem;
+    padding: 1.5rem;
+}
+
+.me-write {
+    margin-top: $space-lg;
+    font-size: 1.2rem;
+}
+
+@include mq-up(lg) {
+    .me-write {
+        padding: 0 1rem;
+    }
+}
+
+
+.me-brand-links {
+    margin-top: $space-md;
+}
+
+.me-brand-icon {
+    font-size: 5rem;
+    color: $black;
+}

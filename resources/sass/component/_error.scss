@@ -1,0 +1,14 @@
+.error-alert {
+    padding: $space-xs;
+}
+
+.error-list {
+    list-style-type: none;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+
+    .error-list {
+        font-size: 1rem;
+    }
+}

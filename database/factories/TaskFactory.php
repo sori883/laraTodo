@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 $factory->define(Task::class, function (Faker $faker) {
     return [
         'title' => $faker->realText(20),
-        'status' => false,
+        'status' => now(),
         'limit_at' => $faker->date,
         'user_id' => 1,
         'project_id' => 1,

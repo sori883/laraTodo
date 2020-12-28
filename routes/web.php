@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+// パスワードリセットURLを受ける
+Route::get('/password_reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 
-Route::get('/', 'ProjectController@index')->name('projects.index');
-Route::resource('/projects', 'ProjectController')->except(['index']);
+Route::get('/{any}', function() {
+    return view('app');
+})->where('any', '.*');

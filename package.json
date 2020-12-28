@@ -11,26 +11,45 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
+        "@fortawesome/fontawesome-svg-core": "^1.2.32",
+        "@fortawesome/free-brands-svg-icons": "^5.15.1",
+        "@fortawesome/free-regular-svg-icons": "^5.15.1",
+        "@fortawesome/free-solid-svg-icons": "^5.15.1",
+        "@fortawesome/vue-fontawesome": "^2.0.0",
         "autoprefixer": "^9.8.0",
         "axios": "^0.19",
+        "bootstrap-vue": "^2.20.1",
+        "browser-sync": "^2.26.12",
+        "browser-sync-webpack-plugin": "^2.0.1",
         "cross-env": "^7.0",
         "css-declaration-sorter": "^5.1.2",
         "css-loader": "^3.5.3",
         "css-mqpacker": "^7.0.0",
+        "eslint": "^7.4.0",
+        "eslint-loader": "^4.0.2",
+        "eslint-plugin-vue": "^6.2.2",
         "glob": "^7.1.6",
         "import-glob-loader": "^1.1.0",
         "laravel-mix": "^5.0.1",
         "laravel-mix-stylelint": "^0.2.0",
         "lodash": "^4.17.13",
         "path": "^0.12.7",
+        "popper.js": "^1.16.1",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.20.1",
         "sass-loader": "^8.0.0",
         "stylelint": "^13.6.0",
         "stylelint-config-twbs-bootstrap": "^2.0.3",
         "stylelint-webpack-plugin": "^2.0.0",
-        "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.10"
+        "vee-validate": "^3.4.2",
+        "vue": "^2.6.12",
+        "vue-ctk-date-time-picker": "^2.5.0",
+        "vue-moment": "^4.1.0",
+        "vue-router": "^3.3.4",
+        "vue-template-compiler": "^2.6.12",
+        "vuex": "^3.5.1"
     },
-    "dependencies": {}
+    "dependencies": {
+        "js-cookie": "^2.2.1"
+    }
 }

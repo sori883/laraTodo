@@ -1,9 +1,84 @@
+// color
+$base-color: #f4f4f2 !default;
+$main-color: #495464 !default;
+$success-color: #23ac0e !default;
+$faild-color: #a52175 !default;
+$mute-color: #6c757d !default;
+
+$success-darken-color: darken(#23ac0e, 15%) !default;
+$faild-darkn-color: darken(#a52175, 15%) !default;
+
+$white: #ffffff !default;
+$black: #000000 !default;
+
+// spacer
+$space-xs: .5rem !default;
+$space-sm: 1rem !default;
+$space-md: 3rem !default;
+$space-lg: 5rem !default;
+
+// scrollbar size
+$scrollbar-y-size: 15px !default;
+
+// font size
+$font-sm: 1rem !default;
+$font-md: 1.4rem !default;
+$font-lg: 2em !default;
+
+// font width
+$font-wd-sm: 200 !default;
+$font-wd-md: 400 !default;
+$font-wd-lg: 400 !default;
+
+// icon size
+$brand-icon: 50px !default;
+$form-icon-height: 70px !default;
+$form-icon-width: 70px !default;
+$toggle-sidebar-icon: 1.2rem !default;
 
 // navbar
-$navbar-height: 48px;
+$navbar-main-height: 50px !default;
+
+// tasks
+$task-title-font-size: $font-sm !default;
+
+// sidebar
+$sidebar-bg: #f8f9fa !default;
+$sidebar-padding-x: .5rem !default;
+$sidebar-width: 305px !default;
+
+// sidebar list
+$sidebar-list-item-bg: #fff !default;
+$sidebar-list-font-size: .9rem !default;
+$sidebar-list-padding-y: .1rem !default;
+$sidebar-list-icon-size: .8rem !default;
+
+//task list
+$task-min-width: 910px !default;
+$task-min-height: calc(100vh - #{$navbar-main-height}) !default;
+$task-circle-size: 18px !default;
+$task-check-space: 0 0 5px 3px !default;
+$task-check-size: .7rem !default;
 
 // z-index
-$zindex-sidebar: 100;
+$zindex-navbar: 100 !default;
+$zindex-sidebar: 98 !default;
 
+// animation
+$animation-transition: .2s !default;
 
-// tasls
+// form
+$form-padding: 0 .8rem !default;
+$form-adjust-bottom: 1rem !default;
+
+// breakpoints
+$breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+) !default;
+
+// material shadow
+$m-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4) !default;

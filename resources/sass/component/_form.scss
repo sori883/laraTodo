@@ -1,0 +1,13 @@
+.form-card {
+    padding: $form-padding;
+}
+
+@include mq-down(sm) {
+    .form-card {
+        padding: 0;
+    }
+}
+
+.form-content {
+    margin-bottom: $form-adjust-bottom;
+}
