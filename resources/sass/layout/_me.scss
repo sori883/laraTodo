@@ -17,8 +17,14 @@
 .me-write {
     margin-top: $space-lg;
     font-size: 1.2rem;
-    padding: 0 1rem;
 }
+
+@include mq-up(lg) {
+    .me-write {
+        padding: 0 1rem;
+    }
+}
+
 
 .me-brand-links {
     margin-top: $space-md;

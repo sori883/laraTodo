@@ -4,7 +4,7 @@
     <b-col cols="12" class=" top-intro">
         <b-container>
             <b-row>
-                <b-col md="6" class="align-self-center">
+                <b-col md="6" lg="6" class="align-self-center">
                     <h1>
                         タスク管理ポートフォリオ
                     </h1>
@@ -13,10 +13,10 @@
                         <br>
                     </p>
                 </b-col>
-                <b-col md="5" offset-md="1">
+                <b-col md="6" lg="5" offset-lg="1">
                     <RegisterForm />
                 </b-col>
-                <b-col cols="12" class="me-intro">
+                <b-col class="me-intro">
                     <Me />
                 </b-col>
             </b-row>

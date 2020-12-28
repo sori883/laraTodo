@@ -7969,10 +7969,8 @@ button:focus {
 
 .me-write {
   margin-top: 5rem;
-  padding: 0 1rem;
   font-size: 1.2rem;
 }
-
 .me-brand-links {
   margin-top: 3rem;
 }
@@ -10964,6 +10962,9 @@ button:focus {
 
   .text-lg-center {
     text-align: center !important;
+  }
+  .me-write {
+    padding: 0 1rem;
   }
 }
 
