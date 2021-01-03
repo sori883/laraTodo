@@ -1,10 +1,12 @@
 # hugo server --minify --themesDir ... --baseURL=http://0.0.0.0:1313/theme/hugo-book/
 
 baseURL = 'https://example.com/'
-title = 'Hugo Book'
+title = 'Laratodo Documents'
 theme = 'book'
 themesDir = 'docs/themes'
 resourceDir = 'docs/resources'
+contentDir = 'docs/content'
+staticDir = 'docs/static'
 
 # Book configuration
 disablePathToLower = true
@@ -22,21 +24,6 @@ enableGitInfo = true
 # There are different options to translate files
 # See https://gohugo.io/content-management/multilingual/#translation-by-filename
 # And https://gohugo.io/content-management/multilingual/#translation-by-content-directory
-[languages]
-[languages.en]
-  languageName = 'English'
-  contentDir = 'docs/content'
-  weight = 1
-
-[languages.ru]
-  languageName = 'Russian'
-  contentDir = 'docs/content.ru'
-  weight = 2
-
-[languages.zh]
-  languageName = 'Chinese'
-  contentDir = 'docs/content.zh'
-  weight = 3
 
 [menu]
 # [[menu.before]]
