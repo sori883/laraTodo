@@ -1,41 +1,21 @@
 ---
-title: Introduction
+title: TOP
 type: docs
 ---
 
-# Acerbo datus maxime
+# Laratodo Documents
+Laratodoの設計ドキュメント及び、インストール手順等を記載します。
 
-{{< columns >}}
-## Astris ipse furtiva
+## システム構成
+Laradockを使用して以下環境を構築。  
+※LaradockはGit管理していないため、各環境にて要作成
+{{< figure src="/images/system-dagram.png">}}
 
-Est in vagis et Pittheus tu arge accipiter regia iram vocatur nurus. Omnes ut
-olivae sensit **arma sorori** deducit, inesset **crudus**, ego vetuere aliis,
-modo arsit? Utinam rapta fiducia valuere litora _adicit cursu_, ad facies
-
-<--->
-
-## Suis quot vota
-
-Ea _furtique_ risere fratres edidit terrae magis. Colla tam mihi tenebat:
-miseram excita suadent es pecudes iam. Concilio _quam_ velatus posset ait quod
-nunc! Fragosis suae dextra geruntur functus vulgata.
-{{< /columns >}}
-
-
-## Tempora nisi nunc
-
-Lorem **markdownum** emicat gestu. Cannis sol pressit ducta. **Est** Idaei,
-tremens ausim se tutaeque, illi ulnis hausit, sed, lumina cutem. Quae avis
-sequens!
-
-    var panel = ram_design;
-    if (backup + system) {
-        file.readPoint = network_native;
-        sidebar_engine_device(cell_tftp_raster,
-                dual_login_paper.adf_vci.application_reader_design(
-                graphicsNvramCdma, lpi_footer_snmp, integer_model));
-    }
-
-## Locis suis novi cum suoque decidit eadem
-
-Idmoniae ripis, at aves, ali missa adest, ut _et autem_, et ab?
+## コンポーネントバージョン
+|  コンポーネント |  バージョン  |
+| ---- | ---- |
+| PostgreSQL | PostgreSQL 12.4 on x86_64-pc-linux-musl, compiled by gcc (Alpine 9.3.0) 9.3.0, 64-bit |
+| Nginx | nginx/1.17.10 |
+| PHP | "php": "^7.2.5" |
+| Laravel | Laravel Framework 7.13.0 |
+| Vue | "vue": "^2.6.12", |
