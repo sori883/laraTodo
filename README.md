@@ -1,2 +1,1 @@
-# remake-front branch
-Vueを使ってSPA化するためのブランチ
+# あとで書きます💢
