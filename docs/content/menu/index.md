@@ -2,16 +2,17 @@
 headless: true
 ---
 
-- **laradock**
-- [.env]({{< relref "/docs/laradock/env" >}})
+- **セットアップ**
+- [Laradock]({{< relref "/docs/setup/laradock" >}})
+- [Laravel]({{< relref "/docs/setup/laravel" >}})
+- [PostgreSQL]({{< relref "/docs/setup/postgresql" >}})
 <br />
 
-- **Shortcodes**
-- [Buttons]({{< relref "/docs/shortcodes/buttons" >}})
-- [Columns]({{< relref "/docs/shortcodes/columns" >}})
-- [Expand]({{< relref "/docs/shortcodes/expand" >}})
-- [Hints]({{< relref "/docs/shortcodes/hints" >}})
-- [Katex]({{< relref "/docs/shortcodes/katex" >}})
-- [Mermaid]({{< relref "/docs/shortcodes/mermaid" >}})
-- [Tabs]({{< relref "/docs/shortcodes/tabs" >}})
+- **スクリプト**
+- [npm]({{< relref "/docs/script/npm" >}})
+<br />
+
+- **仕様関連**
+- [機能一覧]({{< relref "/docs/features/laratodo" >}})
+- [画面一覧]({{< relref "/docs/features/pages" >}})
 <br />

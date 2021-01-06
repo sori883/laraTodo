@@ -1,9 +1,3 @@
----
-weight: 1
-bookFlatSection: true
-title: "Example Site"
----
-
 # LaraDockの.envファイル設定
 
 LaraDockフォルダ内のenv-exampleをコピーし、必要な設定値のみ下記の通り変更。
