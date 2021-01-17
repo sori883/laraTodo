@@ -9,7 +9,27 @@ jobs:
       - image: circleci/php:7.3-node-browsers
     steps:
       - run: echo "Hello World"
-      - slack/status:
-          success_message: ':circleci-pass: $CIRCLE_BRANCH のデプロイが完了しました\n:github_octocat: User：$CIRCLE_USERNAME'
-          failure_message: ':circleci-fail: $CIRCLE_BRANCH のデプロイが失敗しました\n:github_octocat: User：$CIRCLE_USERNAME'
-          webhook: '${SLACK_WEBHOOK}'
+      - slack/notify:
+          channel: 'dev-notifications'
+          custom: |
+            {
+              "blocks": [
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "plain_text",
+                      "text": "*This is a text notification*",
+                      "emoji": true
+                    }
+                  ]
+                }
+              ]
+            }
+          event: always
+
+workflows:
+  send-notification:
+    jobs:
+      - build:
+          context: $SLACK_ACCESS_TOKEN
