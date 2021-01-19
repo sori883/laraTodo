@@ -4,10 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use Auth;
-
 use App\Http\Requests\TaskRequest;
 use Illuminate\Http\Request;
-
 
 class TaskController extends Controller
 {
@@ -30,7 +28,8 @@ class TaskController extends Controller
         return $tasks;
     }
 
-    public function store(TaskRequest $request, Task $task){
+    public function store(TaskRequest $request, Task $task)
+    {
         $task->fill($request->all());
         $task->user_id = $request->user()->id;
         $task->save();
@@ -78,7 +77,7 @@ class TaskController extends Controller
     public function uncomplite(string $task_id)
     {
         $task = Task::where('id', $task_id)->first();
-        $task->status = NULL;
+        $task->status = null;
         $task->save();
 
         $user = Auth::user();
@@ -86,6 +85,4 @@ class TaskController extends Controller
 
         return $tasks;
     }
-
-
 }

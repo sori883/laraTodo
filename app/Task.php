@@ -20,15 +20,13 @@ class Task extends Model
     ];
 
     protected $attributes = [
-        "status" => NULL,
-        "limit_at" => NULL,
-        "project_id" => NULL,
+        "status" => null,
+        "limit_at" => null,
+        "project_id" => null,
     ];
 
     public function user(): BelongsTo
     {
         return $this->belongsTo('App\User');
     }
-
-
 }

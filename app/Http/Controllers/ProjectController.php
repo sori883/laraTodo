@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Auth;
-
 use App\Http\Requests\ProjectRequest;
 use Barryvdh\Debugbar\Twig\Extension\Debug;
 use Illuminate\Http\Request;
@@ -25,7 +24,8 @@ class ProjectController extends Controller
         return $projects;
     }
 
-    public function store(ProjectRequest $request, Project $project){
+    public function store(ProjectRequest $request, Project $project)
+    {
         $project->fill($request->all());
         $project->user_id = $request->user()->id;
         $project->save();
@@ -57,5 +57,4 @@ class ProjectController extends Controller
 
         return $projects;
     }
-
 }
