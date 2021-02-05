@@ -4,9 +4,9 @@ namespace Tests\Feature;
 
 use App\User;
 use Tests\TestCase;
+use App\Notifications\PasswordResetNotification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Auth\Notifications\ResetPassword;
 
@@ -20,8 +20,9 @@ class UserControllerTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        Notification::fake();
+
         $this->user = factory(User::class)->create();
+        Notification::fake();
     }
 
     public function testRegister(): void
@@ -72,13 +73,30 @@ class UserControllerTest extends TestCase
 
     public function testSendPasswordConfirmMail(): void
     {
-        Mail::fake();
+        Notification::fake();
+        Notification::assertNothingSent();
+
+        $user = $this->user;
+        $userOther = factory(User::class)->create();
+
         $response = $this->json('post', route('password.email'), [
-            'email' => $this->user->email,
+            'email' => $user->email,
         ]);
+
         $response->assertStatus(200);
 
-        Notification::assertSentTo($this->user, ResetPassword::class);
+        Notification::assertSentTo(
+            $user, PasswordResetNotification::class,
+            function(PasswordResetNotification $resetNotifier) use ($user) {
+                $mail = $resetNotifier->toMail($user);
+                $this->assertEquals($user->email, $mail->to[0]['address']);
+                return true;
+            }
+        );
+
+        Notification::assertNotSentTo(
+            [$userOther], InvoicePaid::class
+        );
     }
 
 }
