@@ -22,7 +22,6 @@ class UserControllerTest extends TestCase
         parent::setUp();
 
         $this->user = factory(User::class)->create();
-        Notification::fake();
     }
 
     public function testRegister(): void
@@ -87,16 +86,30 @@ class UserControllerTest extends TestCase
 
         Notification::assertSentTo(
             $user, PasswordResetNotification::class,
-            function(PasswordResetNotification $resetNotifier) use ($user) {
+            function(PasswordResetNotification $resetNotifier) use ($user)
+            {
                 $mail = $resetNotifier->toMail($user);
-                $this->assertEquals($user->email, $mail->to[0]['address']);
+                $address = $mail->to[0]['address'];
+
+                $this->assertEquals($user->email, $address);
+                $this->assertEquals('emails.password_reset', $mail->textView);
+                $this->assertEquals(route('password.reset', [
+                    'token' => $resetNotifier->token,
+                    'email' => $address
+                ]), $mail->viewData['url']);
+
                 return true;
             }
         );
 
         Notification::assertNotSentTo(
-            [$userOther], InvoicePaid::class
+            [$userOther], PasswordResetNotification::class
         );
+    }
+
+    public function testResetPassword(): void
+    {
+
     }
 
 }
