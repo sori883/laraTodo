@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Auth::Routes();
-
 // 認証
 Route::prefix('user')->name('user.')->group(function () {
     Route::post('register', 'Auth\RegisterController@register')->name('register');
