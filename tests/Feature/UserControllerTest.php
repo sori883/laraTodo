@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\User;
+use Auth;
 use Tests\TestCase;
 use App\Notifications\PasswordResetNotification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -20,20 +21,25 @@ class UserControllerTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-
         $this->user = factory(User::class)->create();
     }
 
     public function testRegister(): void
     {
+        $email = $this->faker->unique()->safeEmail;
         $response = $this->json('post', route('user.register'), [
             'name' => $this->faker->unique()->userName,
-            'email' => $this->faker->unique()->safeEmail,
+            'email' => $email,
             'password' => 'password',
             'password_confirmation' => 'password',
         ]);
 
+        $registedUser = Auth::user();
+
         $response->assertStatus(201);
+        $this
+            ->assertAuthenticatedAs($registedUser)
+            ->assertEquals($email, $registedUser->email);
     }
 
     public function testLogin(): void
@@ -106,10 +112,4 @@ class UserControllerTest extends TestCase
             [$userOther], PasswordResetNotification::class
         );
     }
-
-    public function testResetPassword(): void
-    {
-
-    }
-
 }
