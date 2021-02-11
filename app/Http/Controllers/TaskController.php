@@ -34,8 +34,7 @@ class TaskController extends Controller
         $task->user_id = $request->user()->id;
         $task->save();
 
-        $user = Auth::user();
-        $tasks = $user->tasks->whereNull('project_id')->whereNull('status')->sortByDesc('id');
+        $tasks = $this->index();
 
         return $tasks;
     }
@@ -45,8 +44,7 @@ class TaskController extends Controller
         $task = Task::where('id', $task_id)->first();
         $task->fill($request->all())->save();
 
-        $user = Auth::user();
-        $tasks = $user->tasks->whereNull('project_id')->whereNull('status')->sortByDesc('id');
+        $tasks = $this->index();
 
         return $tasks;
     }
@@ -56,8 +54,7 @@ class TaskController extends Controller
         $task = Task::where('id', $task_id)->first();
         $task->delete();
 
-        $user = Auth::user();
-        $tasks = $user->tasks->whereNull('project_id')->whereNull('status')->sortByDesc('id');
+        $tasks = $this->index();
 
         return $tasks;
     }
@@ -68,8 +65,7 @@ class TaskController extends Controller
         $task->status = now();
         $task->save();
 
-        $user = Auth::user();
-        $tasks = $user->tasks->whereNull('project_id')->whereNull('status')->whereNull('status')->sortByDesc('id');
+        $tasks = $this->index();
 
         return $tasks;
     }
@@ -80,8 +76,7 @@ class TaskController extends Controller
         $task->status = null;
         $task->save();
 
-        $user = Auth::user();
-        $tasks = $user->tasks->whereNull('project_id')->whereNull('status')->sortByDesc('id');
+        $tasks = $this->index();
 
         return $tasks;
     }

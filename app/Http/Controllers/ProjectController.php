@@ -30,8 +30,7 @@ class ProjectController extends Controller
         $project->user_id = $request->user()->id;
         $project->save();
 
-        $user = Auth::user();
-        $projects = $user->project->sortByDesc('id');
+        $projects = $this->index();
 
         return $projects;
     }
@@ -41,8 +40,7 @@ class ProjectController extends Controller
         $project = Project::where('id', $project_id)->first();
         $project->fill($request->all())->save();
 
-        $user = Auth::user();
-        $projects = $user->project->sortByDesc('id');
+        $projects = $this->index();
 
         return $projects;
     }
@@ -52,8 +50,7 @@ class ProjectController extends Controller
         $project = Project::where('id', $project_id)->first();
         $project->delete();
 
-        $user = Auth::user();
-        $projects = $user->project->sortByDesc('id');
+        $projects = $this->index();
 
         return $projects;
     }
