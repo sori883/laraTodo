@@ -31,7 +31,7 @@
         </b-form-group>
 
         <template v-slot:modal-footer="{ cancel }">
-            <b-button variant="danger" @click="cancel()">キャンセル</b-button>
+            <b-button @click="cancel()">キャンセル</b-button>
             <b-button variant="success" @click="handleSubmit(editTask)">編集</b-button>
         </template>
     </b-modal>

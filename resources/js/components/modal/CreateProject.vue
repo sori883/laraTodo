@@ -16,7 +16,7 @@
             </b-form-group>
         </validation-provider>
         <template v-slot:modal-footer="{ cancel }">
-            <b-button variant="danger" @click="cancel()">キャンセル</b-button>
+            <b-button @click="cancel()">キャンセル</b-button>
             <b-button variant="success" @click="handleSubmit(createProject)">作成</b-button>
         </template>
     </b-modal>
