@@ -53,7 +53,6 @@ export default {
         selectedTask () {
             const selectedTask = this.$store.getters['tasks/selectedTask']
             if (!selectedTask) {
-                // TODO errorストアにしたい
                 return {title: 'no selected tasks'}
             }
 
