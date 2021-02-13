@@ -72,6 +72,7 @@ export default {
             this.taskForm.project_id = this.selectedTask.project_id
         },
         editTask () {
+            console.dir(this.taskForm)
             this.$store.dispatch('tasks/editTask', {taskId: this.selectedTask.id, data: this.taskForm})
                 .then(() => {
                     this.$bvModal.hide('taskEditModal')

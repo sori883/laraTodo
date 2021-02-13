@@ -59,6 +59,7 @@ export default {
             return dirty || validated ? valid : null;
         },
         createTask () {
+            console.dir(this.taskForm)
             this.$store.dispatch('tasks/createTask', this.taskForm)
                 .then(() => {
                     // フォームリセット
