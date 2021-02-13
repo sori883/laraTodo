@@ -8,5 +8,4 @@ use Tests\TestCase;
 
 class ProjectControllerTest extends TestCase
 {
-
 }

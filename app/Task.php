@@ -36,6 +36,7 @@ class Task extends Model
 
     public function getLimitAtAttribute($value)
     {
+        // limit_atをyyyy/mm/dd hh:mm形式で取得する
         return $value ? Carbon::parse($value)->format('Y/m/d H:i') : null;
     }
 }

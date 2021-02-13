@@ -26,6 +26,7 @@ class UserControllerTest extends TestCase
 
     public function testRegister(): void
     {
+        // たまにエラーになる(Faker起因？)
         $email = $this->faker->unique()->safeEmail;
         $response = $this->json('post', route('user.register'), [
             'name' => $this->faker->unique()->userName,

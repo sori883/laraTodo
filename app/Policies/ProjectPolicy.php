@@ -30,7 +30,7 @@ class ProjectPolicy
      */
     public function view(User $user, Project $project)
     {
-        //
+        // return true;
     }
 
     /**
@@ -77,7 +77,7 @@ class ProjectPolicy
      */
     public function restore(User $user, Project $project)
     {
-        //
+        // return true;
     }
 
     /**
@@ -89,6 +89,6 @@ class ProjectPolicy
      */
     public function forceDelete(User $user, Project $project)
     {
-        //
+        // return true;
     }
 }

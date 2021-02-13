@@ -47,7 +47,6 @@ class TaskController extends Controller
     public function update(TaskRequest $request, Task $task)
     {
         $task->fill($request->all())->save();
-
         $tasks = $this->index();
 
         return $tasks;
@@ -56,7 +55,6 @@ class TaskController extends Controller
     public function destroy(Task $task)
     {
         $task->delete();
-
         $tasks = $this->index();
 
         return $tasks;

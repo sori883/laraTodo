@@ -37,7 +37,6 @@ class ProjectController extends Controller
     public function update(ProjectRequest $request, Project $project)
     {
         $project->fill($request->all())->save();
-
         $projects = $this->index();
 
         return $projects;
@@ -46,7 +45,6 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-
         $projects = $this->index();
 
         return $projects;

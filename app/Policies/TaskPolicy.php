@@ -30,7 +30,7 @@ class TaskPolicy
      */
     public function view(User $user, Task $task)
     {
-        //
+        // return true;
     }
 
     /**
@@ -77,7 +77,7 @@ class TaskPolicy
      */
     public function restore(User $user, Task $task)
     {
-        //
+        // return true;
     }
 
     /**
@@ -89,6 +89,6 @@ class TaskPolicy
      */
     public function forceDelete(User $user, Task $task)
     {
-        //
+        // return true;
     }
 }
