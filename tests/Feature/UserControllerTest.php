@@ -91,9 +91,9 @@ class UserControllerTest extends TestCase
         $response->assertStatus(200);
 
         Notification::assertSentTo(
-            $user, PasswordResetNotification::class,
-            function(PasswordResetNotification $resetNotifier) use ($user)
-            {
+            $user,
+            PasswordResetNotification::class,
+            function (PasswordResetNotification $resetNotifier) use ($user) {
                 $mail = $resetNotifier->toMail($user);
                 $address = $mail->to[0]['address'];
 
@@ -109,7 +109,8 @@ class UserControllerTest extends TestCase
         );
 
         Notification::assertNotSentTo(
-            [$userOther], PasswordResetNotification::class
+            [$userOther],
+            PasswordResetNotification::class
         );
     }
 }

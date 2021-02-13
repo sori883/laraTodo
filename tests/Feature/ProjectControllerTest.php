@@ -9,9 +9,4 @@ use Tests\TestCase;
 class ProjectControllerTest extends TestCase
 {
 
-    public function testGetProjects(): void
-    {
-
-    }
-
 }
