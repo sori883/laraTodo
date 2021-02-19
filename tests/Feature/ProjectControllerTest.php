@@ -11,6 +11,7 @@ use Tests\TestCase;
 class ProjectControllerTest extends TestCase
 {
     use RefreshDatabase;
+    use WithFaker;
 
     protected $user;
     protected $project;
@@ -60,33 +61,38 @@ class ProjectControllerTest extends TestCase
         $this->assertDatabaseHas('projects', ['title' => $projectTitle]);
     }
 
-    // NG:policy
     public function testUpdateProject(): void
     {
-        $projectTitle = 'testUpdateProject';
-        $data = [
-            'title' => $projectTitle,
-        ];
+        // 更新するプロジェクト名
+        $projectTitle = $this->faker->unique()->realText(10);
+        // 更新しないプロジェクトを作成
+        $projectOther = factory(Project::class)->create(['user_id' => $this->user->id]);
 
-        $response = $this->json('patch', route('projects.update', $this->project->id), $data);
+        $response = $this->json('patch', route('projects.update', $this->project->id), [
+            'title' => $projectTitle
+        ]);
 
         $response
             ->assertStatus(200)
-            ->assertJsonCount(1)
+            ->assertJsonCount(2)
             ->assertJsonFragment([
-                'title' => $projectTitle
+                'title' => $projectTitle,
+            ])
+            ->assertJsonFragment([
+                'title' => $projectOther->title,
             ]);
         $this->assertDatabaseHas('projects', ['title' => $projectTitle]);
     }
 
-    // NG:policy
     public function testDestroyProject(): void
     {
+        // 削除されないプロジェクトを作成
+        factory(Project::class)->create(['user_id' => $this->user->id]);
         $response = $this->delete(route('projects.destroy', $this->project->id));
 
         $response
             ->assertStatus(200)
-            ->assertJsonCount(0);
+            ->assertJsonCount(1);
         $this->assertSoftDeleted('projects', ['id' => $this->project->id]);
     }
 }
