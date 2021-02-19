@@ -26,10 +26,9 @@ class UserControllerTest extends TestCase
 
     public function testRegister(): void
     {
-        // たまにエラーになる(Faker起因？)
-        $email = $this->faker->unique()->safeEmail;
+        $email = $this->faker->unique()->safeEmail();
         $response = $this->json('post', route('user.register'), [
-            'name' => $this->faker->unique()->userName,
+            'name' => $this->faker->unique()->regexify('[a-z]{4}[0-9]{4}'),
             'email' => $email,
             'password' => 'password',
             'password_confirmation' => 'password',
@@ -41,6 +40,7 @@ class UserControllerTest extends TestCase
         $this
             ->assertAuthenticatedAs($registedUser)
             ->assertEquals($email, $registedUser->email);
+        $this->assertDatabaseHas('users', ['email' => $email]);
     }
 
     public function testLogin(): void
