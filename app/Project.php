@@ -13,7 +13,6 @@ class Project extends Model
 
     protected $dates = ['deleted_at'];
 
-
     protected $fillable = [
         'title',
     ];
