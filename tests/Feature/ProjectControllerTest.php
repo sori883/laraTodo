@@ -12,16 +12,16 @@ class ProjectControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected $user, $project;
+    protected $user;
+    protected $project;
 
     public function setUp(): void
     {
         parent::setUp();
+
         $this->project = factory(Project::class)->create();
         $this->user = $this->project->user;
         $this->actingAs($this->user);
-        // エラー詳細を表示する
-        $this->withoutExceptionHandling();
     }
 
 
@@ -57,6 +57,7 @@ class ProjectControllerTest extends TestCase
             ->assertJsonFragment([
                 'title' => $projectTitle
             ]);
+        $this->assertDatabaseHas('projects', ['title' => $projectTitle]);
     }
 
     // NG:policy
@@ -67,7 +68,7 @@ class ProjectControllerTest extends TestCase
             'title' => $projectTitle,
         ];
 
-       $response = $this->patch(route('projects.update', $this->project->id), $data);
+        $response = $this->json('patch', route('projects.update', $this->project->id), $data);
 
         $response
             ->assertStatus(200)
@@ -75,6 +76,7 @@ class ProjectControllerTest extends TestCase
             ->assertJsonFragment([
                 'title' => $projectTitle
             ]);
+        $this->assertDatabaseHas('projects', ['title' => $projectTitle]);
     }
 
     // NG:policy
@@ -85,5 +87,6 @@ class ProjectControllerTest extends TestCase
         $response
             ->assertStatus(200)
             ->assertJsonCount(0);
+        $this->assertSoftDeleted('projects', ['id' => $this->project->id]);
     }
 }
