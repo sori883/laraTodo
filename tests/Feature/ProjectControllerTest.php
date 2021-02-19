@@ -19,8 +19,8 @@ class ProjectControllerTest extends TestCase
         parent::setUp();
         $this->project = factory(Project::class)->create();
         $this->user = $this->project->user;
-        // ログイン
         $this->actingAs($this->user);
+        // エラー詳細を表示する
         $this->withoutExceptionHandling();
     }
 
@@ -51,8 +51,6 @@ class ProjectControllerTest extends TestCase
             'title' => $projectTitle,
         ]);
 
-        $response->dump();
-
         $response
             ->assertStatus(200)
             ->assertJsonCount(2)
@@ -65,24 +63,24 @@ class ProjectControllerTest extends TestCase
     public function testUpdateProject(): void
     {
         $projectTitle = 'testUpdateProject';
-        $response = $this->json(
-            'patch',
-            route('projects.update', ['project' => $this->project->id]),
-            ['title' => $projectTitle]
-        );
+        $data = [
+            'title' => $projectTitle,
+        ];
+
+       $response = $this->patch(route('projects.update', $this->project->id), $data);
 
         $response
             ->assertStatus(200)
-            ->assertJsonCount(2);
+            ->assertJsonCount(1)
+            ->assertJsonFragment([
+                'title' => $projectTitle
+            ]);
     }
 
     // NG:policy
     public function testDestroyProject(): void
     {
-        $response = $this->json(
-            'delete',
-            route('projects.destroy', ['project' => $this->project->id])
-        );
+        $response = $this->delete(route('projects.destroy', $this->project->id));
 
         $response
             ->assertStatus(200)
