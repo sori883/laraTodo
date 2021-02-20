@@ -34,6 +34,11 @@ class Task extends Model
         return $this->belongsTo('App\User');
     }
 
+    public function project(): BelongsTo
+    {
+        return $this->belongsTo('App\Project');
+    }
+
     public function getLimitAtAttribute($value)
     {
         // limit_atをyyyy/mm/dd hh:mm形式で取得する
