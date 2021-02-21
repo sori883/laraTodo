@@ -10,7 +10,7 @@ use Faker\Generator as Faker;
 $factory->define(Task::class, function (Faker $faker) {
     return [
         'title' => $faker->realText(20),
-        'status' => now(),
+        'status' => null,
         'limit_at' => $faker->date,
         'user_id' => function() {
             return factory(User::class);
