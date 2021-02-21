@@ -38,7 +38,7 @@ Route::prefix('projects')->name('projects.')->group(function () {
 // Tasks
 Route::prefix('tasks')->name('tasks.')->group(function () {
     Route::get('index', 'TaskController@index')->name('index');
-    Route::get('project/{task}', 'TaskController@projectTask')->name('project');
+    Route::get('project/{project}', 'TaskController@projectTask')->name('project');
     Route::post('store', 'TaskController@store')->name('store');
     Route::patch('update/{task}', 'TaskController@update')->name('update');
     Route::delete('destroy/{task}', 'TaskController@destroy')->name('destroy');
