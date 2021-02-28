@@ -4,19 +4,34 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\TaskRequest;
 use Tests\TestCase;
 
 class TaskRequestTest extends TestCase
 {
     /**
-     * A basic feature test example.
-     *
-     * @return void
+     * @dataProvider dataproviderTaskForm
      */
-    public function testExample()
+    public function testTaskFormValidation($item, $data, $expect)
     {
-        $response = $this->get('/');
+        $dataList = [$item => $data];
+        $request = new TaskRequest();
 
-        $response->assertStatus(200);
+        $rules = $request->rules();
+        $validator = Validator::make($dataList, $rules);
+        $result = $validator->passes();
+
+        $this->assertEquals($expect, $result);
     }
+
+  public function dataproviderTaskForm()
+  {
+      return [
+          '正常' => ['title', str_repeat('a', 50), true],
+          '正常' => ['title', str_repeat('a', 50), true],
+          '必須エラー' => ['title', '', false],
+          '最大文字数エラー' => ['title', str_repeat('a', 21), false],
+      ];
+  }
 }
