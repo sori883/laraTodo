@@ -2,8 +2,6 @@
 
 namespace Tests\Request;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Requests\ProjectRequest;
 use Tests\TestCase;
