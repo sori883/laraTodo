@@ -14,13 +14,10 @@ class ProjectRequestTest extends TestCase
     /**
      * @dataProvider dataproviderProjectForm
      */
-    public function testProjectFormValidation($item, $data, $expect)
+    public function testProjectFormValidation($data, $expect)
     {
-        $dataList = [$item => $data];
-        $request = new ProjectRequest();
-
-        $rules = $request->rules();
-        $validator = Validator::make($dataList, $rules);
+        $rules = (new ProjectRequest())->rules();
+        $validator = Validator::make($data, $rules);
         $result = $validator->passes();
 
         $this->assertEquals($expect, $result);
@@ -28,10 +25,22 @@ class ProjectRequestTest extends TestCase
 
   public function dataproviderProjectForm()
   {
-      return [
-          '正常' => ['title', str_repeat('a', 20), true],
-          '必須エラー' => ['title', '', false],
-          '最大文字数エラー' => ['title', str_repeat('a', 21), false],
-      ];
+    return [
+        [
+            '正常' => [
+                'title' => str_repeat('a', 20)
+            ], true,
+        ],
+        [
+            '必須エラー' => [
+                'title' => ''
+            ], false,
+        ],
+        [
+            '正常' => [
+                'title' => str_repeat('a', 21)
+            ], false
+        ]
+    ];
   }
 }
