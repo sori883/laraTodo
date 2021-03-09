@@ -37,19 +37,19 @@ class TaskControllerErrorTest extends TestCase
         ]);
     }
 
-    public function testGetInboxTask(): void
+    public function testGestGetInboxTask(): void
     {
         $this->get(route('tasks.index'))
             ->assertStatus(403);
     }
 
-    public function testGetProjectTask(): void
+    public function testGestGetProjectTask(): void
     {
         $response = $this->get(route('tasks.project', $this->taskProject->project->id))
             ->assertStatus(500);
     }
 
-    public function testCreateTask(): void
+    public function testGestCreateTask(): void
     {
         $taskTitle = 'testCreateTask';
 
@@ -64,8 +64,9 @@ class TaskControllerErrorTest extends TestCase
         ]);
     }
 
-    public function testUpdateTask(): void
+    public function testGestUpdateTask(): void
     {
+        $taskTitle = 'testCreateTask';
 
         $this->json('patch', route('tasks.update', $this->taskInbox->id), [
             'title' => $taskTitle,
@@ -76,12 +77,42 @@ class TaskControllerErrorTest extends TestCase
         $this->assertDatabaseMissing('tasks', ['title' => $taskTitle]);
     }
 
-    public function testDestroyTask(): void
+    public function testGestDestroyTask(): void
     {
         $this->delete(route('tasks.destroy', $this->taskInbox->id))
             ->assertStatus(403);
 
-        $this->assertDatabaseHas('tasks', ['id' => $taskInbox->id]);
+        $this->assertDatabaseHas('tasks', ['id' => $this->taskInbox->id]);
+    }
+
+    public function testValidCreateTask(): void
+    {
+        $this->actingAs($this->user);
+
+        $response = $this->json('post', route('tasks.store'), [
+            'title' => str_repeat('a', 51),
+            'limit_at' => Carbon::now()->format('Y/m/d H:i:s'),
+            'project_id' => 'project'
+        ]);
+
+        $response
+        ->assertStatus(422)
+        ->assertJsonCount(3, 'errors');
+    }
+
+    public function testValidUpdateTask(): void
+    {
+        $this->actingAs($this->user);
+
+        $response = $this->json('patch', route('tasks.update', $this->taskProject->id), [
+            'title' => str_repeat('a', 51),
+            'limit_at' => Carbon::now()->format('Y/m/d H:i:s'),
+            'project_id' => 'project'
+        ]);
+
+        $response
+        ->assertStatus(422)
+        ->assertJsonCount(3, 'errors');
     }
 
 }

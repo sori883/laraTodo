@@ -24,13 +24,13 @@ class ProjectControllerErrorTest extends TestCase
         $this->user = $this->project->user;
     }
 
-    public function testGetProject(): void
+    public function testGestGetProject(): void
     {
         $this->get(route('projects.index'))
             ->assertStatus(403);
     }
 
-    public function testCreateProject(): void
+    public function testGestCreateProject(): void
     {
         $projectTitle = 'testCreateProject';
 
@@ -41,7 +41,7 @@ class ProjectControllerErrorTest extends TestCase
         $this->assertDatabaseMissing('projects', ['title' => $projectTitle]);
     }
 
-    public function testUpdateProject(): void
+    public function testGestUpdateProject(): void
     {
         // 更新するプロジェクト名
         $projectTitle = $this->faker->unique()->realText(10);
@@ -53,11 +53,37 @@ class ProjectControllerErrorTest extends TestCase
         $this->assertDatabaseMissing('projects', ['title' => $projectTitle]);
     }
 
-    public function testDestroyProject(): void
+    public function testGestDestroyProject(): void
     {
         $this->delete(route('projects.destroy', $this->project->id))
             ->assertStatus(403);
 
         $this->assertDatabaseHas('projects', ['id' => $this->project->id]);
+    }
+
+    public function testValidCreateProject(): void
+    {
+        $this->actingAs($this->user);
+
+        $response = $this->json('post', route('projects.store'), [
+            'title' => str_repeat('a', 21)
+        ]);
+
+        $response
+            ->assertStatus(422)
+            ->assertJsonCount(1, 'errors');
+    }
+
+    public function testValidUpdateProject(): void
+    {
+        $this->actingAs($this->user);
+
+        $response = $this->json('patch', route('projects.update', $this->project->id), [
+            'title' => str_repeat('a', 21)
+        ]);
+
+        $response
+            ->assertStatus(422)
+            ->assertJsonCount(1, 'errors');
     }
 }
