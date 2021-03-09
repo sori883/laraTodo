@@ -35,7 +35,7 @@ class ProjectRequestTest extends TestCase
             ], false,
         ],
         [
-            '正常' => [
+            '文字数エラー' => [
                 'title' => str_repeat('a', 21)
             ], false
         ]
