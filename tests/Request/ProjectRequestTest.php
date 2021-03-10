@@ -8,11 +8,12 @@ use Tests\TestCase;
 
 class ProjectRequestTest extends TestCase
 {
+    use RefreshDatabase;
 
     /**
      * @dataProvider dataproviderProjectForm
      */
-    public function testProjectFormValidation($data, $expect)
+    public function testProjectLoginValidation($data, $expect)
     {
         $rules = (new ProjectRequest())->rules();
         $validator = Validator::make($data, $rules);
