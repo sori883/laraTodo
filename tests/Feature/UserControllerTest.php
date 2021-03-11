@@ -104,6 +104,7 @@ class UserControllerTest extends TestCase
                     'token' => $resetNotifier->token,
                     'email' => $address
                 ]), $mail->viewData['url']);
+
                 $this->get($mail->viewData['url'])
                     ->assertStatus(302)
                     ->assertCookie('RESETTOKEN')
