@@ -18,4 +18,4 @@ Route::get('/password_reset/{token}', 'Auth\ResetPasswordController@showResetFor
 
 Route::get('/{any}', function() {
     return view('app');
-})->where('any', '.*');
+})->where('any', '.*')->name('top');

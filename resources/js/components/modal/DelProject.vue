@@ -2,8 +2,8 @@
 <b-modal id="ProjectDeleteModal" title="プロジェクト削除">
     {{ selectedProject.title }}
     <template v-slot:modal-footer="{ cancel }">
-        <b-button variant="danger" @click="cancel()">キャンセル</b-button>
-        <b-button variant="success" @click="delProject">作成</b-button>
+        <b-button @click="cancel()">キャンセル</b-button>
+        <b-button variant="danger" @click="delProject">削除</b-button>
     </template>
 </b-modal>
 </template>

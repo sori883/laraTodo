@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Auth;
-
 use App\Http\Requests\ProjectRequest;
-use Barryvdh\Debugbar\Twig\Extension\Debug;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -14,7 +12,7 @@ class ProjectController extends Controller
 
     public function __construct()
     {
-        // $this->authorizeResource(Project::class, 'project');
+        $this->authorizeResource(Project::class, 'project');
     }
 
     public function index()
@@ -25,37 +23,30 @@ class ProjectController extends Controller
         return $projects;
     }
 
-    public function store(ProjectRequest $request, Project $project){
+    public function store(ProjectRequest $request, Project $project)
+    {
         $project->fill($request->all());
         $project->user_id = $request->user()->id;
         $project->save();
 
-        $user = Auth::user();
-        $projects = $user->project->sortByDesc('id');
+        $projects = $this->index();
 
         return $projects;
     }
 
-    public function update(ProjectRequest $request, string $project_id)
+    public function update(ProjectRequest $request, Project $project)
     {
-        $project = Project::where('id', $project_id)->first();
         $project->fill($request->all())->save();
-
-        $user = Auth::user();
-        $projects = $user->project->sortByDesc('id');
+        $projects = $this->index();
 
         return $projects;
     }
 
-    public function destroy(string $project_id)
+    public function destroy(Project $project)
     {
-        $project = Project::where('id', $project_id)->first();
         $project->delete();
-
-        $user = Auth::user();
-        $projects = $user->project->sortByDesc('id');
+        $projects = $this->index();
 
         return $projects;
     }
-
 }

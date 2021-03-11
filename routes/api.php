@@ -14,8 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Auth::Routes();
-
 // 認証
 Route::prefix('user')->name('user.')->group(function () {
     Route::post('register', 'Auth\RegisterController@register')->name('register');
@@ -33,19 +31,19 @@ Route::prefix('password')->name('password.')->group(function () {
 Route::prefix('projects')->name('projects.')->group(function () {
     Route::get('index', 'ProjectController@index')->name('index');
     Route::post('store', 'ProjectController@store')->name('store');
-    Route::patch('update/{id}', 'ProjectController@update')->name('update');
-    Route::delete('destroy/{id}', 'ProjectController@destroy')->name('destroy');
+    Route::patch('update/{project}', 'ProjectController@update')->name('update');
+    Route::delete('destroy/{project}', 'ProjectController@destroy')->name('destroy');
 });
 
 // Tasks
 Route::prefix('tasks')->name('tasks.')->group(function () {
     Route::get('index', 'TaskController@index')->name('index');
-    Route::get('project/{id}', 'TaskController@projectTask')->name('project');
+    Route::get('project/{project}', 'TaskController@projectTask')->name('project');
     Route::post('store', 'TaskController@store')->name('store');
-    Route::patch('update/{id}', 'TaskController@update')->name('update');
-    Route::delete('destroy/{id}', 'TaskController@destroy')->name('destroy');
-    Route::patch('complite/{id}', 'TaskController@complite')->name('complite');
-    Route::patch('uncomplite/{id}', 'TaskController@uncomplite')->name('uncomplite');
+    Route::patch('update/{task}', 'TaskController@update')->name('update');
+    Route::delete('destroy/{task}', 'TaskController@destroy')->name('destroy');
+    Route::patch('complite/{task}', 'TaskController@complite')->name('complite');
+    Route::patch('uncomplite/{task}', 'TaskController@uncomplite')->name('uncomplite');
 });
 
 Route::get('/user', function (){

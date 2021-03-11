@@ -10,7 +10,7 @@
             </div>
             <small v-if="task.limit_at" :class="[limitAt ? 'text-danger' : 'text-muted']">
                 <awesome-icon :icon="['fas', 'calendar-day']" />
-                {{ task.limit_at | moment("YYYY年MM月DD日 h時mm分") }}
+                {{ task.limit_at | moment("YYYY年M月D日hh:mm") }}
             </small>
         </div>
         <div>

@@ -22,13 +22,13 @@ const actions = {
         const response = await axios.get('/api/tasks/index')
         context.commit('setTasks', response.data)
     },
-    async projectTasks (context, taskId) {
+    async projectTasks (context, projectId) {
         let response
-        if (typeof taskId === 'undefined') {
-            // taskIdがnullの場合はinboxのタスクを取得する
+        if (typeof projectId === 'undefined') {
+            // projectIdがnullの場合はinboxのタスクを取得する
             response = await axios.get('/api/tasks/index')
         } else {
-            response = await axios.get(`/api/tasks/project/${taskId}`)
+            response = await axios.get(`/api/tasks/project/${projectId}`)
         }
         context.commit('setTasks', response.data)
     },

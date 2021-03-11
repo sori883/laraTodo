@@ -19,8 +19,8 @@ class TaskRequest extends FormRequest
     protected function prepareForValidation()
     {
         $this->merge([
-            'project_id' => trim($this->project_id) !== '' ? $this->project_id : NULL,
-            'limit_at' => trim($this->limit_at) !== '' ? $this->limit_at : NULL,
+            'project_id' => trim($this->project_id) !== '' ? $this->project_id : null,
+            'limit_at' => trim($this->limit_at) !== '' ? $this->limit_at : null,
         ]);
     }
 

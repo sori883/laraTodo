@@ -31,7 +31,7 @@
         </b-form-group>
 
         <template v-slot:modal-footer="{ cancel }">
-            <b-button variant="danger" @click="cancel()">キャンセル</b-button>
+            <b-button @click="cancel()">キャンセル</b-button>
             <b-button variant="success" @click="handleSubmit(editTask)">編集</b-button>
         </template>
     </b-modal>
@@ -53,7 +53,6 @@ export default {
         selectedTask () {
             const selectedTask = this.$store.getters['tasks/selectedTask']
             if (!selectedTask) {
-                // TODO errorストアにしたい
                 return {title: 'no selected tasks'}
             }
 
@@ -73,6 +72,7 @@ export default {
             this.taskForm.project_id = this.selectedTask.project_id
         },
         editTask () {
+            console.dir(this.taskForm)
             this.$store.dispatch('tasks/editTask', {taskId: this.selectedTask.id, data: this.taskForm})
                 .then(() => {
                     this.$bvModal.hide('taskEditModal')

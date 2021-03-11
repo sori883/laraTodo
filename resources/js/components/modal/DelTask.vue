@@ -2,8 +2,8 @@
 <b-modal id="taskDeleteModal" title="タスク削除">
     {{ selectedTask.title }}
     <template v-slot:modal-footer="{ cancel }">
-        <b-button variant="danger" @click="cancel()">キャンセル</b-button>
-        <b-button variant="success" @click="delTask">削除</b-button>
+        <b-button @click="cancel()">キャンセル</b-button>
+        <b-button variant="danger" @click="delTask">削除</b-button>
     </template>
 </b-modal>
 </template>

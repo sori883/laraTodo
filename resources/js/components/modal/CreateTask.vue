@@ -31,7 +31,7 @@
         </b-form-group>
 
         <template v-slot:modal-footer="{ cancel }">
-            <b-button variant="danger" @click="cancel()">キャンセル</b-button>
+            <b-button @click="cancel()">キャンセル</b-button>
             <b-button variant="success" @click="handleSubmit(createTask)">作成</b-button>
         </template>
     </b-modal>
@@ -59,6 +59,7 @@ export default {
             return dirty || validated ? valid : null;
         },
         createTask () {
+            console.dir(this.taskForm)
             this.$store.dispatch('tasks/createTask', this.taskForm)
                 .then(() => {
                     // フォームリセット

@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Task;
 use Auth;
-
 use App\Http\Requests\TaskRequest;
 use Illuminate\Http\Request;
 
-
 class TaskController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->authorizeResource(Task::class, 'task');
+    }
 
     public function index()
     {
@@ -30,62 +33,50 @@ class TaskController extends Controller
         return $tasks;
     }
 
-    public function store(TaskRequest $request, Task $task){
+    public function store(TaskRequest $request, Task $task)
+    {
         $task->fill($request->all());
         $task->user_id = $request->user()->id;
         $task->save();
 
-        $user = Auth::user();
-        $tasks = $user->tasks->whereNull('project_id')->whereNull('status')->sortByDesc('id');
+        $tasks = $this->index();
 
         return $tasks;
     }
 
-    public function update(TaskRequest $request, string $task_id)
+    public function update(TaskRequest $request, Task $task)
     {
-        $task = Task::where('id', $task_id)->first();
         $task->fill($request->all())->save();
-
-        $user = Auth::user();
-        $tasks = $user->tasks->whereNull('project_id')->whereNull('status')->sortByDesc('id');
+        $tasks = $this->index();
 
         return $tasks;
     }
 
-    public function destroy(string $task_id)
+    public function destroy(Task $task)
     {
-        $task = Task::where('id', $task_id)->first();
         $task->delete();
-
-        $user = Auth::user();
-        $tasks = $user->tasks->whereNull('project_id')->whereNull('status')->sortByDesc('id');
+        $tasks = $this->index();
 
         return $tasks;
     }
 
-    public function complite(string $task_id)
+    public function complite(Task $task)
     {
-        $task = Task::where('id', $task_id)->first();
         $task->status = now();
         $task->save();
 
-        $user = Auth::user();
-        $tasks = $user->tasks->whereNull('project_id')->whereNull('status')->whereNull('status')->sortByDesc('id');
+        $tasks = $this->index();
 
         return $tasks;
     }
 
-    public function uncomplite(string $task_id)
+    public function uncomplite(Task $task)
     {
-        $task = Task::where('id', $task_id)->first();
-        $task->status = NULL;
+        $task->status = null;
         $task->save();
 
-        $user = Auth::user();
-        $tasks = $user->tasks->whereNull('project_id')->whereNull('status')->sortByDesc('id');
+        $tasks = $this->index();
 
         return $tasks;
     }
-
-
 }
