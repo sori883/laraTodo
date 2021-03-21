@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "laravel",
+      "type": "php",
+      "request": "launch",
+      "port": 9003,
+      "pathMappings": {
+        "/work/backend": "${workspaceRoot}/laravel"
+      },
+      "ignore": [
+        "**/vendor/**/*.php"
+      ]
+    }
+  ]
+}
