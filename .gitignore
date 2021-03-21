@@ -9,6 +9,8 @@
 /public/js
 /public/mix-manifest.json
 
+/coverage
+
 .env
 .env.backup
 .phpunit.result.cache
