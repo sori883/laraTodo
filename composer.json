@@ -63,8 +63,14 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ],
-        "sniffer": [
+        "php-lint": [
             "./vendor/bin/phpcs --standard=phpcs.xml ./"
+        ],
+        "php-test": [
+            "./vendor/bin/phpunit"
+        ],
+        "php-test:coverage": [
+            "export XDEBUG_MODE=coverage && phpunit --coverage-html coverage"
         ]
     }
 }
