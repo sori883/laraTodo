@@ -22,24 +22,24 @@ class ProjectRequestTest extends TestCase
         $this->assertEquals($expect, $result);
     }
 
-  public function dataproviderProjectForm()
-  {
-    return [
-        [
-            '正常' => [
-                'title' => str_repeat('a', 20)
-            ], true,
-        ],
-        [
-            '必須エラー' => [
-                'title' => ''
-            ], false,
-        ],
-        [
-            '文字数エラー' => [
-                'title' => str_repeat('a', 21)
-            ], false
-        ]
-    ];
-  }
+    public function dataproviderProjectForm()
+    {
+        return [
+            [
+                '正常' => [
+                    'title' => str_repeat('a', 20)
+                ], true,
+            ],
+            [
+                '必須エラー' => [
+                    'title' => ''
+                ], false,
+            ],
+            [
+                '文字数エラー' => [
+                    'title' => str_repeat('a', 21)
+                ], false
+            ]
+        ];
+    }
 }

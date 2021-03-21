@@ -48,5 +48,8 @@ jobs:
             sudo docker-php-ext-install pdo_pgsql
             dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
+          name: php lint
+          command: vendor/bin/phpcs --standard=phpcs.xml ./
+      - run:
           name: php test
           command: vendor/bin/phpunit

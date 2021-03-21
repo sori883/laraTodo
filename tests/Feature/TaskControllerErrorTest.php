@@ -114,5 +114,4 @@ class TaskControllerErrorTest extends TestCase
         ->assertStatus(422)
         ->assertJsonCount(3, 'errors');
     }
-
 }
