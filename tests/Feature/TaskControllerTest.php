@@ -185,4 +185,34 @@ class TaskControllerTest extends TestCase
         $this->assertSoftDeleted('tasks', ['id' => $this->taskInbox->id]);
         $this->assertDatabaseHas('tasks', ['id' => $taskNotDelete->id]);
     }
+
+    public function testCompliteTask(): void
+    {
+        $compliteData = Carbon::create(2001, 5, 21, 12);
+        Carbon::setTestNow($compliteData);
+
+        $response =  $this->json('patch', route('tasks.complite', $this->taskInbox->id));
+
+        $response
+            ->assertStatus(200)
+            ->assertJsonCount(0);
+        $this->assertDatabaseHas('tasks', ['status' => Carbon::Now()]);
+    }
+
+    public function testUnCompliteTask(): void
+    {
+        $task = factory(Task::class)->create([
+            'status' => Carbon::now()
+        ]);
+
+        $response = $this->json('patch', route('tasks.complite', $task->id));
+
+        $response
+            ->assertStatus(200)
+            ->assertJsonCount(1)
+            ->assertJsonFragment([
+                'status' => null
+            ]);
+        $this->assertDatabaseHas('tasks', ['status' => null]);
+    }
 }
