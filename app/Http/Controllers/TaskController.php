@@ -6,6 +6,7 @@ use App\Task;
 use Auth;
 use App\Http\Requests\TaskRequest;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class TaskController extends Controller
 {
@@ -62,7 +63,7 @@ class TaskController extends Controller
 
     public function complite(Task $task)
     {
-        $task->status = now();
+        $task->status = Carbon::now();
         $task->save();
 
         $tasks = $this->index();
